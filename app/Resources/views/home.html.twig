@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="GM-full-wrap">
+		<div class="GM-fullbackground GM-video">
+			<video width="100%" height="100%" poster="{{ asset('media/images/rakiraki.JPG') }}" class="fullscreen-bg__video" autoplay loop muted>
+				<source src="{{ asset('media/videos/flyby.mp4') }}" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		<div class="GM-register-wrap text-center text--shadow">
+			<a href="{{ path('user_signup') }}"><button class="ghost-btn ghost-btn-light ghost-btn-lg">REGISTER AS VOLUNTEER</button></a>
+		</div>
+	</div>
+
+<div class="landing-page-content">
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>GetMoving - Fiji</h1>
+					<h3>Be a difference, make a difference</h3>
+				</div>
+			</div>
+			<div class="row padding--top-l padding--bot-huge">
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-user icon-circle color--white gradient--red-light"></i>
+						<h2>Best Service</h2>
+						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-dollar icon-circle color--white gradient--red-light"></i>
+						<h2>Best Price</h2>
+						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-thumbs-up icon-circle color--white gradient--red-light"></i>
+						<h2>Best Experience</h2>
+						<p>We know how life in Fiji works and we ensure you the most authentic experience.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 margin--bot">
+					<button class="ghost-btn">Read about the program</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="gradient--deep-purple text-center color--white">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>GetMoving - Fiji</h1>
+					<h3>Be a difference, make a difference</h3>
+				</div>
+			</div>
+			<div class="row padding--top-l padding--bot-huge">
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-user icon-circle color--green"></i>
+						<h2>Best Service</h2>
+						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-dollar icon-circle color--green"></i>
+						<h2>Best Price</h2>
+						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 padding--whole-">
+					<div class="icons-triplet">
+						<i class="fa fa-thumbs-up icon-circle color--green "></i>
+						<h2>Best Experience</h2>
+						<p>We know how life in Fiji works and we ensure you the most authentic experience.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Programs</h1>
+	<ul>
+		{% for program in programs %}
+			<li>{{ program }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
