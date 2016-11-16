@@ -15,6 +15,8 @@ body{
 	margin: 0;
 	overflow-x: hidden;
 	background: #FAFAFA;
+	transition: 0.2s all ease-in-out;
+	padding-top: 85px;
 }
 
 section {
@@ -26,15 +28,40 @@ section {
 .color--white{ color: #FFFFFF !important; }
 .color--blue{ color: #251669 !important; }
 .color--black{ color: #000000 !important; }
-.color--gray{ color: #454545 !important; }
+.color--gray{ color: #999999 !important; }
 .color--green{ color: #34BC9D !important; }
+.color--purple{ color: #3b1352 !important;}
+
+
+.white{ background: #FFFFFF; }
+.blue{ background: #251669; }
+.black{ background: #000000; }
+.gray{ background: #DADADA; }
+.green{ background: #34BC9D; }
+.purple{ background: #3b1352;}
+
+.gradient--red-light {
+	background: -webkit-gradient(linear, 0 584, 360 0, color-stop(0.011, #e94b56), color-stop(0.011, #eb4b56), color-stop(0.08, #ea4a55), color-stop(0.08, #eb4955), color-stop(0.081, #ec4955), color-stop(0.244, #ed4a56), color-stop(0.244, #eb4b56), color-stop(0.278, #ec4c57), color-stop(0.279, #ec4d57), color-stop(0.301, #ec4d57), color-stop(0.301, #eb4d57), color-stop(0.367, #ed4f5b), color-stop(0.367, #ec505b), color-stop(0.37, #eb515c), color-stop(0.395, #ec525d), color-stop(0.395, #eb535d), color-stop(0.412, #eb535d), color-stop(0.415, #eb545e), color-stop(0.45, #ed5660), color-stop(0.45, #eb5760), color-stop(0.491, #ed5a65), color-stop(0.491, #eb5c66), color-stop(0.518, #ec5d67), color-stop(0.518, #ec5f68), color-stop(0.532, #ed6069), color-stop(0.532, #ed616a), color-stop(0.533, #ed626a), color-stop(0.558, #ee636b), color-stop(0.564, #ec636b), color-stop(0.571, #ed646c), color-stop(0.574, #eb656c), color-stop(0.586, #ed676e), color-stop(0.587, #eb686e), color-stop(0.6, #eb686e), color-stop(0.6, #ea686f), color-stop(0.615, #ec6a71), color-stop(0.615, #eb6b71), color-stop(0.626, #ed6d73), color-stop(0.632, #ea6d73), color-stop(0.654, #ec6f75), color-stop(0.654, #ec7176), color-stop(0.655, #ec7276), color-stop(0.67, #eb7479), color-stop(0.683, #ea757a), color-stop(0.696, #ec777c), color-stop(0.696, #e9777b), color-stop(0.708, #eb797d), color-stop(0.709, #ea7a7d), color-stop(0.724, #e97b80), color-stop(0.746, #ed7e83), color-stop(0.746, #eb7f83), color-stop(0.749, #eb8084), color-stop(0.765, #ea8084), color-stop(0.778, #ec8286), color-stop(0.778, #ea8386), color-stop(0.779, #ea8487), color-stop(0.791, #eb8588), color-stop(0.791, #ea8588), color-stop(0.793, #ea868a), color-stop(0.813, #ec888c), color-stop(0.813, #eb888c), color-stop(0.832, #ed8a8e), color-stop(0.832, #ed8b8f), color-stop(0.833, #ea8b8e), color-stop(0.844, #ec8d90), color-stop(0.848, #eb8e90), color-stop(0.857, #ec8f91), color-stop(0.857, #ec8e92), color-stop(0.861, #ec8f94), color-stop(0.861, #e98f93), color-stop(0.879, #eb9195), color-stop(0.881, #eb9396), color-stop(0.902, #ec9497), color-stop(0.902, #eb9597), color-stop(0.924, #ed9799), color-stop(0.924, #ec989a), color-stop(0.93, #ec999c), color-stop(0.943, #ec999c), color-stop(0.943, #ec9b9d), color-stop(0.969, #ec9c9e), color-stop(0.969, #eb9d9f), color-stop(0.989, #ec9ea0), color-stop(0.989, #ec9fa0), color-stop(0.992, #eca0a1), to(#eda1a4));
+	background: -webkit-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
+	background: -moz-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
+	background: -o-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
+	background: linear-gradient(131.65127288671266deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4)
+}
+
+.gradient--deep-purple {
+	background: #3b1352;
+	background: -moz-radial-gradient(center, ellipse cover,  #3b1352 0%, #24072a 100%);
+	background: -webkit-radial-gradient(center, ellipse cover,  #3b1352 0%,#24072a 100%);
+	background: radial-gradient(ellipse at center,  #3b1352 0%,#24072a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b1352', endColorstr='#24072a',GradientType=1 );
+}
 
 /********** SPACING **********/
 /* FULL PADDING */
 .padding--whole-none{ padding: 0; !important; }
 .padding--whole-xs{ padding: 5px; !important; }
 .padding--whole-s{ padding: 10px; !important; }
-.padding--whole-{ padding: 20px; !important; }
+.padding--whole{ padding: 20px; !important; }
 .padding--whole-l{ padding: 30px; !important; }
 .padding--whole-xl{ padding: 40px; !important; }
 .padding--whole-huge{ padding: 50px; !important; }
@@ -43,7 +70,7 @@ section {
 .padding--top-none{ padding-top: 0; !important; }
 .padding--top-xs{ padding-top: 5px; !important; }
 .padding--top-s{ padding-top: 10px; !important; }
-.padding--top-{ padding-top: 20px; !important; }
+.padding--top{ padding-top: 20px; !important; }
 .padding--top-l{ padding-top: 30px; !important; }
 .padding--top-xl{ padding-top: 40px; !important; }
 .padding--top-huge{ padding-top: 50px; !important; }
@@ -130,13 +157,49 @@ section {
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-
 .overflow--hidden{ overflow: hidden !important; }
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+	position: relative;
+	min-height: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.col-xs-15 {
+	width: 20%;
+	float: left;
+}
+@media (min-width: 768px) {
+	.col-sm-15 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-15 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 1200px) {
+	.col-lg-15 {
+		width: 20%;
+		float: left;
+	}
+}
 
 /********* TEXT ***********/
 .bold{ font-weight: 600 !important; }
 .regular{ font-weight: 300 !important; }
 .light{ font-weight: 100 !important; }
+.underlined {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.line-through { text-decoration: line-through !important;}
 .all--caps{ text-transform: uppercase !important; }
 .text--shadow{ text-shadow: -1px 1px 1px rgba(45, 45, 45, 0.18); }
 
@@ -147,7 +210,6 @@ section {
 		padding: 0;
 		position: relative;
 		left: 0;
-		transition: 0.6s all ease-in-out;
 	}
 
 	.page{
@@ -275,19 +337,29 @@ section {
 /************* Navigation styles ************/
 .GM-navbar {
 	color: #F9F9F9;
-	font-size: 18px;
+	background: -moz-linear-gradient(54deg,  #3b1352 0%, #24072a 100%);
+	background: -webkit-linear-gradient(54deg,  #3b1352 0%,#24072a 100%);
+	background: linear-gradient(54deg,  #3b1352 0%,#24072a 100%);
+	font-size: 16px;
+	font-weight: 100;
 	position: fixed;
+	letter-spacing: 1px;
 	z-index:999;
 	width: 100vw;
 	min-height: 50px;
 	margin-bottom: 20px;
 	top:0;
+	box-shadow: 0 1px 5px rgba(56,56,56,0.61);
 }
-
+.GM-navbar.landing-nav {
+	background: none;
+	box-shadow: none;
+	font-size: 18px;
+	font-weight: 300;
+}
 .GM-navbar .navbar-toggle .icon-bar {
 	background-color: #F9F9F9;
 }
-
 .GM-nav {
 	margin: 7.5px -15px;
 	padding-left: 0;
@@ -296,7 +368,6 @@ section {
 	min-height: 50px;
 	margin-bottom: 20px;
 }
-
 .GM-nav>li {
 	position: relative;
 	display: block;
@@ -305,18 +376,21 @@ section {
 	line-height: 20px;
 	position: relative;
 	display: block;
-	padding: 25px;
+	padding: 35px 15px;
 }
-
-.navbar-brand, .GM-nav>li>a {
+.landing-nav .GM-nav>li>a {
+	padding: 35px;
 	text-shadow: -1px 1px 2px rgba(45, 45, 45, 0.62);
 }
+.GM-nav>li:last-of-type>a {padding-right: 0px;}
+.landing-nav .GM-nav>li:last-of-type>a {padding-right: 25px;}
+
 .navbar-brand {
 	float: left;
-	height: 50px;
+	padding: 10px 0px;
+}
+.landing-nav .navbar-brand {
 	padding: 10px 15px;
-	font-size: 18px;
-	line-height: 20px;
 }
 	.navbar-brand img {
 		filter: invert(100);
@@ -324,6 +398,10 @@ section {
 		-ms-filter: invert(100);
 		-moz-filter: invert(100);
 		-webkit-filter: invert(100);
+		height: 70px;
+	}
+	.landing-nav .navbar-brand img {
+		height:auto;
 	}
 
 @media screen and (min-width: 768px) {
@@ -336,6 +414,50 @@ section {
 		float: left;
 	}
 }
+
+/********** Login Box styling **********/
+#GM-loginBox {
+	background: #FAFAFA;
+	border: 1px solid #9D9D9D;
+	font-size: 14px;
+	width: 238px;
+	border-radius: 12px;
+	position: absolute;
+	right: 52px;
+	top: 60px;
+	display: none;
+	box-shadow: -3px 4px 10px rgba(56,56,56,0.31);
+}
+	#GM-loginBox:after, #GM-loginBox:before {
+		bottom: 100%;
+		right: 12px;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-style: solid;
+		border-color: rgba(0, 0, 0, 0);
+	}
+
+	#GM-loginBox:after {
+		border-bottom-color: #FAFAFA;
+		border-width: 14px;
+	}
+	#GM-loginBox:before {
+		border-bottom-color: #9D9D9D;
+		border-width: 16px;
+		transform: translateX(2px);
+	}
+#GM-loginBox label {
+	font-weight: 300;
+}
+.GM-not-registered {
+	font-size: 13px;
+	font-weight: 200;
+	margin-top: 1.1667em;
+}
+.GM-not-registered a:hover { text-decoration: none; }
 
 /********* FullFrame Video Styles *********/
 .landing-page-content {
@@ -386,7 +508,7 @@ section {
 	position: fixed;
 	z-index: 0;
 	left:50%;
-	top: 58vh;
+	top: 78vh;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
@@ -442,19 +564,40 @@ section {
 	-webkit-box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43); -moz-box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43); box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43);
 }
 
-.gradient--red-light {
-	background: -webkit-gradient(linear, 0 584, 360 0, color-stop(0.011, #e94b56), color-stop(0.011, #eb4b56), color-stop(0.08, #ea4a55), color-stop(0.08, #eb4955), color-stop(0.081, #ec4955), color-stop(0.244, #ed4a56), color-stop(0.244, #eb4b56), color-stop(0.278, #ec4c57), color-stop(0.279, #ec4d57), color-stop(0.301, #ec4d57), color-stop(0.301, #eb4d57), color-stop(0.367, #ed4f5b), color-stop(0.367, #ec505b), color-stop(0.37, #eb515c), color-stop(0.395, #ec525d), color-stop(0.395, #eb535d), color-stop(0.412, #eb535d), color-stop(0.415, #eb545e), color-stop(0.45, #ed5660), color-stop(0.45, #eb5760), color-stop(0.491, #ed5a65), color-stop(0.491, #eb5c66), color-stop(0.518, #ec5d67), color-stop(0.518, #ec5f68), color-stop(0.532, #ed6069), color-stop(0.532, #ed616a), color-stop(0.533, #ed626a), color-stop(0.558, #ee636b), color-stop(0.564, #ec636b), color-stop(0.571, #ed646c), color-stop(0.574, #eb656c), color-stop(0.586, #ed676e), color-stop(0.587, #eb686e), color-stop(0.6, #eb686e), color-stop(0.6, #ea686f), color-stop(0.615, #ec6a71), color-stop(0.615, #eb6b71), color-stop(0.626, #ed6d73), color-stop(0.632, #ea6d73), color-stop(0.654, #ec6f75), color-stop(0.654, #ec7176), color-stop(0.655, #ec7276), color-stop(0.67, #eb7479), color-stop(0.683, #ea757a), color-stop(0.696, #ec777c), color-stop(0.696, #e9777b), color-stop(0.708, #eb797d), color-stop(0.709, #ea7a7d), color-stop(0.724, #e97b80), color-stop(0.746, #ed7e83), color-stop(0.746, #eb7f83), color-stop(0.749, #eb8084), color-stop(0.765, #ea8084), color-stop(0.778, #ec8286), color-stop(0.778, #ea8386), color-stop(0.779, #ea8487), color-stop(0.791, #eb8588), color-stop(0.791, #ea8588), color-stop(0.793, #ea868a), color-stop(0.813, #ec888c), color-stop(0.813, #eb888c), color-stop(0.832, #ed8a8e), color-stop(0.832, #ed8b8f), color-stop(0.833, #ea8b8e), color-stop(0.844, #ec8d90), color-stop(0.848, #eb8e90), color-stop(0.857, #ec8f91), color-stop(0.857, #ec8e92), color-stop(0.861, #ec8f94), color-stop(0.861, #e98f93), color-stop(0.879, #eb9195), color-stop(0.881, #eb9396), color-stop(0.902, #ec9497), color-stop(0.902, #eb9597), color-stop(0.924, #ed9799), color-stop(0.924, #ec989a), color-stop(0.93, #ec999c), color-stop(0.943, #ec999c), color-stop(0.943, #ec9b9d), color-stop(0.969, #ec9c9e), color-stop(0.969, #eb9d9f), color-stop(0.989, #ec9ea0), color-stop(0.989, #ec9fa0), color-stop(0.992, #eca0a1), to(#eda1a4));
-	background: -webkit-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
-	background: -moz-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
-	background: -o-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
-	background: linear-gradient(131.65127288671266deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4)
+
+/****** Contact page ******/
+#GM-contact-form input[type="text"], #GM-contact-form input[type="email"]{
+	margin-bottom: 1.5em;
+	height:2.4em;
+	line-height: 2.4em;
+}
+#GM-contact-form textarea {
+	margin-bottom: 2.5em;
+	height:8em;
 }
 
-.gradient--deep-purple {
-	background: #3b1352;
-	background: -moz-radial-gradient(center, ellipse cover,  #3b1352 0%, #24072a 100%);
-	background: -webkit-radial-gradient(center, ellipse cover,  #3b1352 0%,#24072a 100%);
-	background: radial-gradient(ellipse at center,  #3b1352 0%,#24072a 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b1352', endColorstr='#24072a',GradientType=1 );
-
+.icons-social i {
+	color: #FFFFFF;
+	border-radius: 50%;
+	width: 2.8em;
+	height: 2.8em;
+	line-height: 2.8em;
+	text-shadow: 3px 3px 8px rgba(25,25,25,0.5);
+	background: #3B1352;
+	-webkit-box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43);
+	-moz-box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43);
+	box-shadow: inset 1px 2px 6px rgba(25,25,25,0.43);
 }
+.icons-social p {	text-shadow: 1px 2px 6px rgba(25,25,25,0.43); }
+.icons-social .GM-icon-facebook i { background: #3b5998;}
+.icons-social .GM-icon-facebook p { color: #3b5998;}
+.icons-social .GM-icon-twitter i { background: #00aced;}
+.icons-social .GM-icon-twitter p { color: #00aced;}
+.icons-social .GM-icon-instagram i { background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF); }
+.icons-social .GM-icon-instagram p { color: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF); }
+.icons-social .GM-icon-snapchat i { background: #FFFC00;}
+.icons-social .GM-icon-snapchat p { color: #FFFC00;}
+.icons-social .GM-icon-youtube i { background: #bb0000;}
+.icons-social .GM-icon-youtube p { color: #bb0000;}
+
+.icons-social-lg i { font-size: 28px}

@@ -1,16 +1,84 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-	<div class="GM-full-wrap">
-		<div class="GM-fullbackground GM-video">
-			<video width="100%" height="100%" poster="{{ asset('media/images/rakiraki.JPG') }}" class="fullscreen-bg__video" autoplay loop muted>
-				<source src="{{ asset('media/videos/flyby.mp4') }}" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>GetMoving - Fiji</title>
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+	<link rel="stylesheet" href="{{ asset('css/normalizer.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+
+	<!-- CDN styles -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+	      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+	      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css"/>
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
+	<link rel="stylesheet" href="{{ asset("css/style.css") }}">
+</head>
+
+<nav class="GM-navbar landing-nav">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+			        data-target="#GM-collapsed-menu" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('media/images/logo.png') }}"
+			                                                       alt="GetMoving Fiji logo" width="125px"></a>
 		</div>
-		<div class="GM-register-wrap text-center text--shadow">
-			<a href="{{ path('user_signup') }}"><button class="ghost-btn ghost-btn-light ghost-btn-lg">REGISTER AS VOLUNTEER</button></a>
-		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-right" id="GM-collapsed-menu">
+			<ul class="GM-nav">
+				<li><a href="{{ path('contact') }}">Get in touch</a></li>
+				<li><a href="{{ path('why') }}">Why Us?</a></li>
+				<li><a href="{{ path('programs_list') }}">Programs</a></li>
+				<li><a id="GM-loginTrigger">Login</a></li>
+			</ul>
+
+			<div id="GM-loginBox" class="padding--whole color--black">
+				<div class="form-group">
+					<label for="GM-user">Email address:</label>
+					<input type="text" class="form-control" id="GM-user">
+				</div>
+				<div class="form-group">
+					<label for="GM-password">Password:</label>
+					<input type="password" class="form-control" id="GM-password">
+				</div>
+				<button id="GM-userLogin" class="btn btn-success pull-right">Login</button>
+				<span class="GM-not-registered underlined pull-left color--gray"><a
+							href="{{ path('user_signup') }}">Not registered yet?</a></span>
+			</div>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div class="GM-full-wrap">
+	<div class="GM-fullbackground GM-video">
+		<video width="100%" height="100%" poster="{{ asset('media/images/rakiraki.JPG') }}" class="fullscreen-bg__video"
+		       autoplay loop muted>
+			<source src="{{ asset('media/videos/flyby.mp4') }}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
 	</div>
+	<div class="GM-register-wrap text-center text--shadow">
+		<a href="{{ path('user_signup') }}">
+			<button class="ghost-btn ghost-btn-light ghost-btn-lg">REGISTER AS VOLUNTEER</button>
+		</a>
+	</div>
+</div>
 
 <div class="landing-page-content">
 	<section class="">
@@ -22,21 +90,21 @@
 				</div>
 			</div>
 			<div class="row padding--top-l padding--bot-huge">
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-user icon-circle color--white gradient--red-light"></i>
 						<h2>Best Service</h2>
 						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
 					</div>
 				</div>
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-dollar icon-circle color--white gradient--red-light"></i>
 						<h2>Best Price</h2>
 						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
 					</div>
 				</div>
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-thumbs-up icon-circle color--white gradient--red-light"></i>
 						<h2>Best Experience</h2>
@@ -61,21 +129,21 @@
 				</div>
 			</div>
 			<div class="row padding--top-l padding--bot-huge">
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-user icon-circle color--green"></i>
 						<h2>Best Service</h2>
 						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
 					</div>
 				</div>
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-dollar icon-circle color--green"></i>
 						<h2>Best Price</h2>
 						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
 					</div>
 				</div>
-				<div class="col-sm-4 padding--whole-">
+				<div class="col-sm-4 padding--whole">
 					<div class="icons-triplet">
 						<i class="fa fa-thumbs-up icon-circle color--green "></i>
 						<h2>Best Experience</h2>
@@ -87,13 +155,20 @@
 	</section>
 </div>
 
-{% endblock %}
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert2.min.js') }}"></script>
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+<!-- CDN scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.common.min.js"></script>
 
 
-{% block javascripts %}
-	{{ parent() }}
-{% endblock %}
+<script src="{{ asset('js/script.js') }}"></script>
+</body>
+</html>

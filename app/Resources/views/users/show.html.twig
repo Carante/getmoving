@@ -6,15 +6,41 @@
 		<table class="table table-responsive">
 			<thead>
 				<th>Name</th>
-				<th>Email</th>
 				<th>Birthday</th>
+				<th>Sex</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Nationality</th>
+				<th>PassportNo</th>
+				<th>CountryAdd</th>
+				<th>StreetAdd</th>
+				<th>StreetAdd2</th>
+				<th>HouseNo</th>
+				<th>Flat</th>
+				<th>Zip</th>
+				<th>City</th>
+				<th>Region</th>
+				<th>Notify</th>
 			</thead>
 			<tbody>
 			{% for user in users %}
 				<tr>
 					<td>{{ user.firstName }} {{ user.lastName }}</td>
-					<td>{{ user.email }}</td>
 					<td>{{ user.dateOfBirth|date("Y-m-d") }}</td>
+					<td>{{ user.sex }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phone }}</td>
+					<td>{{ user.nationality }}</td>
+					<td>{{ user.passportNo }}</td>
+					<td>{{ user.addressCountry }}</td>
+					<td>{{ user.addressOne }}</td>
+					<td>{{ user.addressTwo }}</td>
+					<td>{{ user.addressHouseNo }}</td>
+					<td>{{ user.addressFlat }}</td>
+					<td>{{ user.addressZip }}</td>
+					<td>{{ user.addressCity }}</td>
+					<td>{{ user.addressRegion }}</td>
+					<td>{{ user.isNotified }}</td>
 				</tr>
 			{% endfor %}
 			</tbody>

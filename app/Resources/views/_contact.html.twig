@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+
+	{{ form_widget(form.subject) }}
+	{{ form_widget(form.name) }}
+	{{ form_widget(form.email) }}
+	{{ form_widget(form.message) }}
+{# Render CSRF token etc .#}
+<div style="display:none">
+	{{ form_rest(form) }}
+</div>
+
+<input type="submit" value="Send the mail :)" class="btn btn-success">
+{{ form_end(form) }}

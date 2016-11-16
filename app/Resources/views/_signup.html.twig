@@ -1,0 +1,43 @@
+<div class="row">
+{{ form_start(form) }}
+    <div class="well well-lg">
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.middleName) }}
+        {{ form_row(form.lastName) }}
+        {{ form_row(form.dateOfBirth) }}
+        {{ form_row(form.sex) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.phone) }}
+        {{ form_row(form.nationality) }}
+        {{ form_row(form.passportNo) }}
+        {{ form_row(form.password) }}
+
+    </div>
+
+    <div class="well well-lg">
+        {{ form_row(form.addressCountry) }}
+        {{ form_row(form.addressRegion) }}
+        {{ form_row(form.addressZip) }}
+        {{ form_row(form.addressCity) }}
+        {{ form_row(form.addressCo) }}
+        {{ form_row(form.addressOne) }}
+        {{ form_row(form.addressTwo) }}
+        {{ form_row(form.addressHouseNo) }}
+        {{ form_row(form.addressFlat) }}
+    </div>
+
+    <div class="well well-lg">
+        {{ form_row(form.eduLevelExpected) }}
+        {{ form_row(form.eduPlaceCurrent) }}
+        {{ form_row(form.eduProgramCurrent) }}
+        {{ form_row(form.eduPlaceFuture) }}
+        {{ form_row(form.eduProgramFuture) }}
+    </div>
+    
+    <div class="padding--left-l padding--bot">
+        {{ form_row(form.isNotified) }}
+
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+{{ form_end(form) }}
+</div>
