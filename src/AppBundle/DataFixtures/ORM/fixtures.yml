@@ -1,0 +1,25 @@
+AppBundle\Entity\User:
+  user_{1..5}:
+    firstName: <firstName()>
+    lastName: <lastName()>
+    sex: <numberBetween(0-1)>
+    nationality: "DNK"
+    password: "demo"
+    passportNo: <word(14)>
+    email: <email()>
+    phone: <numberBetween(22222222, 99999999)>
+    addressCountry: "Denmark"
+    addressRegion: "Copenhagen"
+    addressCity: "Søborg"
+    addressZip: <numberBetween(1000-9999)>
+    addressOne: <text(12)>
+    addressHouseNo: <buildingNumber()>
+    eduLevelExpected: "Bachelor"
+    eduPlaceCurrent: "KEA"
+    eduProgramCurrent: "Web Development"
+    eduProgramFuture: "Unknown"
+    eduPlaceFuture: "Unknown"
+
+AppBundle\Entity\UserTwo:
+  user_two_{1..5}:
+    email: c.kaiser.p+<current()>@gmail.com

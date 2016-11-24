@@ -21,7 +21,7 @@ class UserController extends BaseController
 	/**
 	 * @Route("/signup", name="user_signup")
 	 */
-	public function newAction(Request $request)
+	public function signupAction(Request $request)
 	{
 		$user = new User();
 
@@ -39,6 +39,7 @@ class UserController extends BaseController
 		}
 
 		return $this->render('users/signup.html.twig', array(
+		    'pageTitle' => 'GetMoving - Sign up',
 			'form' => $form->createView()
 		));
 	}

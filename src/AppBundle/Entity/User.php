@@ -40,7 +40,7 @@ class User
 	private $lastName;
 
 	/**
-	 * @ORM\Column(type="date")
+	 * @ORM\Column(type="date", nullable=true)
 	 */
 	private $dateOfBirth;
 
@@ -65,7 +65,7 @@ class User
 	private $email;
 
 	/**
-	 * @ORM\Column(type="string", nullable=true)
+	 * @ORM\Column(type="integer", nullable=true)
 	 */
 	private $phone;
 

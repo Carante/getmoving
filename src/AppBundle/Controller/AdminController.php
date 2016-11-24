@@ -15,6 +15,8 @@ class AdminController extends Controller
 	 */
     public function indexAction()
     {
-        return $this->render('admin/home.html.twig', array());
+        return $this->render('admin/home.html.twig', array(
+        	'pageTitle' => "ADMIN | GetMoving"
+        ));
     }
 }
