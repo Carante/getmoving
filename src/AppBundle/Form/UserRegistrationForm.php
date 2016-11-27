@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\User;
+use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -17,20 +18,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserRegistrationForm extends AbstractType
 {
-	private function arrayOfCountries()
-	{
-		$countries = json_decode(file_get_contents('../web/dist/countries.json'), true);
-		$countryChoices = array();
-		foreach ($countries as $country) {
-			$countryChoices[$country['name']['common']] = $country['cca3'];
-		}
-
-		return $countryChoices;
-	}
-
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$countryChoices = $this->arrayOfCountries();
+		$durationChoices = $this->arrayOfDuration();
 
 		$builder->add('firstName', TextType::class)
 			->add('middleName', TextType::class, array(
@@ -49,9 +40,15 @@ class UserRegistrationForm extends AbstractType
 			->add('nationality', ChoiceType::class, array(
 				'choices' => $countryChoices
 			))
-			->add('passportNo', TextType::class)
 			->add('plainPassword', RepeatedType::class, array(
 				'type' => PasswordType::class
+			))
+			->add('programArrival', \Symfony\Component\Form\Extension\Core\Type\DateType::class, array(
+				// add a class that can be selected in JavaScript
+//				'attr' => ['class' => 'datepicker']
+			))
+			->add('programDuration', ChoiceType::class, array(
+				'choices' => $durationChoices
 			))
 			->add('addressCountry', ChoiceType::class, array(
 				'choices' => $countryChoices
@@ -87,4 +84,24 @@ class UserRegistrationForm extends AbstractType
 		));
 	}
 
+
+	private function arrayOfCountries()
+	{
+		$countries = json_decode(file_get_contents('../web/dist/countries.json'), true);
+		$countryChoices = array();
+		foreach ($countries as $country) {
+			$countryChoices[$country['name']['common']] = $country['cca3'];
+		}
+
+		return $countryChoices;
+	}
+
+	private function arrayOfDuration()
+	{
+		$durationChoices = array();
+		for ($i = 2; $i <= 12; $i++) {
+			$durationChoices[$i." weeks"] = $i;
+		}
+		return $durationChoices;
+	}
 }

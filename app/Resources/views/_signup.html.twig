@@ -9,14 +9,17 @@
         {{ form_row(form.email) }}
         {{ form_row(form.phone) }}
         {{ form_row(form.nationality) }}
-        {{ form_row(form.passportNo) }}
         {{ form_row(form.plainPassword.first, {
             'label': 'Password'
         }) }}
         {{ form_row(form.plainPassword.second, {
             'label': 'Repeat password'
         }) }}
+    </div>
 
+    <div class="well well-lg">
+        {{ form_row(form.programArrival) }}
+        {{ form_row(form.programDuration) }}
     </div>
 
     <div class="well well-lg">

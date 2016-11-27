@@ -45,7 +45,11 @@
 				<li><a href="{{ path('contact') }}">Get in touch</a></li>
 				<li><a href="{{ path('why') }}">Why Us?</a></li>
 				<li><a href="{{ path('programs_list') }}">Programs</a></li>
-				<li><a href="{{ path('security_login') }}">Login</a></li>
+				{% if is_granted('ROLE_USER') %}
+					<li><a href="{{ path('security_logout') }}">Logout</a></li>
+				{% else %}
+					<li><a href="{{ path('security_login') }}">Login</a></li>
+				{% endif %}
 				{#<li><a id="GM-loginTrigger">Login</a></li>#}
 			</ul>
 		</div><!-- /.navbar-collapse -->

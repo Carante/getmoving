@@ -150,11 +150,6 @@ class User implements UserInterface
 	private $nationality;
 
 	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $passportNo;
-
-	/**
 	 * @ORM\Column(type="integer")
 	 */
 	private $phone;
@@ -227,6 +222,18 @@ class User implements UserInterface
 	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $eduFutureProgram;
+
+
+	// Program signup fields
+	/**
+	 * @ORM\Column(type="date", nullable=true)
+	 */
+	private $programArrival;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $programDuration;
 
 
 	// Selective boolean
@@ -328,16 +335,6 @@ class User implements UserInterface
 		$this->nationality = $nationality;
 	}
 
-	// Passport No getter'n'setter
-	public function getPassportNo()
-	{
-		return $this->passportNo;
-	}
-
-	public function setPassportNo($passportNo)
-	{
-		$this->passportNo = $passportNo;
-	}
 
 	// Phone number getter'n'setter
 	public function getPhone()
@@ -490,7 +487,7 @@ class User implements UserInterface
 		$this->eduFuturePlace = $eduFuturePlace;
 	}
 
-	// Current studies getter'n'setter
+	// Future studies getter'n'setter
 	public function getEduFutureProgram()
 	{
 		return $this->eduFutureProgram;
@@ -499,6 +496,30 @@ class User implements UserInterface
 	public function setEduFutureProgram($eduFutureProgram)
 	{
 		$this->eduFutureProgram = $eduFutureProgram;
+	}
+
+
+	//////////////////////
+	// Program information
+
+	// Arrival getter'n'setter
+	public function getProgramArrival()
+	{
+		return $this->programArrival;
+	}
+	public function setProgramArrival($programArrival)
+	{
+		$this->programArrival = $programArrival;
+	}
+
+	// Duration getter'n'setter
+	public function getProgramDuration()
+	{
+		return $this->programDuration;
+	}
+	public function setProgramDuration($programDuration)
+	{
+		$this->programDuration = $programDuration;
 	}
 
 
