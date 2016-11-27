@@ -2,20 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: KaiserDesign
- * Date: 15/11/2016
- * Time: 00:35
+ * Date: 17/11/2016
+ * Time: 19:35
  */
 
 namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\Entity
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="The email address is already in use")
  */
-class User
+class User implements UserInterface
 {
 	/**
 	 * @ORM\Id
@@ -25,17 +30,107 @@ class User
 	private $id;
 
 	/**
-	 * @ORM\Column(type="string", length=70)
+	 * @Assert\NotBlank()
+	 * @Assert\Email()
+	 * @ORM\Column(type="string", unique=true)
+	 */
+	private $email;
+
+	/**
+	 * @ORM\Column(type="string")
+	 */
+	private $password;
+
+	/**
+	 * @ORM\Column(type="json_array")
+	 */
+	private $roles = [];
+
+	/**
+	 * @Assert\NotBlank(groups={"Registration"})
+	 */
+	private $plainPassword;
+
+	public function getUsername()
+	{
+		return $this->email;
+	}
+
+	public function getRoles()
+	{
+		$roles = $this->roles;
+		if (!in_array('ROLE_USER', $roles)) {
+			$roles[] = 'ROLE_USER';
+		}
+
+		return $roles;
+	}
+
+	public function getPassword()
+	{
+		return $this->password;
+	}
+
+	public function getSalt()
+	{
+	}
+
+	public function eraseCredentials()
+	{
+		$this->plainPassword = null;
+	}
+
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
+
+	public function setPassword($password)
+	{
+		$this->password = $password;
+	}
+
+
+	public function getPlainPassword()
+	{
+		return $this->plainPassword;
+	}
+
+	public function setPlainPassword($plainPassword)
+	{
+		$this->plainPassword = $plainPassword;
+		// Make sure Doctrine thinks the password is changed, and ensure salt
+		$this->password = null;
+	}
+
+	public function setRoles($roles)
+	{
+		$this->roles = $roles;
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+	public function __construct(){
+		$this->date = new \DateTime();
+	}
+
+
+	// Busines logic fields
+	/**
+	 * @ORM\Column(type="string")
 	 */
 	private $firstName;
 
 	/**
-	 * @ORM\Column(type="string", nullable=true, length=70)
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $middleName;
 
 	/**
-	 * @ORM\Column(type="string", length=70)
+	 * @ORM\Column(type="string")
 	 */
 	private $lastName;
 
@@ -45,7 +140,7 @@ class User
 	private $dateOfBirth;
 
 	/**
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="boolean")
 	 */
 	private $sex;
 
@@ -60,43 +155,24 @@ class User
 	private $passportNo;
 
 	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $email;
-
-	/**
-	 * @ORM\Column(type="integer", nullable=true)
+	 * @ORM\Column(type="integer")
 	 */
 	private $phone;
 
-	// Address fields starts
+
+	// Address Information
 	/**
-	 * @ORM\Column(type="string", length=84)
+	 * @ORM\Column(type="string")
 	 */
 	private $addressCountry;
 
 	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $addressOne;
-
-	/**
 	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $addressTwo;
+	private $addressRegion;
 
 	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $addressHouseNo;
-
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
-	private $addressFlat;
-
-	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="integer")
 	 */
 	private $addressZip;
 
@@ -108,15 +184,25 @@ class User
 	/**
 	 * @ORM\Column(type="string")
 	 */
-	private $addressRegion;
+	private $addressStreet;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $addressPoBox;
+
+	/**
+	 * @ORM\Column(type="string")
+	 */
+	private $addressHouseNo;
 
 	/**
 	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $addressCo;
-	// Address fields done
 
-	// Educational fields starts
+
+	// Educational Information
 	/**
 	 * @ORM\Column(type="string")
 	 */
@@ -125,29 +211,25 @@ class User
 	/**
 	 * @ORM\Column(type="string")
 	 */
-	private $eduPlaceCurrent;
+	private $eduCurrentPlace;
 
 	/**
 	 * @ORM\Column(type="string")
 	 */
-	private $eduProgramCurrent;
+	private $eduCurrentProgram;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $eduPlaceFuture;
+	private $eduFuturePlace;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $eduProgramFuture;
-	// Educational fields done
+	private $eduFutureProgram;
 
-	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $password;
 
+	// Selective boolean
 	/**
 	 * @ORM\Column(type="boolean")
 	 */
@@ -158,6 +240,9 @@ class User
 	 */
 	private $isActive = true;
 
+
+
+	// External files needed
 	/**
 	 * @ORM\Column(type="string", nullable=true)
 	 */
@@ -166,23 +251,18 @@ class User
 	/**
 	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $planeoutFile;
+	private $planeOutFile;
 
 	/**
 	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $policereportFile;
+	private $policeReportFile;
 
 
+	///////////////////////
+	// PERSONAL INFORMATION
 
-
-
-
-	public function getId()
-	{
-		return $this->id;
-	}
-
+	// First Name getter'n'setter
 	public function getFirstName()
 	{
 		return $this->firstName;
@@ -193,6 +273,7 @@ class User
 		$this->firstName = $firstName;
 	}
 
+	// Middle Name getter'n'setter
 	public function getMiddleName()
 	{
 		return $this->middleName;
@@ -203,6 +284,7 @@ class User
 		$this->middleName = $middleName;
 	}
 
+	// Last Name getter'n'setter
 	public function getLastName()
 	{
 		return $this->lastName;
@@ -213,6 +295,7 @@ class User
 		$this->lastName = $lastName;
 	}
 
+	// Date of birth getter'n'setter
 	public function getDateOfBirth()
 	{
 		return $this->dateOfBirth;
@@ -223,6 +306,7 @@ class User
 		$this->dateOfBirth = $dateOfBirth;
 	}
 
+	// Gender getter'n'setter
 	public function getSex()
 	{
 		return $this->sex;
@@ -233,6 +317,7 @@ class User
 		$this->sex = $sex;
 	}
 
+	// Nationality getter'n'setter
 	public function getNationality()
 	{
 		return $this->nationality;
@@ -243,6 +328,7 @@ class User
 		$this->nationality = $nationality;
 	}
 
+	// Passport No getter'n'setter
 	public function getPassportNo()
 	{
 		return $this->passportNo;
@@ -253,16 +339,7 @@ class User
 		$this->passportNo = $passportNo;
 	}
 
-	public function getEmail()
-	{
-		return $this->email;
-	}
-
-	public function setEmail($email)
-	{
-		$this->email = $email;
-	}
-
+	// Phone number getter'n'setter
 	public function getPhone()
 	{
 		return $this->phone;
@@ -273,6 +350,11 @@ class User
 		$this->phone = $phone;
 	}
 
+
+	//////////////////////
+	// ADDRESS INFORMATION
+
+	// Country getter'n'setter
 	public function getAddressCountry()
 	{
 		return $this->addressCountry;
@@ -283,66 +365,7 @@ class User
 		$this->addressCountry = $addressCountry;
 	}
 
-	public function getAddressOne()
-	{
-		return $this->addressOne;
-	}
-
-	public function setAddressOne($addressOne)
-	{
-		$this->addressOne = $addressOne;
-	}
-
-	public function getAddressTwo()
-	{
-		return $this->addressTwo;
-	}
-
-	public function setAddressTwo($addressTwo)
-	{
-		$this->addressTwo = $addressTwo;
-	}
-
-	public function getAddressHouseNo()
-	{
-		return $this->addressHouseNo;
-	}
-
-	public function setAddressHouseNo($addressHouseNo)
-	{
-		$this->addressHouseNo = $addressHouseNo;
-	}
-
-	public function getAddressFlat()
-	{
-		return $this->addressFlat;
-	}
-
-	public function setAddressFlat($addressFlat)
-	{
-		$this->addressFlat = $addressFlat;
-	}
-
-	public function getAddressZip()
-	{
-		return $this->addressZip;
-	}
-
-	public function setAddressZip($addressZip)
-	{
-		$this->addressZip = $addressZip;
-	}
-
-	public function getAddressCity()
-	{
-		return $this->addressCity;
-	}
-
-	public function setAddressCity($addressCity)
-	{
-		$this->addressCity = $addressCity;
-	}
-
+	// Region getter'n'setter
 	public function getAddressRegion()
 	{
 		return $this->addressRegion;
@@ -353,6 +376,62 @@ class User
 		$this->addressRegion = $addressRegion;
 	}
 
+	// Zip code getter'n'setter
+	public function getAddressZip()
+	{
+		return $this->addressZip;
+	}
+
+	public function setAddressZip($addressZip)
+	{
+		$this->addressZip = $addressZip;
+	}
+
+	// City getter'n'setter
+	public function getAddressCity()
+	{
+		return $this->addressCity;
+	}
+
+	public function setAddressCity($addressCity)
+	{
+		$this->addressCity = $addressCity;
+	}
+
+	// Streetname getter'n'setter
+	public function getAddressStreet()
+	{
+		return $this->addressStreet;
+	}
+
+	public function setAddressStreet($addressStreet)
+	{
+		$this->addressStreet = $addressStreet;
+	}
+
+	// PoBox getter'n'setter
+	public function getAddressPoBox()
+	{
+		return $this->addressPoBox;
+	}
+
+	public function setAddressPoBox($addressPoBox)
+	{
+		$this->addressPoBox = $addressPoBox;
+	}
+
+	// House Number getter'n'setter
+	public function getAddressHouseNo()
+	{
+		return $this->addressHouseNo;
+	}
+
+	public function setAddressHouseNo($addressHouseNo)
+	{
+		$this->addressHouseNo = $addressHouseNo;
+	}
+
+	// CO name getter'n'setter
 	public function getAddressCo()
 	{
 		return $this->addressCo;
@@ -363,6 +442,11 @@ class User
 		$this->addressCo = $addressCo;
 	}
 
+
+	///////////////////////
+	// EDUCATION INFORMATION
+
+	// Expected Lebel getter'n'setter
 	public function getEduLevelExpected()
 	{
 		return $this->eduLevelExpected;
@@ -373,46 +457,55 @@ class User
 		$this->eduLevelExpected = $eduLevelExpected;
 	}
 
-	public function getEduPlaceCurrent()
+	// Current university getter'n'setter
+	public function getEduCurrentPlace()
 	{
-		return $this->eduPlaceCurrent;
+		return $this->eduCurrentPlace;
 	}
 
-	public function setEduPlaceCurrent($eduPlaceCurrent)
+	public function setEduCurrentPlace($eduCurrentPlace)
 	{
-		$this->eduPlaceCurrent = $eduPlaceCurrent;
+		$this->eduCurrentPlace = $eduCurrentPlace;
 	}
 
-	public function getEduProgramCurrent()
+	// Current studies getter'n'setter
+	public function getEduCurrentProgram()
 	{
-		return $this->eduProgramCurrent;
+		return $this->eduCurrentProgram;
 	}
 
-	public function setEduProgramCurrent($eduProgramCurrent)
+	public function setEduCurrentProgram($eduCurrentProgram)
 	{
-		$this->eduProgramCurrent = $eduProgramCurrent;
+		$this->eduCurrentProgram = $eduCurrentProgram;
 	}
 
-	public function getEduPlaceFuture()
+	// Future university getter'n'setter
+	public function getEduFuturePlace()
 	{
-		return $this->eduPlaceFuture;
+		return $this->eduFuturePlace;
 	}
 
-	public function setEduPlaceFuture($eduPlaceFuture)
+	public function setEduFuturePlace($eduFuturePlace)
 	{
-		$this->eduPlaceFuture = $eduPlaceFuture;
+		$this->eduFuturePlace = $eduFuturePlace;
 	}
 
-	public function getEduProgramFuture()
+	// Current studies getter'n'setter
+	public function getEduFutureProgram()
 	{
-		return $this->eduProgramFuture;
+		return $this->eduFutureProgram;
 	}
 
-	public function setEduProgramFuture($eduProgramFuture)
+	public function setEduFutureProgram($eduFutureProgram)
 	{
-		$this->eduProgramFuture = $eduProgramFuture;
+		$this->eduFutureProgram = $eduFutureProgram;
 	}
 
+
+	//////////////////
+	// BOOLEAN CHOICES
+
+	// Is Notified getter'n'setter
 	public function getIsNotified()
 	{
 		return $this->isNotified;
@@ -423,6 +516,7 @@ class User
 		$this->isNotified = $isNotified;
 	}
 
+	// Is Active getter'n'setter
 	public function getIsActive()
 	{
 		return $this->isActive;
@@ -433,6 +527,11 @@ class User
 		$this->isActive = $isActive;
 	}
 
+
+	////////////////////////////
+	// External files and proves
+
+	// Passoport copy getter'n'setter
 	public function getPassportFile()
 	{
 		return $this->passportFile;
@@ -443,34 +542,26 @@ class User
 		$this->passportFile = $passportFile;
 	}
 
-	public function getPlaneoutFile()
+	// Ticket out of country getter'n'setter
+	public function getPlaneOutFile()
 	{
-		return $this->planeoutFile;
+		return $this->planeOutFile;
 	}
 
-	public function setPlaneoutFile($planeoutFile)
+	public function setPlaneOutFile($planeOutFile)
 	{
-		$this->planeoutFile = $planeoutFile;
+		$this->planeOutFile = $planeOutFile;
 	}
 
-	public function getPolicereportFile()
+	// PoliceReport copy getter'n'setter
+	public function getPoliceReportFile()
 	{
-		return $this->policereportFile;
+		return $this->policeReportFile;
 	}
 
-	public function setPolicereportFile($policereportFile)
+	public function setPoliceReportFile($policeReportFile)
 	{
-		$this->policereportFile = $policereportFile;
-	}
-
-	public function getPassword()
-	{
-		return $this->password;
-	}
-
-	public function setPassword($password)
-	{
-		$this->password = $password;
+		$this->policeReportFile = $policeReportFile;
 	}
 
 

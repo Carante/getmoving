@@ -10,7 +10,12 @@
         {{ form_row(form.phone) }}
         {{ form_row(form.nationality) }}
         {{ form_row(form.passportNo) }}
-        {{ form_row(form.password) }}
+        {{ form_row(form.plainPassword.first, {
+            'label': 'Password'
+        }) }}
+        {{ form_row(form.plainPassword.second, {
+            'label': 'Repeat password'
+        }) }}
 
     </div>
 
@@ -20,24 +25,19 @@
         {{ form_row(form.addressZip) }}
         {{ form_row(form.addressCity) }}
         {{ form_row(form.addressCo) }}
-        {{ form_row(form.addressOne) }}
-        {{ form_row(form.addressTwo) }}
+        {{ form_row(form.addressStreet) }}
+        {{ form_row(form.addressPoBox) }}
         {{ form_row(form.addressHouseNo) }}
-        {{ form_row(form.addressFlat) }}
     </div>
 
     <div class="well well-lg">
         {{ form_row(form.eduLevelExpected) }}
-        {{ form_row(form.eduPlaceCurrent) }}
-        {{ form_row(form.eduProgramCurrent) }}
-        {{ form_row(form.eduPlaceFuture) }}
-        {{ form_row(form.eduProgramFuture) }}
+        {{ form_row(form.eduCurrentPlace) }}
+        {{ form_row(form.eduCurrentProgram) }}
+        {{ form_row(form.eduFuturePlace) }}
+        {{ form_row(form.eduFutureProgram) }}
     </div>
     
-    <div class="padding--left-l padding--bot">
-        {{ form_row(form.isNotified) }}
-
-    </div>
-    <button class="btn btn-primary" type="submit">Save</button>
+    <button class="btn btn-success" type="submit">Register <i class="fa fa-thumbs-o-up"></i></button>
 {{ form_end(form) }}
 </div>

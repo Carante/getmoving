@@ -5,55 +5,43 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\User;
-use AppBundle\Form\UserType;
+use AppBundle\Form\UserRegistrationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends BaseController
 {
 	/**
-	 * @Route("/login", name="user_login")
+	 * @Route("/register", name="user_register")
 	 */
-	public function loginAction() {
-		return $this->render('/users/login.html.twig', array());
-	}
-
-	/**
-	 * @Route("/signup", name="user_signup")
-	 */
-	public function signupAction(Request $request)
+	public function registerAction(Request $request)
 	{
-		$user = new User();
+		$form = $this->createForm(UserRegistrationForm::class);
 
-		$form = $this->createForm(UserType::class, $user);
 		$form->handleRequest($request);
-		if ($form->isValid()) {
-			// todo - Save new user
-			$em = $this->getEntityManager();
+		if ($form->isValid() ) {
+			/** @var  User $user */
+			$user = $form->getData();
+
+			$em = $this->getDoctrine()->getManager();
 			$em->persist($user);
 			$em->flush();
 
-			$this->addFlash('success', 'User has successfully been saved');
+			$this->addFlash('success', 'Welcome '.$user->getEmail());
 
-			return $this->redirectToRoute("users_list", array());
+			return $this->get("security.authentication.guard_handler")
+				->authenticateUserAndHandleSuccess(
+					$user,
+					$request,
+					$this->get("app.security.login_form_authenticator"),
+					'main'
+				);
 		}
 
-		return $this->render('users/signup.html.twig', array(
-		    'pageTitle' => 'GetMoving - Sign up',
+		return $this->render('register.html.twig', array(
+			'pageTitle' => 'Register',
 			'form' => $form->createView()
 		));
 	}
 
-	/**
-	 * @Route("/users", name="users_list")
-	 */
-	public function listAction() {
-		$users = $this->getEntityManager();
-		$data = $users->getRepository('AppBundle:User')
-			->findAll();
-
-		return $this->render('users/show.html.twig', array(
-			'users' => $data
-		));
-	}
 }

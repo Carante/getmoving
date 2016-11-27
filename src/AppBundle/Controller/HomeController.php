@@ -2,10 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\User;
 use AppBundle\Form\ContactType;
-use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -22,27 +21,9 @@ class HomeController extends BaseController
 	/**
 	 * @Route("/why", name="why")
 	 */
-	public function whyAction(Request $request)
+	public function whyAction()
 	{
-		$user = new User();
-
-		$form = $this->createForm(UserType::class, $user);
-		$form->handleRequest($request);
-		if ($form->isValid()) {
-			// todo - Save new user
-			$em = $this->getEntityManager();
-			$em->persist($user);
-			$em->flush();
-
-			$this->addFlash('success', 'User has successfully been saved');
-
-			return $this->redirectToRoute("home", array(
-				'pageTitle' => "Why GetMoving?"
-			));
-		}
-
 		return $this->render("why.html.twig", array(
-			'form' => $form->createView(),
 			'pageTitle' => "Why GetMoving?"
 		));
 

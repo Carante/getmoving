@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <h1>SignUp for an amazing adventure!</h1>
+            <div class="row form-wrap registration-form-wrap">
+                <div class="col-xs-12">
+                    {{ include('_signup.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/intlTelInput.min.js') }}"></script>
+    <script src="{{ asset('js/utils.js') }}"></script>
+    <script>
+        $("#user_registration_form_phone").intlTelInput();
+    </script>
+{% endblock %}

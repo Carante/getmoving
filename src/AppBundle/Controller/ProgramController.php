@@ -13,16 +13,10 @@ class ProgramController extends Controller
 	/**
 	 * @Route("/", name="programs_list")
 	 */
-    public function indexAction()
-    {
-	    $programs = [
-	    	'Bla bla',
-		    'Støt de fattige',
-		    'Byg en vindmølle'
-	    ];
-
-        return $this->render('/programs/all.html.twig', array(
-        	'programs' => $programs
-        ));
-    }
+	public function indexAction()
+	{
+		return $this->render('/programs/all.html.twig', array(
+			'pageTitle' => "GetMoving - programs"
+		));
+	}
 }
