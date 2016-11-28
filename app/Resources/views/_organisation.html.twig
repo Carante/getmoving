@@ -1,0 +1,37 @@
+{{ form_start(form) }}
+<div>
+  <h4>Organisational values</h4>
+	{{ form_row(form.name, { 'value' : organisation.name } ) }}
+  {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
+  {{ form_row(form.description, {'label': 'Short describption'}) }}
+  {{ form_row(form.about, { 'value' : organisation.about } ) }}
+  {{ form_row(form.mission, { 'value' : organisation.mission } ) }}
+  {{ form_row(form.vision, { 'value' : organisation.vision } ) }}
+  {{ form_label(form.coreValues) }}
+  {{ form_row(form.coreValues.vars.prototype) }}
+</div>
+
+<div>
+  <h4>Contact information</h4>
+  {{ form_row(form.emailOfficial, { 'value' : organisation.emailOfficial } ) }}
+  {{ form_row(form.emailSupport, { 'value' : organisation.emailSupport } ) }}
+  {{ form_row(form.address, { 'value' : organisation.address } ) }}
+</div>
+
+<div>
+  <h4>Social media channels</h4>
+  {{ form_row(form.facebook, { 'value' : organisation.facebook } ) }}
+  {{ form_row(form.twitter, { 'value' : organisation.twitter } ) }}
+  {{ form_row(form.instagram, { 'value' : organisation.instagram } ) }}
+  {{ form_row(form.snapchat, { 'value' : organisation.snapchat } ) }}
+  {{ form_row(form.youtube, { 'value' : organisation.youtube } ) }}
+  {{ form_row(form.linkedin, { 'value' : organisation.linkedin } ) }}
+  {{ form_row(form.googleplus, { 'value' : organisation.googleplus } ) }}
+</div>
+{# Render CSRF token etc .#}
+<div style="display:none">
+  {{ form_rest(form) }}
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm">Save</button>
+{{ form_end(form) }}

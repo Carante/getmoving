@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+
+	{{ form_row(form.logo, { 'value' : identity.logo } ) }}
+<div class="color-choice">
+  {{ form_row(form.mainColor, { 'value' : identity.mainColor } ) }} <span class="color-preview"></span>
+</div>
+<div class="color-choice">
+  {{ form_row(form.secondColor, { 'value' : identity.secondColor } ) }} <span class="color-preview"></span>
+</div>
+{# Render CSRF token etc .#}
+<div style="display:none">
+  {{ form_rest(form) }}
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm">Save</button>
+{{ form_end(form) }}

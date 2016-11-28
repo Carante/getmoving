@@ -23,8 +23,13 @@ class HomeController extends BaseController
 	 */
 	public function whyAction()
 	{
+		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
+		$count = count($organisations)-1;
+		$org = $organisations[$count];
+
 		return $this->render("why.html.twig", array(
-			'pageTitle' => "Why GetMoving?"
+			'pageTitle' => "Why GetMoving?",
+			'organisation' => $org
 		));
 
 	}

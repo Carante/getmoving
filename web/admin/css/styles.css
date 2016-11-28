@@ -103,3 +103,8 @@ body {
 	display: inline-block;
 	border-radius: 50%;
 }
+
+
+.admin-input-wrap {
+	max-width: 350px;
+}

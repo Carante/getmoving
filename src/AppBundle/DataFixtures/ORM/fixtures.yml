@@ -5,7 +5,7 @@ AppBundle\Entity\User:
     dateOfBirth: <dateTimeBetween('1970-10-10', '2000-10-10')>
     sex: <numberBetween(0-1)>
     nationality: "DNK"
-    passportNo: <word(14)>
+    programArrival:  <dateTimeBetween('2016-12-01', '2018-01-31')>
     email: c.kaiser.p+<current()>@gmail.com
     phone: <numberBetween(22222222, 99999999)>
     addressCountry: "Denmark"
@@ -22,3 +22,26 @@ AppBundle\Entity\User:
     plainPassword: turtles
     roles: ['ROLE_ADMIN']
 
+AppBundle\Entity\Identity:
+  identity_{1}:
+    logo: logo.png
+    mainColor: "#251669"
+    secondColor: "#FF00FF"
+
+AppBundle\Entity\Organisation:
+  organisation_{1}:
+    name: GetMoving - Fiji
+    description: <text(90)>
+    punchline: For volunteers, by volunteers
+    about: <text(250)>
+    mission: <text(150)>
+    vision: <text(125)>
+    coreValues: ['Secure', 'Safety']
+    emailOfficial: <email()>
+    emailSupport: <email()>
+    address: Denmark, Søborg 28760
+    facebook: GetMoving
+    twitter: GetMoving
+    instagram: GetMoving
+    snapchat: GetMoving
+    youtube: GetMoving
