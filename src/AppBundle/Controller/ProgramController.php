@@ -8,15 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * @Route("/programs")
  */
-class ProgramController extends Controller
+class ProgramController extends BaseController
 {
 	/**
 	 * @Route("/", name="programs_list")
 	 */
 	public function indexAction()
 	{
-		return $this->render('/programs/all.html.twig', array(
-			'pageTitle' => "GetMoving - programs"
-		));
+		$viewVar = $this->viewVariablesPublic("Identity");
+
+		return $this->render('/programs/all.html.twig', $viewVar);
 	}
 }

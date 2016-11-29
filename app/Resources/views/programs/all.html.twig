@@ -10,37 +10,21 @@
 					<p>Being a new organistation we need your help. Follow us on the following platforms to be informed about new programs, special deals, events and much more...</p>
 				</div>
 			</div>
-			<div class="row icons-social icons-social-lg margin--top-huge">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="col-sm-15 GM-icon-facebook">
-						<a href="https://facebook.com"><i class="fa fa-facebook-f icon-circle"></i></a>
-						<p>GetMoving Fiji</p>
+			<div class="row margin--top">
+				{% for program in programs %}
+					<div class="col-md-6 padding--whole-l">
+						<h2 class="text-center">{{ program.title }}</h2>
+						<p class="list-price">Price: $ {{ program.price }}/wk | Min. {{ program.minDuration }} weeks</p>
+						<p class="location">{{ program.location }}</p>
+						<div class="description">
+							{{ program.teaser }}
+						</div>
+						<div class="program_links margin--top">
+							<a href=""><button class="btn btn-success btn-sm margin--right-l">Register</button></a>
+							<a href=""><button class="btn btn-default btn-sm">Read more</button></a>
+						</div>
 					</div>
-					<div class="col-sm-15 GM-icon-twitter">
-						<a href="https://twitter.com"><i class="fa fa-twitter icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-instagram">
-						<a href="https://instagram.com"><i class="fa fa-instagram icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-snapchat">
-						<a href="https://snapchat.com"><i class="fa fa-snapchat-ghost icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-youtube">
-						<a href="https://youtube.com"><i class="fa fa-youtube icon-circle"></i></a>
-						<p>GetMoving Fiji</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="GM-contact-form" class="gradient--red-light color--white">
-		<div class="container">
-			<div class="col-md-6 col-md-offset-3">
-				<h1><i class="fa fa-envelope" style="font-size: 62px"></i></h1>
-				{{ include('_contact.html.twig') }}
+				{% endfor %}
 			</div>
 		</div>
 	</section>

@@ -1,12 +1,55 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block body %}
-    <h1 class="page-header">Programs</h1>
-    <div><a href="{{ path('admin_program_new') }}"><button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> New</button></a></div>
+  <h1 class="page-header">Programs</h1>
+  <div>
+    <a href="{{ path('admin_program_new') }}">
+      <button class="btn btn-success"><i class="fa fa-plus"></i> New</button>
+    </a>
+  </div>
+  <div class="row margin--top">
+    {% for program in programs %}
+      <div class="col-md-4 col-sm-6 well white">
+        <h4 class="margin--top-none">{{ program.title }}</h4>
+        <p>{{ program.teaser }}</p>
+        <table class="table table-bordered table-responsive margin--bot-none" style="table-layout: fixed">
+          <thead>
+            <th>Price</th>
+            <th>Role</th>
+            <th>Location</th>
+          </thead>
+          <tbody>
+            <td>${{ program.price }}/wk</td>
+            <td>{{ program.role }}</td>
+            <td>{{ program.location }}</td>
+          </tbody>
+        </table>
+        <table class="table table-bordered" style="table-layout: fixed">
+          <thead>
+          <th>Start</th>
+          <th>Min.</th>
+          <th>Stay</th>
+          </thead>
+          <tbody>
+          <td>
+            {% if program.flexStart == true %}
+              Flexible
+            {% else %}
+              {{ program.startDate|date("Y-m-d") }}
+            {% endif %}
+          </td>
+          <td>{{ program.minDuration }} Weeks</td>
+          <td>{{ program.stay }}</td>
+          </tbody>
+        </table>
+        <a href="{{ path('admin_program_update', {'programId': program.id} ) }}"><button class="btn btn-primary btn-sm" data-program="{{ program.id }}">Update</button></a>
+      </div>
+    {% endfor %}
+  </div>
 
 {% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
+  {{ parent() }}
 {% endblock %}
 
