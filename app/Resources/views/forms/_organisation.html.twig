@@ -1,7 +1,8 @@
 {{ form_start(form) }}
 <div>
-  <h4>Organisational values</h4>
+  <h4>Identity</h4>
 	{{ form_row(form.name, { 'value' : organisation.name } ) }}
+  {{ form_row(form.logo) }}
   {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
   {{ form_row(form.description, {'label': 'Short describption'}) }}
   {{ form_row(form.about, { 'value' : organisation.about } ) }}

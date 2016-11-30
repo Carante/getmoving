@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,6 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Organisation
 {
+
 	/**
 	 * @ORM\Id
 	 * @ORM\GeneratedValue(strategy="AUTO")
@@ -48,6 +50,11 @@ class Organisation
 	 * @ORM\Column(type="json_array", nullable=true)
 	 */
 	private $coreValues = [];
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Media", inversedBy="posts")
+	 */
+	private $logo;
 
 	/**
 	 * @ORM\Column(type="text")
@@ -109,11 +116,15 @@ class Organisation
 	 */
 	private $googleplus;
 
+	public function __construct()
+	{
+		$this->cover = new ArrayCollection();
+	}
 
-	////////////////////////////////
-	// BUSINESS ESSENTIALS GET'n'SET
+	/////////////////////
+	// IDENTITY GET'n'SET
 
-	// Orginasation Name
+	// Organisation Name
 	public function getName()
 	{
 		return $this->name;
@@ -122,6 +133,20 @@ class Organisation
 	{
 		$this->name = $name;
 	}
+
+	// Logo media
+	public function getLogo()
+	{
+		return $this->logo;
+	}
+
+	public function setLogo($logo)
+	{
+		$this->logo = $logo;
+	}
+
+	////////////////////////////////
+	// BUSINESS ESSENTIALS GET'n'SET
 
 	// Short description (for meta)
 	public function getDescription()
@@ -291,7 +316,6 @@ class Organisation
 	{
 		$this->googleplus = $googleplus;
 	}
-
 
 
 }

@@ -15,7 +15,7 @@ class ProgramController extends BaseController
 	 */
 	public function indexAction()
 	{
-		$viewVar = $this->viewVariablesPublic("Identity");
+		$viewVar = $this->viewVariablesPublic("Programs");
 
 		return $this->render('/programs/all.html.twig', $viewVar);
 	}

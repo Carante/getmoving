@@ -6,20 +6,21 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="cover")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MediaRepository")
+ * @ORM\Table(name="media")
  */
 class Media
 {
 
 	/**
-	 * @ORM\Idw
+	 * @ORM\Id
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 * @ORM\Column(type="integer")
 	 */
 	private $id;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $title;
 
@@ -52,13 +53,13 @@ class Media
 
 
 	public function __construct(){
-		$this->dateUploaded = new \DateTime("Pacific/Fiji");
+		$this->dateUploaded = new \DateTime();
 	}
 
 	/**
-	 * ORM\OneToMany(targetEntity="Post", mappedBy="cover")
+	 * ORM\OneToMany(targetEntity="Organisation", mappedBy="media")
 	 */
-	private $identities;
+	private $organisations;
 
 
 	/**
@@ -168,9 +169,9 @@ class Media
 	/**
 	 * @return mixed
 	 */
-	public function getIdentities()
+	public function getOrganisations()
 	{
-		return $this->identities;
+		return $this->organisations;
 	}
 
 

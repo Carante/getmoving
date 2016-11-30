@@ -109,6 +109,12 @@
         </div>
         {% endblock %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            {% for msg in app.session.flashBag.get('success') %}
+                <div class="alert alert-success">{{ msg }}</div>
+            {% endfor %}
+            {% for msg in app.session.flashBag.get('error') %}
+                <div class="alert alert-danger">{{ msg }}</div>
+            {% endfor %}
             {% block body %}
             {% endblock %}
         </div>

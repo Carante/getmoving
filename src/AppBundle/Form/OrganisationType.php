@@ -6,6 +6,7 @@ use AppBundle\Entity\Organisation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -32,6 +33,7 @@ class OrganisationType extends AbstractType
 			->add('coreValues', CollectionType::class, array(
 					'allow_add' => true,
 					'prototype' => true,
+					'required' => false,
 					'allow_delete' => true,
 					'entry_type' => TextType::class,
 					'entry_options' => array(
@@ -39,6 +41,9 @@ class OrganisationType extends AbstractType
 					)
 				)
 			)
+			->add('logo', FileType::class, array(
+				'data_class' => MediaType::class
+			))
 			->add('emailOfficial', EmailType::class)
 			->add('emailSupport', EmailType::class, array(
 				'required' => false

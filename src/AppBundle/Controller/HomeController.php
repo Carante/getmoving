@@ -14,8 +14,9 @@ class HomeController extends BaseController
 	 * @Route("/", name="home")
 	 */
 	public function indexAction() {
+		$viewVar = $this->viewVariablesPublic("Welcome");
 
-		return $this->render('home.html.twig');
+		return $this->render('home.html.twig', $viewVar);
 	}
 
 	/**
@@ -23,14 +24,9 @@ class HomeController extends BaseController
 	 */
 	public function whyAction()
 	{
-		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
-		$count = count($organisations)-1;
-		$org = $organisations[$count];
+		$viewVar = $this->viewVariablesPublic("Why?");
 
-		return $this->render("why.html.twig", array(
-			'pageTitle' => "Why GetMoving?",
-			'organisation' => $org
-		));
+		return $this->render("why.html.twig", $viewVar);
 
 	}
 
@@ -39,6 +35,8 @@ class HomeController extends BaseController
 	 */
 	public function contactAction(Request $request)
 	{
+		$viewVar = $this->viewVariablesPublic("Connected");
+
 		// Create the form according to the FormType created previously.
 		// And give the proper parameters
 		$form = $this->createForm(ContactType::class, null,array(
@@ -65,10 +63,8 @@ class HomeController extends BaseController
 			}
 		}
 
-		return $this->render('contact.html.twig', array(
-			'form' => $form->createView(),
-			'pageTitle' => "Get connected!"
-		));
+		$viewVar['form'] = $form->createView();
+		return $this->render('contact.html.twig', $viewVar);
 	}
 
 	private function sendEmail($data){

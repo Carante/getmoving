@@ -79,13 +79,24 @@ class Program
 	 */
 	private $flexStart;
 
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $isActive = true;
 
 
+	///////////////////////
+	// GET ID FOR LINKS ao.
 	public function getId()
 	{
 		return $this->id;
 	}
 
+
+	/////////////////////////
+	// GENERAL INFO GET'n'SET
+
+	// Title
 	public function getTitle()
 	{
 		return $this->title;
@@ -95,6 +106,7 @@ class Program
 		$this->title = $title;
 	}
 
+	// Teaser (short intro, usage for google as well)
 	public function getTeaser()
 	{
 		return $this->teaser;
@@ -104,6 +116,7 @@ class Program
 		$this->teaser = $teaser;
 	}
 
+	// Description long.
 	public function getDescription()
 	{
 		return $this->description;
@@ -113,6 +126,11 @@ class Program
 		$this->description = $description;
 	}
 
+
+	////////////////////////
+	// BULLET INFO GET'n'SET
+
+	// Role
 	public function getRole()
 	{
 		return $this->role;
@@ -122,6 +140,7 @@ class Program
 		$this->role = $role;
 	}
 
+	// Location (City, Region, Country)
 	public function getLocation()
 	{
 		return $this->location;
@@ -131,6 +150,7 @@ class Program
 		$this->location = $location;
 	}
 
+	// Stay (Hostel, family, fin yourself etc.
 	public function getStay()
 	{
 		return $this->stay;
@@ -140,6 +160,7 @@ class Program
 		$this->stay = $stay;
 	}
 
+	// Meals (included in price)
 	public function getMeals()
 	{
 		return $this->meals;
@@ -149,6 +170,7 @@ class Program
 		$this->meals = $meals;
 	}
 
+	// Minimum duration of stay (weeks)
 	public function getMinDuration()
 	{
 		return $this->minDuration;
@@ -158,6 +180,7 @@ class Program
 		$this->minDuration = $minDuration;
 	}
 
+	// Price pr. week
 	public function getPrice()
 	{
 		return $this->price;
@@ -167,6 +190,11 @@ class Program
 		$this->price = $price;
 	}
 
+
+	///////////////////////
+	// START DATE GET'n'SET
+
+	// Startdate
 	public function getStartDate()
 	{
 		return $this->startDate;
@@ -176,6 +204,7 @@ class Program
 		$this->startDate = $startDate;
 	}
 
+	// Flexible
 	public function getFlexStart()
 	{
 		return $this->flexStart;
@@ -185,6 +214,19 @@ class Program
 		$this->flexStart = $flexStart;
 	}
 
+
+	//////////////////////////
+	// ACCESSIBILITY GET'n'SET
+
+	// Is active
+	public function getIsActive()
+	{
+		return $this->isActive;
+	}
+	public function setIsActive($isActive)
+	{
+		$this->isActive = $isActive;
+	}
 
 
 

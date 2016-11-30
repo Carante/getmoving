@@ -52,6 +52,10 @@ class ProgramType extends AbstractType
 				))
 				->add('description', TextareaType::class, array(
 				))
+				->add('isActive', CheckboxType::class, array(
+					'required' => false,
+					'label' => 'Active'
+				))
 			;
     }
 

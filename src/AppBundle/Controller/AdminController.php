@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Doctrine\UploadFileMoverListener;
 use AppBundle\Entity\Identity;
 use AppBundle\Entity\Media;
 use AppBundle\Entity\Organisation;
@@ -11,6 +12,7 @@ use AppBundle\Form\OrganisationType;
 use AppBundle\Form\ProgramType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -74,11 +76,79 @@ class AdminController extends BaseController
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
 			$newOrganisation = $form->getData();
+			$logo = new Media();
+			$file = $form->getData()->getLogo();
+			
+			echo "<pre>";
+			print_r($file);
+			echo "</pre>";
+		
+			$d  = new \DateTime();
+			$m = $d->format("m");
+			$y = $d->format("Y");
+
+			$upload_dir = "uploads/media-library";
+			$sub_dir = $y . DIRECTORY_SEPARATOR . $m;
+
+
+
+			// Verifies fif $request is a file
+			if ( $file instanceof UploadedFile ) {
+				if ( $file->getSize() < 2000000 ) {
+
+					$originalName = $file->getClientOriginalName();
+					$originalName = str_replace( ' ', '_', $originalName );
+
+					$mime_type = $file->getMimeType();
+					$type_array = explode( '/', $mime_type );
+					$type_check = $type_array[ sizeof( $type_array ) - 1 ];
+
+					$valid_filetypes = array( "jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime" );
+
+					if (in_array( strtolower( $type_check ), $valid_filetypes ) ) {
+						$dateUploaded = new \DateTime("Pacific/Fiji");
+						$month = $dateUploaded->format("m");
+						$year = $dateUploaded->format("Y");
+
+						$upload_dir = "uploads/media-library";
+						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
+
+						$size = $file->getSize();
+						$format = $type_array[ 0 ];
+
+						$logo->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$logo->setFileName($originalName);
+						$logo->setSize($size);
+						$logo->setFormat($format);
+
+						$uploadFileMover = new UploadFileMoverListener();
+						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($logo);
+						$em->flush();
+
+
+						$this->addFlash('success', 'The cover pic has been uploaded!');
+						return $this->redirectToRoute('admin_organisation');
+
+					} else {
+						print_r("Your file is not an image.");
+					}
+
+				} else {
+					print_r("Your file can max be 2 MB of size");
+				}
+
+			} else {
+				print_r($file);
+			}
 
 			// ... perform some action, such as saving the task to the database
 			// for example, if Task is a Doctrine entity, save it!
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($newOrganisation);
+			$em->persist($logo);
 			$em->flush();
 
 			$this->addFlash('success', 'The organisations details has been saved.');

@@ -22,7 +22,6 @@ abstract class BaseController extends Controller
 	{
 		$viewVar['pageTitle'] = $pageName . "|GetMoving";
 
-		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 
 		$identities = $this->getDoctrine()->getRepository('AppBundle:Identity')->findAll();
 		if (!empty($identities)) {
@@ -39,6 +38,7 @@ abstract class BaseController extends Controller
 		$programs = $this->getDoctrine()->getRepository('AppBundle:Program')->findAll();
 		$viewVar['programs'] = $programs;
 
+		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		$orgName = "Dummy";
 		if (!empty($organisations)) {
 			$count = count($organisations)-1;
@@ -58,9 +58,26 @@ abstract class BaseController extends Controller
 	{
 		$viewVar['pageTitle'] = "GetMoving - ".$pageName;
 
-		$programs = $this->getDoctrine()->getRepository('AppBundle:Program')->findAll();
+		$programs = $this->getDoctrine()->getRepository('AppBundle:Program')->findBy(array(
+			'isActive' => true
+		));
 		$viewVar['programs'] = $programs;
 
+		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
+		if (!empty($organisations)) {
+			$count = count($organisations)-1;
+			$currentOrg = $organisations[$count];
+
+			$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($currentOrg->getLogo());
+
+			$logo = $logo->getPath() . $logo->getFileName();
+
+		} else {
+			$logo = "media/dummy.png";
+			$currentOrg = new Organisation();
+		}
+		$viewVar['organisation'] = $currentOrg;
+		$viewVar['logo'] = DIRECTORY_SEPARATOR.$logo;
 
 		return $viewVar;
 	}
