@@ -7,47 +7,25 @@
     <thead>
       <th>Name</th>
       <th>Birthday</th>
-      <th>Sex</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Nationality</th>
       <th>Arrival</th>
       <th>Duration</th>
-      <th>CountryAdd</th>
-      <th>Region</th>
-      <th>Zip</th>
-      <th>City</th>
-      <th>StreetAdd</th>
-      <th>PoBox</th>
-      <th>HouseNo</th>
-      <th>CO</th>
-      <th>Roles</th>
+      <th>Edit</th>
     </thead>
     <tbody>
     {% for volunteer in volunteers %}
-    <tr>
-      <td>{{ volunteer.firstName }} {{ volunteer.middleName }} {{ volunteer.lastName }}</td>
-      <td>{{ volunteer.dateOfBirth|date("Y-m-d") }}</td>
-      <td>{{ volunteer.sex }}</td>
-      <td>{{ volunteer.email }}</td>
-      <td>{{ volunteer.phone }}</td>
-      <td>{{ volunteer.nationality }}</td>
-      <td>{{ volunteer.programArrival|date("Y-m-d") }}</td>
-      <td>{{ volunteer.programDuration }}</td>
-      <td>{{ volunteer.addressCountry }}</td>
-      <td>{{ volunteer.addressRegion }}</td>
-      <td>{{ volunteer.addressZip }}</td>
-      <td>{{ volunteer.addressCity }}</td>
-      <td>{{ volunteer.addressStreet }}</td>
-      <td>{{ volunteer.addressPoBox }}</td>
-      <td>{{ volunteer.addressHouseNo }}</td>
-      <td>{{ volunteer.addressCo }}</td>
-      <td>
-        {% for role in volunteer.roles %}
-            {{ role }}
-        {% endfor %}
-      </td>
-    </tr>
+      <tr>
+        <td>{{ volunteer.firstName }} {{ volunteer.middleName }} {{ volunteer.lastName }}</td>
+        <td>{{ volunteer.dateOfBirth|date("Y-m-d") }}</td>
+        <td>{{ volunteer.email }}</td>
+        <td>{{ volunteer.phone }}</td>
+        <td>{{ volunteer.nationality }}</td>
+        <td>{{ volunteer.programArrival|date("Y-m-d") }}</td>
+        <td>{{ volunteer.programDuration }} weeks</td>
+        <td class="text-center"><a href="{{ path('admin_volunteer_edit', {'volunteerId': volunteer.id}) }}"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
+      </tr>
     {% endfor %}
     </tbody>
   </table>

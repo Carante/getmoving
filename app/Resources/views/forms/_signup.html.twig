@@ -1,46 +1,126 @@
 <div class="row">
-{{ form_start(form) }}
-    <div class="well well-lg">
-        {{ form_row(form.firstName) }}
-        {{ form_row(form.middleName) }}
-        {{ form_row(form.lastName) }}
-        {{ form_row(form.dateOfBirth) }}
-        {{ form_row(form.sex) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.phone) }}
-        {{ form_row(form.nationality) }}
-        {{ form_row(form.plainPassword.first, {
-            'label': 'Password'
-        }) }}
-        {{ form_row(form.plainPassword.second, {
-            'label': 'Repeat password'
-        }) }}
+  {{ form_start(form) }}
+  <div id="register_step_1" class="well well-lg step-wrap" data-step="1">
+    <h3 class="margin--top-none margin--bot-l">Who are you?</h3>
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.middleName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.dateOfBirth) }}
+    {{ form_row(form.sex) }}
+    {{ form_row(form.nationality) }}
+    <div class="row margin--top">
+      <span class="btn btn-primary btn-sm pull-right step-change" data-step="2">Next <i class="fa fa-arrow-right"></i></span>
+    </div>
+  </div>
+
+  <div id="register_step_2" class="well well-lg step-wrap" data-step="2" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">Your password</h3>
+    {{ form_row(form.plainPassword.first, {
+      'label': 'Password'
+    }) }}
+    {{ form_row(form.plainPassword.second, {
+      'label': 'Repeat password'
+    }) }}
+    <div class="row margin--top">
+      <span class="btn btn-primary pull-right step-change" data-step="3">Next <i class="fa fa-arrow-right"></i></span>
+      <sapn class="btn btn-default btn-sm pull-left step-change" data-step="1"><i class="fa fa-arrow-left"></i> Previous</sapn>
+    </div>
+  </div>
+
+  <div id="register_step_3" class="well well-lg step-wrap" data-step="3" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">How do we contact you?</h3>
+    {{ form_row(form.email) }}
+    {{ form_row(form.phone) }}
+    <div class="row">
+      <span class="btn btn-primary pull-right step-change" data-step="4">Next <i class="fa fa-arrow-right"></i></span>
+      <span class="btn btn-default btn-sm pull-left step-change" data-step="2"><i class="fa fa-arrow-left"></i> Previous</span>
+    </div>
+  </div>
+
+  <div id="register_step_4" class="well well-lg step-wrap" data-step="4" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">Your address</h3>
+    {{ form_row(form.addressCountry) }}
+    {{ form_row(form.addressRegion) }}
+    {{ form_row(form.addressZip) }}
+    {{ form_row(form.addressCity) }}
+    {{ form_row(form.addressStreet) }}
+    {{ form_row(form.addressPoBox) }}
+    {{ form_row(form.addressHouseNo) }}
+    {{ form_row(form.addressCo) }}
+    <div class="row margin--top">
+      <span class="btn btn-primary pull-right step-change" data-step="5">Next <i class="fa fa-arrow-right"></i></span>
+      <span class="btn btn-default btn-sm pull-left step-change" data-step="3"><i class="fa fa-arrow-left"></i> Previous</span>
+    </div>
+  </div>
+
+  <div id="register_step_5" class="well well-lg step-wrap" data-step="5" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">Details about your volunteering?</h3>
+    {{ form_row(form.programArrival) }}
+    {{ form_row(form.programDuration) }}
+    <div class="row margin--top">
+      <span class="btn btn-primary pull-right step-change" data-step="6">Next <i class="fa fa-arrow-right"></i></span>
+      <span class="btn btn-default btn-sm pull-left step-change" data-step="4"><i class="fa fa-arrow-left"></i> Previous</span>
+    </div>
+  </div>
+
+  <div id="register_step_6" class="well well-lg step-wrap" data-step="6" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">Just a bit about your education</h3>
+    {{ form_row(form.eduLevelExpected) }}
+    {{ form_row(form.eduCurrentPlace) }}
+    {{ form_row(form.eduCurrentProgram) }}
+    {{ form_row(form.eduFuturePlace) }}
+    {{ form_row(form.eduFutureProgram) }}
+    <div class="row margin--top">
+      <span class="btn btn-primary pull-right step-change" data-step="7">Next <i class="fa fa-arrow-right"></i></span>
+      <span class="btn btn-default btn-sm pull-left step-change" data-step="5"><i class="fa fa-arrow-left"></i> Previous</span>
+    </div>
+  </div>
+
+  <div id="register_step_7" class="well well-lg step-wrap" data-step="7" style="display: none;">
+    <h3 class="margin--top-none margin--bot-l">Please confirm all details</h3>
+    <h4>Personal information</h4>
+    <div class="text-left margin--bot">
+      <p><strong>Name:</strong> <span id="nameConfirm"></span></p>
+      <p><strong>Date of birth:</strong> <span id="dobConfirm"></span></p>
+      <p><strong>Gender:</strong> <span id="genderConfirm"></span></p>
+      <p><strong>Nationality:</strong> <span id="nationalityConfirm"></span></p>
+    </div>
+    <h4>Contact</h4>
+    <div class="text-left margin--bot">
+      <p><strong>Email:</strong> <span id="emailConfirm"></span></p>
+      <p><strong>Phone:</strong> <span id="phoneConfirm"></span></p>
+    </div>
+    <h4>Address</h4>
+    <div class="text-left margin--bot">
+      <p><strong>Country:</strong> <span id="countryConfirm"></span></p>
+      <p><strong>Region:</strong> <span id="regionConfirm"></span></p>
+      <p><strong>Zip code:</strong> <span id="zipConfirm"></span></p>
+      <p><strong>City:</strong> <span id="cityConfirm"></span></p>
+      <p><strong>Street:</strong> <span id="streetConfirm"></span></p>
+      <p><strong>Suite/PoBox etc.:</strong> <span id="poboxConfirm"></span></p>
+      <p><strong>House number:</strong> <span id="housenoConfirm"></span></p>
+      <p><strong>C/O:</strong> <span id="coConfirm"></span></p>
+    </div>
+    <h4>Program</h4>
+    <div class="text-left margin--bot">
+      <p><strong>Program:</strong> <span id="programConfirm">{{ program.title }}</span></p>
+      <p><strong>Arrival:</strong> <span id="arrivalConfirm"></span></p>
+      <p><strong>Duration:</strong> <span id="durationConfirm"></span></p>
+    </div>
+    <h4 class="margin--top-none margin--bot-l">Education</h4>
+    <div class="text-left margin--bot">
+      <p><strong>Expected level:</strong> <span id="edulevelConfirm"></span></p>
+      <p><strong>Current school:</strong> <span id="curplaceConfirm"></span></p>
+      <p><strong>Current program:</strong> <span id="curprogramConfirm"></span></p>
+      <p><strong>Future school:</strong> <span id="futplaceConfirm"></span></p>
+      <p><strong>Future program:</strong> <span id="futprogramConfirm"></span></p>
     </div>
 
-    <div class="well well-lg">
-        {{ form_row(form.programArrival) }}
-        {{ form_row(form.programDuration) }}
+    <div class="row margin--top">
+      <button class="btn btn-success btn-lg btn-block" type="submit">Register me <i class="fa fa-thumbs-o-up"></i></button>
+      <br>
+      <span class="btn btn-default btn-sm btn-block step-change" data-step="1">Change info <i class="fa fa-edit"></i></span>
     </div>
-
-    <div class="well well-lg">
-        {{ form_row(form.addressCountry) }}
-        {{ form_row(form.addressRegion) }}
-        {{ form_row(form.addressZip) }}
-        {{ form_row(form.addressCity) }}
-        {{ form_row(form.addressCo) }}
-        {{ form_row(form.addressStreet) }}
-        {{ form_row(form.addressPoBox) }}
-        {{ form_row(form.addressHouseNo) }}
-    </div>
-
-    <div class="well well-lg">
-        {{ form_row(form.eduLevelExpected) }}
-        {{ form_row(form.eduCurrentPlace) }}
-        {{ form_row(form.eduCurrentProgram) }}
-        {{ form_row(form.eduFuturePlace) }}
-        {{ form_row(form.eduFutureProgram) }}
-    </div>
-    
-    <button class="btn btn-success" type="submit">Register <i class="fa fa-thumbs-o-up"></i></button>
-{{ form_end(form) }}
+  </div>
+  {{ form_end(form) }}
 </div>

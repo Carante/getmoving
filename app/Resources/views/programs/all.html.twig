@@ -20,7 +20,7 @@
 							{{ program.teaser }}
 						</div>
 						<div class="program_links margin--top">
-							<a href=""><button class="btn btn-success btn-sm margin--right-l">Register</button></a>
+							<a href="{{ path('register_for_program', {'programId': program.id}) }}"><button class="btn btn-success btn-sm margin--right-l">Register</button></a>
 							<a href=""><button class="btn btn-default btn-sm">Read more</button></a>
 						</div>
 					</div>

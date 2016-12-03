@@ -1,6 +1,6 @@
 {{ form_start(form) }}
   {{ form_row(form.startDate) }}
-  {{ form_widget(form.startDate, { 'data': program.startDate|date }) }}
+  {{ form_widget(form.startDate) }}
 <div class="form-group" id="program_startDateFlexible">
   {% if program.flexStart == true %}
     {{ form_widget(form.flexStart, { 'checked': 'checked' }) }}
@@ -16,44 +16,44 @@
     {{ form_widget(form.isActive) }}
   {% endif %}
 </div>
-
+  {{ form_row(form.feature) }}
 <div class="row">
   <div class="col-md-6">
-    {{ form_row(form.title, { 'value': program.title } ) }}
+    {{ form_row(form.title) }}
   </div>
   <div class="col-md-6">
-    {{ form_row(form.role, { 'value': program.role } ) }}
+    {{ form_row(form.role) }}
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    {{ form_row(form.teaser, { 'value': program.teaser } ) }}
+    {{ form_row(form.teaser) }}
   </div>
   <div class="col-md-6">
-    {{ form_row(form.location, { 'value': program.location } ) }}
+    {{ form_row(form.location) }}
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    {{ form_row(form.stay, { 'value': program.stay } ) }}
+    {{ form_row(form.stay) }}
   </div>
   <div class="col-md-6">
-    {{ form_row(form.meals, { 'value': program.meals } ) }}
+    {{ form_row(form.meals) }}
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    {{ form_row(form.price, { 'value': program.price } ) }}
+    {{ form_row(form.price) }}
   </div>
   <div class="col-md-6">
-    {{ form_row(form.minDuration, { 'value': program.minDuration } ) }}
+    {{ form_row(form.minDuration) }}
   </div>
 </div>
 
-{{ form_row(form.description, { 'value': program.description } ) }}
+{{ form_row(form.description) }}
 
 {# Render CSRF token etc .#}
 <div style="display:none">

@@ -20,11 +20,6 @@ class Media
 	private $id;
 
 	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
-	private $title;
-
-	/**
 	 * @ORM\Column(type="string")
 	 */
 	private $file_name;
@@ -54,125 +49,83 @@ class Media
 
 	public function __construct(){
 		$this->dateUploaded = new \DateTime();
+//		$this->organistation = new ArrayCollection();
 	}
 
 	/**
 	 * ORM\OneToMany(targetEntity="Organisation", mappedBy="media")
 	 */
-	private $organisations;
+//	private $organisation ;
 
 
-	/**
-	 * @return mixed
-	 */
+	//////////////////////////////////////
+	// Get ID for relations and references
 	public function getId()
 	{
 		return $this->id;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getTitle()
-	{
-		return $this->title;
-	}
 
-	/**
-	 * @param mixed $title
-	 */
-	public function setTitle($title)
-	{
-		$this->title = $title;
-	}
+	//////////////////////////
+	// MEDIA DETAILS GET'n'SET
 
-	/**
-	 * @return mixed
-	 */
+	// Path (udloads/media-library/yyyy/mm)
 	public function getPath()
 	{
 		return $this->path;
 	}
-
-	/**
-	 * @param mixed $path
-	 */
 	public function setPath($path)
 	{
 		$this->path = $path;
 	}
 
-	/**
-	 * @return mixed
-	 */
+	// File size
 	public function getSize()
 	{
 		return $this->size;
 	}
-
-	/**
-	 * @param mixed $size
-	 */
 	public function setSize($size)
 	{
 		$this->size = $size;
 	}
 
-	/**
-	 * @return mixed
-	 */
+	// Format (image, video etc.)
 	public function getFormat()
 	{
 		return $this->format;
 	}
-
-	/**
-	 * @param mixed $format
-	 */
 	public function setFormat($format)
 	{
 		$this->format = $format;
 	}
 
-	/**
-	 * @return \DateTime
-	 */
+	// Date uploaded
 	public function getDateUploaded()
 	{
 		return $this->dateUploaded;
 	}
-
-	/**
-	 * @param \DateTime $dateUploaded
-	 */
 	public function setDateUploaded($dateUploaded)
 	{
 		$this->dateUploaded = $dateUploaded;
 	}
 
-	/**
-	 * @return mixed
-	 */
+	// File name
 	public function getFileName()
 	{
 		return $this->file_name;
 	}
-
-	/**
-	 * @param mixed $file_name
-	 */
 	public function setFileName($file_name)
 	{
 		$this->file_name = $file_name;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getOrganisations()
-	{
-		return $this->organisations;
-	}
+
+	/////////////////////////////////
+	// Get Organisation for relations
+//	public function getOrganisation()
+//	{
+//		return $this->organisation;
+//	}
 
 
 }

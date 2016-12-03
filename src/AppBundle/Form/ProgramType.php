@@ -56,6 +56,7 @@ class ProgramType extends AbstractType
 					'required' => false,
 					'label' => 'Active'
 				))
+				->add('feature', MediaType::class, array())
 			;
     }
 

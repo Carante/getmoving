@@ -1,27 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="loginbox">
-                        <h1>Login</h1>
-                        {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                        {% endif %}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          {% for msg in app.session.flashBag.get('success') %}
+            <div class="alert alert-success">{{ msg }}</div>
+          {% endfor %}
+          {% for msg in app.session.flashBag.get('error') %}
+            <div class="alert alert-danger">{{ msg }}</div>
+          {% endfor %}
+          <div class="row form-wrap registration-form-wrap well well-lg white margin--top-huge">
+            <h1 class="margin--top-none margin--bot-l">Login</h1>
+            {% if error %}
+              <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-                        {{ form_start(form) }}
-                        {{ form_row(form._username) }}
-                        {{ form_row(form._password) }}
+            {{ form_start(form) }}
+            {{ form_row(form._username) }}
+            {{ form_row(form._password) }}
 
-                        <button type="submit" class="btn btn-success">Login <i class="fa fa-lock "></i></button>
-                        <a href="{{ path("user_register") }}">Register</a>
-                        {{ form_end(form) }}
-                    </div>
-                </div>
+            <button type="submit" class="btn btn-success btn-sm btn-block margin--top">Login <i
+                  class="fa fa-sign-in "></i></button>
+            {{ form_end(form) }}
+            <div class="margin--top">
+              <a class="pull-left" href="{{ path('security_retrieve_password') }}">Forgot your password?</a>
+              <a class="pull-right" href="{{ path("programs_list") }}">Register for a program</a>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 

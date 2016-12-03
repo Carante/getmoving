@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,6 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Program
 {
+
+
 	/**
 	 * @ORM\Id
 	 * @ORM\GeneratedValue(strategy="AUTO")
@@ -84,6 +87,23 @@ class Program
 	 */
 	private $isActive = true;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
+	 * @ORM\JoinTable(name="program_participants")
+	 */
+	private $programParticipant;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Media")
+	 */
+	private $feature;
+
+
+	public function __construct()
+	{
+		$this->programParticipant = new ArrayCollection();
+	}
+
 
 	///////////////////////
 	// GET ID FOR LINKS ao.
@@ -101,6 +121,7 @@ class Program
 	{
 		return $this->title;
 	}
+
 	public function setTitle($title)
 	{
 		$this->title = $title;
@@ -111,6 +132,7 @@ class Program
 	{
 		return $this->teaser;
 	}
+
 	public function setTeaser($teaser)
 	{
 		$this->teaser = $teaser;
@@ -121,6 +143,7 @@ class Program
 	{
 		return $this->description;
 	}
+
 	public function setDescription($description)
 	{
 		$this->description = $description;
@@ -135,6 +158,7 @@ class Program
 	{
 		return $this->role;
 	}
+
 	public function setRole($role)
 	{
 		$this->role = $role;
@@ -145,6 +169,7 @@ class Program
 	{
 		return $this->location;
 	}
+
 	public function setLocation($location)
 	{
 		$this->location = $location;
@@ -155,6 +180,7 @@ class Program
 	{
 		return $this->stay;
 	}
+
 	public function setStay($stay)
 	{
 		$this->stay = $stay;
@@ -165,6 +191,7 @@ class Program
 	{
 		return $this->meals;
 	}
+
 	public function setMeals($meals)
 	{
 		$this->meals = $meals;
@@ -175,6 +202,7 @@ class Program
 	{
 		return $this->minDuration;
 	}
+
 	public function setMinDuration($minDuration)
 	{
 		$this->minDuration = $minDuration;
@@ -185,6 +213,7 @@ class Program
 	{
 		return $this->price;
 	}
+
 	public function setPrice($price)
 	{
 		$this->price = $price;
@@ -199,6 +228,7 @@ class Program
 	{
 		return $this->startDate;
 	}
+
 	public function setStartDate($startDate)
 	{
 		$this->startDate = $startDate;
@@ -209,6 +239,7 @@ class Program
 	{
 		return $this->flexStart;
 	}
+
 	public function setFlexStart($flexStart)
 	{
 		$this->flexStart = $flexStart;
@@ -223,11 +254,34 @@ class Program
 	{
 		return $this->isActive;
 	}
+
 	public function setIsActive($isActive)
 	{
 		$this->isActive = $isActive;
 	}
 
+
+	/////////////////////
+	// RELATION FUNCTIONS
+
+	// Feature media get'n'set
+	public function getFeature()
+	{
+		return $this->feature;
+	}
+
+	public function setFeature(Media $feature)
+	{
+		$this->feature = $feature;
+	}
+
+	public function addProgramParticipant(User $user)
+	{
+		if ($this->programParticipant->contains($user)) {
+			return;
+		}
+		$this->programParticipant[] = $user;
+	}
 
 
 }

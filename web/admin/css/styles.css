@@ -421,3 +421,19 @@ body {
 	.mobile-light{ font-weight: 100 !important; }
 	.mobile-all--caps{ text-transform: uppercase !important; }
 }
+
+
+.mediaImg{
+	opacity:.75;
+	display: block;
+	width: 100%;
+	height: 15vw;
+	border: 1px solid #3b1352;
+	border-radius: 5px;
+	box-shadow: 0 0 4px rgba(75, 50, 50, 0.43);
+	transition: 0.42s all;
+}
+.mediaImg:hover{
+	opacity:1;
+	box-shadow: -1px 2px 12px rgba(75, 50, 50, 0.52);
+}

@@ -23,20 +23,25 @@ abstract class BaseController extends Controller
 		$viewVar['pageTitle'] = $pageName . "|GetMoving";
 
 
-		$identities = $this->getDoctrine()->getRepository('AppBundle:Identity')->findAll();
-		if (!empty($identities)) {
-			$count = count($identities) - 1;
-			$currentIdentity = $identities[$count];
-		} else {
-			$currentIdentity = new Identity();
-		}
-		$viewVar['identity'] = $currentIdentity;
+		$profiles = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
+		$viewVar['profiles'] = $profiles;
+		$profilesCount = count($profiles) - 1;
 
-		$volunteers = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
+		$volunteers = [];
+		$users = [];
+		for ($i = 0 ; $i <= $profilesCount ; ++$i) {
+			if (in_array('ROLE_ADMIN', $profiles[$i]->getRoles(), true)){
+				$users[] = $profiles[$i];
+			} elseif (in_array('ROLE_VOLUNTEER', $profiles[$i]->getRoles(), true)) {
+				$volunteers[] = $profiles[$i];
+			}
+		}
 		$viewVar['volunteers'] = $volunteers;
+		$viewVar['users'] = $users;
 
 		$programs = $this->getDoctrine()->getRepository('AppBundle:Program')->findAll();
 		$viewVar['programs'] = $programs;
+
 
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		$orgName = "Dummy";
@@ -51,6 +56,10 @@ abstract class BaseController extends Controller
 		$viewVar['organisation'] = $currentOrg;
 		$viewVar['orgName'] = $orgName;
 
+		$media = $this->getDoctrine()->getRepository('AppBundle:Media')->findAll();
+		$media == null ? $medias = [] : $medias = $media;
+		$viewVar['medias'] = $medias;
+
 		return $viewVar;
 	}
 
@@ -63,14 +72,21 @@ abstract class BaseController extends Controller
 		));
 		$viewVar['programs'] = $programs;
 
+
+		$profiles = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
+		$viewVar['profiles'] = $profiles;
+
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		if (!empty($organisations)) {
 			$count = count($organisations)-1;
 			$currentOrg = $organisations[$count];
 
-			$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($currentOrg->getLogo());
-
-			$logo = $logo->getPath() . $logo->getFileName();
+			if ($currentOrg->getLogo() != null) {
+				$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($currentOrg->getLogo());
+				$logo = $logo->getPath() . $logo->getFileName();
+			}	else {
+				$logo = "media/dummy.png";
+			}
 
 		} else {
 			$logo = "media/dummy.png";

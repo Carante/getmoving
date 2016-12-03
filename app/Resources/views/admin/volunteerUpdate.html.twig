@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+  <h1 class="page-header">{{ volunteer.firstName }} {% if volunteer.middleName is not null %}{{ volunteer.middleName }} {% endif %}{{ volunteer.lastName }}</h1>
+      {{ include('forms/_updateVolunteer.html.twig') }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+

@@ -11,6 +11,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OrganisationRepository")
@@ -52,7 +53,7 @@ class Organisation
 	private $coreValues = [];
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Media", inversedBy="posts")
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Media")
 	 */
 	private $logo;
 
@@ -116,10 +117,6 @@ class Organisation
 	 */
 	private $googleplus;
 
-	public function __construct()
-	{
-		$this->cover = new ArrayCollection();
-	}
 
 	/////////////////////
 	// IDENTITY GET'n'SET
@@ -140,7 +137,7 @@ class Organisation
 		return $this->logo;
 	}
 
-	public function setLogo($logo)
+	public function setLogo(Media $logo)
 	{
 		$this->logo = $logo;
 	}

@@ -1,32 +1,46 @@
 AppBundle\Entity\User:
-  user_{1..5}:
+  user:
+    firstName: Claus
+    middleName: Kaiser
+    lastName: Paustian
+    dateOfBirth: <dateTimeBetween('1991-05-02', '1991-05-02')>
+    sex: 1
+    nationality: DNK
+    email: solution@carante.dk
+    phone: 21469172
+    addressCountry: DNK
+    addressRegion: Copenhagen
+    addressCity: Søborg
+    addressZip: 2860
+    addressStreet: Søborg Hovedgade
+    addressHouseNo: 207
+    eduLevelExpected: Bachelor
+    eduCurrentPlace: KEA
+    eduCurrentProgram: Web Development
+    plainPassword: turtles
+    roles: ['ROLE_ADMIN']
+
+  user_{1..50}:
     firstName: <firstName()>
     lastName: <lastName()>
     dateOfBirth: <dateTimeBetween('1970-10-10', '2000-10-10')>
     sex: <numberBetween(0-1)>
-    nationality: "DNK"
-    programArrival:  <dateTimeBetween('2016-12-01', '2018-01-31')>
+    nationality: '30%? DNK : 15%? AUT : 10%? SWE : 15%? NOR : 13%? DEU : PAN'
+    programArrival:  <dateTimeBetween('now', '+10 months')>
+    programDuration: <numberBetween(2, 12)>
     email: c.kaiser.p+<current()>@gmail.com
     phone: <numberBetween(22222222, 99999999)>
-    addressCountry: "Denmark"
-    addressRegion: "Copenhagen"
-    addressCity: "Søborg"
-    addressZip: <numberBetween(1000-9999)>
-    addressStreet: <text(12)>
+    addressCountry: '30%? DNK : 15%? AUT : 10% SWE : 15% NOR : 13% GER : BAN'
+    addressRegion: <state()>
+    addressCity: <city()>
+    addressZip: <numberBetween(1000, 9999)>
+    addressStreet: <streetName()>
     addressHouseNo: <buildingNumber()>
     eduLevelExpected: "Bachelor"
     eduCurrentPlace: KEA
     eduCurrentProgram: Web Development
-    eduFuturePlace: ?
-    eduFutureProgram: ?
     plainPassword: turtles
-    roles: ['ROLE_ADMIN']
-
-AppBundle\Entity\Identity:
-  identity_{1}:
-    logo: logo.png
-    mainColor: "#251669"
-    secondColor: "#FF00FF"
+    roles: ['2%? ROLE_ADMIN : ROLE_VOLUNTEER']
 
 AppBundle\Entity\Organisation:
   organisation_{1}:
@@ -45,3 +59,19 @@ AppBundle\Entity\Organisation:
     instagram: GetMoving
     snapchat: GetMoving
     youtube: GetMoving
+
+
+AppBundle\Entity\Program:
+  program_{1..4}:
+    title: <sentence(1.5)>
+    teaser: <paragraph(1)>
+    description: <paragraph(5.15)>
+    role: <word()>
+    location: 'Nadi, Fiji'
+    stay: Homestay
+    meals: All meals
+    minDuration: <numberBetween(2, 12)>
+    price: <numberBetween(50, 200)>
+    startDate:  <dateTimeBetween('now', '+2 years')>
+    flexStart: <boolean(75)>
+    isActive: <boolean(75)>

@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -50,6 +51,12 @@ class User implements UserInterface
 	 * @Assert\NotBlank(groups={"Registration"})
 	 */
 	private $plainPassword;
+
+
+	public function getId()
+	{
+		return $this->id;
+	}
 
 	public function getUsername()
 	{
@@ -113,7 +120,8 @@ class User implements UserInterface
 		return $this->email;
 	}
 
-	public function __construct(){
+	public function __construct()
+	{
 		$this->date = new \DateTime();
 	}
 
@@ -246,7 +254,6 @@ class User implements UserInterface
 	 * @ORM\Column(type="boolean")
 	 */
 	private $isActive = true;
-
 
 
 	// External files needed
@@ -507,6 +514,7 @@ class User implements UserInterface
 	{
 		return $this->programArrival;
 	}
+
 	public function setProgramArrival($programArrival)
 	{
 		$this->programArrival = $programArrival;
@@ -517,6 +525,7 @@ class User implements UserInterface
 	{
 		return $this->programDuration;
 	}
+
 	public function setProgramDuration($programDuration)
 	{
 		$this->programDuration = $programDuration;
