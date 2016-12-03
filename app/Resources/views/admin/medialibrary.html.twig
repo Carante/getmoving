@@ -10,7 +10,7 @@
   </div>
   <div class="row margin--top-huge">
     {% for media in medias|reverse %}
-      <div class="col-md-3 col-sm-4 col-xs-6">
+      <div class="col-md-3 col-sm-4 col-xs-6 padding--whole-xs">
         <a href="/{{ media.path }}{{ media.filename }}" target="_blank"><span class="mediaImg" style="background: url('/{{ media.path }}{{ media.filename }}')  no-repeat center center;background-size:cover;"></span></a>
       </div>
     {% endfor %}
@@ -21,3 +21,6 @@
   {{ parent() }}
 {% endblock %}
 
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}

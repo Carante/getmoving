@@ -12,7 +12,7 @@
 			</div>
 			<div class="row margin--top">
 				{% for program in programs %}
-					<div class="col-md-6 padding--whole-l">
+					<div class="col-md-6 padding--whole-l" {% if program.feature is not null %}style="background: url('/{{ program.feature.path }}{{ program.feature.filename }}') no-repeat center center; background-size:cover;">{% endif %}
 						<h2 class="text-center">{{ program.title }}</h2>
 						<p class="list-price">Price: $ {{ program.price }}/wk | Min. {{ program.minDuration }} weeks</p>
 						<p class="location">{{ program.location }}</p>

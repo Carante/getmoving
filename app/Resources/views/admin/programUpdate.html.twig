@@ -9,3 +9,30 @@
   {{ parent() }}
 {% endblock %}
 
+{% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#program_feature_path").fileinput({
+//        previewFileType: "image",
+//        allowedFileExtensions: ["png", "jpg", "jpeg", "gif"],
+        initialPreview:
+          'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+        initialPreviewAsData: true,
+        maxFileSize: 200
+      });
+
+//      $("#program_feature_path").fileinput({
+//        previewFileType: "image",
+//        allowedFileExtensions: ["png", "jpg", "jpeg", "gif"],
+//        initialPreview: 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+//        initialPreviewAsData: true,
+//        initialPreviewConfig: {caption: "Moon.jpg", size: 930321, width: "120px", key: 1, showDelete: false},
+//        deleteUrl: "/site/file-delete",
+//        overwriteInitial: true,
+//        initialCaption: "The Moon and the Earth"
+//      });
+    });
+  </script>
+{% endblock %}
+

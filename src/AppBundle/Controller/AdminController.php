@@ -69,7 +69,7 @@ class AdminController extends BaseController
 			print_r($file);
 			echo "</pre>";
 
-//			 Verifies if $request is a file
+			// Verifies if $request is a file
 			if ( $file instanceof UploadedFile ) {
 				echo "INSTANCE OF UPLOADFILE";
 				if ( $file->getSize() < 2000000 ) {
@@ -334,10 +334,67 @@ class AdminController extends BaseController
 		$form->handleRequest($request);
 		if ($form->isValid() && $form->isSubmitted()) {
 			$newProgram = $form->getData();
+			$feature = new Media();
+			$file = $form->getData()->getLogo()->getPath();
 
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($newProgram);
-			$em->flush();
+			echo "<pre>";
+			print_r($file);
+			echo "</pre>";
+
+			// Verifies if $request is a file
+			if ( $file instanceof UploadedFile ) {
+				echo "INSTANCE OF UPLOADFILE";
+				if ( $file->getSize() < 2000000 ) {
+
+					$originalName = $file->getClientOriginalName();
+					$originalName = str_replace( ' ', '_', $originalName );
+
+					$mime_type = $file->getMimeType();
+					$type_array = explode( '/', $mime_type );
+					$type_check = $type_array[ sizeof( $type_array ) - 1 ];
+
+					$valid_filetypes = array( "jpg", "jpeg", "png" );
+
+					if (in_array( strtolower( $type_check ), $valid_filetypes ) ) {
+						$dateUploaded = new \DateTime("Pacific/Fiji");
+						$month = $dateUploaded->format("m");
+						$year = $dateUploaded->format("Y");
+
+						$upload_dir = "uploads/media-library";
+						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
+
+						$size = $file->getSize();
+						$format = $type_array[ 0 ];
+
+						$feature->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$feature->setFileName($originalName);
+						$feature->setSize($size);
+						$feature->setFormat($format);
+
+						$uploadFileMover = new UploadFileMoverListener();
+						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+
+						$newProgram->setFeature($feature);
+
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($feature);
+						$em->persist($newProgram);
+						$em->flush();
+
+						$this->addFlash('success', 'The cover pic has been uploaded!');
+						return $this->redirectToRoute('admin_programs');
+
+					} else {
+						print_r("Your file is not an image.");
+					}
+
+				} else {
+					print_r("Your file can max be 2 MB of size");
+				}
+
+			} else {
+				print_r($file);
+			}
 
 			$this->addFlash('success', 'The program has been created');
 			return $this->redirectToRoute('admin_programs');
@@ -361,20 +418,76 @@ class AdminController extends BaseController
 		$form->handleRequest($request);
 		if ($form->isValid() && $form->isSubmitted()) {
 			$newProgram = $form->getData();
+			$feature = new Media();
+			$file = $form->getData()->getFeature()->getPath();
 
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($newProgram);
-			$em->flush();
+			echo "<pre>";
+			print_r($file);
+			echo "</pre>";
 
-			$this->addFlash('success', 'The program has been created');
-			return $this->redirectToRoute('admin_programs');
+			// Verifies if $request is a file
+			if ($file instanceof UploadedFile) {
+				echo "INSTANCE OF UPLOADFILE";
+				if ($file->getSize() < 2000000) {
+
+					$originalName = $file->getClientOriginalName();
+					$originalName = str_replace(' ', '_', $originalName);
+
+					$mime_type = $file->getMimeType();
+					$type_array = explode('/', $mime_type);
+					$type_check = $type_array[sizeof($type_array) - 1];
+
+					$valid_filetypes = array("jpg", "jpeg", "png");
+
+					if (in_array(strtolower($type_check), $valid_filetypes)) {
+						$dateUploaded = new \DateTime("Pacific/Fiji");
+						$month = $dateUploaded->format("m");
+						$year = $dateUploaded->format("Y");
+
+						$upload_dir = "uploads/media-library";
+						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
+
+						$size = $file->getSize();
+						$format = $type_array[0];
+
+						$feature->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$feature->setFileName($originalName);
+						$feature->setSize($size);
+						$feature->setFormat($format);
+
+						$uploadFileMover = new UploadFileMoverListener();
+						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+
+						$newProgram->setFeature($feature);
+
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($feature);
+						$em->persist($newProgram);
+						$em->flush();
+
+						$this->addFlash('success', 'The cover pic has been uploaded!');
+						return $this->redirectToRoute('admin_programs');
+
+					} else {
+						print_r("Your file is not an image.");
+					}
+
+				} else {
+					print_r("Your file can max be 2 MB of size");
+				}
+
+			} else {
+				print_r($file);
+			}
 		}
+
 
 		if (!$program) {
 			throw $this->createNotFoundException(
 				'No program found :( '
 			);
 		}
+
 		$viewVar['form'] = $form->createView();
 
 		return $this->render('admin/programUpdate.html.twig', $viewVar);
