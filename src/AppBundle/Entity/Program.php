@@ -98,10 +98,17 @@ class Program
 	 */
 	private $feature;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Media")
+	 * @ORM\JoinTable(name="program_media")
+	 */
+	private $programMedia;
+
 
 	public function __construct()
 	{
 		$this->programParticipant = new ArrayCollection();
+		$this->programMedia = new ArrayCollection();
 	}
 
 
@@ -281,6 +288,14 @@ class Program
 			return;
 		}
 		$this->programParticipant[] = $user;
+	}
+
+	public function addProgramMedia(Media $media)
+	{
+		if ($this->programMedia->contains($media)) {
+			return;
+		}
+		$this->programParticipant[] = $media;
 	}
 
 

@@ -16,7 +16,11 @@
     {{ form_widget(form.isActive) }}
   {% endif %}
 </div>
-  {{ form_row(form.feature) }}
+{{ form_label(form.feature) }}
+<div id="kv-avatar-errors-2" style="width:800px;display:none"></div>
+<div class="kv-avatar" style="width:200px">
+  {{ form_widget(form.feature) }}
+</div>
 <div class="row">
   <div class="col-md-6">
     {{ form_row(form.title) }}

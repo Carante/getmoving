@@ -2,6 +2,11 @@
 <div>
   <h4>Identity</h4>
 	{{ form_row(form.name, { 'value' : organisation.name } ) }}
+  {{ form_label(form.logo) }}
+  <div id="kv-avatar-errors-2" style="width:800px;display:none"></div>
+  <div class="kv-avatar" style="width:200px">
+    {{ form_widget(form.logo) }}
+  </div>
   {{ form_row(form.logo) }}
   {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
   {{ form_row(form.description, {'label': 'Short describption', 'value': organisation.description}) }}
