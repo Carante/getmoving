@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class UploadFileMoverListener {
 
 	public function moveUploadedFile(UploadedFile $file, $uploadBasePath, $relativePath, $filename) {
-		$originalName = $file->getFilename();
+		$originalName = $filename;
 		// use filemtime() to have a more determenistic way to determine the subpath, otherwise its hard to test.
 		// $relativePath = date('Y-m', filemtime($file->getPath()));
 		$targetFileName = $relativePath . DIRECTORY_SEPARATOR . $originalName;
@@ -54,6 +54,7 @@ class UploadFileMoverListener {
 				throw new \RuntimeException("Could not create target directory to move temporary file into.");
 			}
 		}
+
 		$file->move($targetDir, $filename);
 
 		return str_replace($uploadBasePath . "/", "", $targetFilePath);

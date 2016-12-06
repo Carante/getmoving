@@ -430,8 +430,28 @@ class AdminController extends BaseController
 				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace(' ', '_', $originalName);
+					$originalNameStart = str_replace(' ', '_', $originalName);
+					$unique = false;
+					$count = 1;
 
+					do {
+						foreach ($viewVar['medias'] as $item){
+							if ($item->getFileName() == $originalName) {
+								$unique = false;
+								$originalName = explode(".", $originalNameStart);
+								$originalName[0] = $originalName[0].$count;
+								$originalName = implode(".", $originalName);
+								$count++;
+//								echo $count;
+								break;
+							} else {
+								$unique = true;
+							}
+							echo $unique . " - ". $originalName . " || ";
+						}
+					} while ($unique != true);
+
+//					die();
 					$mime_type = $file->getMimeType();
 					$type_array = explode('/', $mime_type);
 					$type_check = $type_array[sizeof($type_array) - 1];
