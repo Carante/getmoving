@@ -41,7 +41,6 @@ class OrganisationType extends AbstractType
 					)
 				)
 			)
-			->add('logo', MediaType::class, array())
 			->add('emailOfficial', EmailType::class)
 			->add('emailSupport', EmailType::class, array(
 				'required' => false

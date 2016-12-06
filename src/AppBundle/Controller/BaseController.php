@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Identity;
+use AppBundle\Entity\Media;
 use AppBundle\Entity\Organisation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -45,23 +46,16 @@ abstract class BaseController extends Controller
 
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		$orgName = "Dummy";
+		$logo = new Media();
 		if (!empty($organisations)) {
 			$count = count($organisations)-1;
 			$currentOrg = $organisations[$count];
-
-			if ($currentOrg->getLogo() != null) {
-				$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($currentOrg->getLogo());
-				$logo = $logo->getPath() . $logo->getFileName();
-			}	else {
-				$logo = "media/dummy.png";
-			}
 
 			$orgName = $currentOrg->getName();
 		} else {
 			$currentOrg = new Organisation();
 		}
 		$viewVar['organisation'] = $currentOrg;
-		$viewVar['logo'] = $logo;
 		$viewVar['orgName'] = $orgName;
 
 		$media = $this->getDoctrine()->getRepository('AppBundle:Media')->findAll();

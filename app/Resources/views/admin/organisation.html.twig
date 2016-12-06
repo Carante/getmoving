@@ -14,23 +14,19 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-        var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' +
-            'onclick="alert(\'Call your custom code here.\')">' +
-            '<i class="glyphicon glyphicon-tag"></i>' +
-            '</button>';
-        $("#organisation_logo_path").fileinput({
-            overwriteInitial: true,
-            maxFileSize: 500,
-            showClose: false,
-            showCaption: false,
-            showBrowse: false,
-            browseOnZoneClick: true,
-            elErrorContainer: '#kv-avatar-errors-2',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="/{{ logo }}" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',
-            layoutTemplates: {main2: '{preview}'},
-            allowedFileExtensions: ["jpg", "png", "gif"]
-        });
+        {#$("#organisation_logo_path").fileinput({#}
+            {#overwriteInitial: true,#}
+            {#maxFileSize: 500,#}
+            {#showClose: false,#}
+            {#showCaption: false,#}
+            {#showBrowse: false,#}
+            {#browseOnZoneClick: true,#}
+            {#elErrorContainer: '#kv-avatar-errors-2',#}
+            {#msgErrorClass: 'alert alert-block alert-danger',#}
+            {#defaultPreviewContent: '<img src="/{{ logo.path }}{{ logo.filename }}" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',#}
+            {#layoutTemplates: {main2: '{preview}'},#}
+            {#allowedFileExtensions: ["jpg", "png", "gif"]#}
+        {#});#}
     </script>
 {% endblock %}
 

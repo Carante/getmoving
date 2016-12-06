@@ -295,7 +295,7 @@ class Program
 		if ($this->programMedia->contains($media)) {
 			return;
 		}
-		$this->programParticipant[] = $media;
+		$this->programMedia[] = $media;
 	}
 
 

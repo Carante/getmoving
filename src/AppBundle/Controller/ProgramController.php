@@ -30,7 +30,7 @@ class ProgramController extends BaseController
 	{
 		$viewVar = $this->viewVariablesPublic('SignUp');
 
-		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->findOneBy(['id' => $programId]);
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
 		$viewVar['program'] = $program;
 
 		$form = $this->createForm(UserRegistrationForm::class);

@@ -33,7 +33,6 @@ class AdminController extends BaseController
 	}
 
 
-
 	/**
 	 * @Route("/settings", name="admin_settings")
 	 */
@@ -45,7 +44,6 @@ class AdminController extends BaseController
 	}
 
 
-
 	/**
 	 * @Route("/organisation", name="admin_organisation")
 	 */
@@ -54,36 +52,33 @@ class AdminController extends BaseController
 		$viewVar = $this->viewVariables("Organisation");
 
 		$org = new Organisation();
+		$media = new Media();
 		$form = $this->createForm(OrganisationType::class, $org);
+		$formUpload = $this->createForm(MediaType::class, $media);
 
-		$form->handleRequest($request);
-
-		if ($form->isSubmitted() && $form->isValid()) {
+		$formUpload->handleRequest($request);
+		if ($formUpload->isSubmitted() && $formUpload->isValid()) {
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
-			$newOrganisation = $form->getData();
-			$logo = new Media();
-			$file = $form->getData()->getLogo()->getPath();
-			
+			$file = $formUpload->getData()->getPath();
 			echo "<pre>";
 			print_r($file);
 			echo "</pre>";
-
 			// Verifies if $request is a file
-			if ( $file instanceof UploadedFile ) {
+			if ($file instanceof UploadedFile) {
 				echo "INSTANCE OF UPLOADFILE";
-				if ( $file->getSize() < 2000000 ) {
+				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace( ' ', '_', $originalName );
+					$originalName = str_replace(' ', '_', $originalName);
 
 					$mime_type = $file->getMimeType();
-					$type_array = explode( '/', $mime_type );
-					$type_check = $type_array[ sizeof( $type_array ) - 1 ];
+					$type_array = explode('/', $mime_type);
+					$type_check = $type_array[sizeof($type_array) - 1];
 
-					$valid_filetypes = array( "jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime" );
+					$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
 
-					if (in_array( strtolower( $type_check ), $valid_filetypes ) ) {
+					if (in_array(strtolower($type_check), $valid_filetypes)) {
 						$dateUploaded = new \DateTime("Pacific/Fiji");
 						$month = $dateUploaded->format("m");
 						$year = $dateUploaded->format("Y");
@@ -92,25 +87,21 @@ class AdminController extends BaseController
 						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
 
 						$size = $file->getSize();
-						$format = $type_array[ 0 ];
+						$format = $type_array[0];
 
-						$logo->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
-						$logo->setFileName($originalName);
-						$logo->setSize($size);
-						$logo->setFormat($format);
+						$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$media->setFileName($originalName);
+						$media->setSize($size);
+						$media->setFormat($format);
 
 						$uploadFileMover = new UploadFileMoverListener();
 						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
 
-						$newOrganisation->setLogo($logo);
-
 						$em = $this->getDoctrine()->getManager();
-						$em->persist($logo);
-						$em->persist($newOrganisation);
+						$em->persist($media);
 						$em->flush();
 
-
-						$this->addFlash('success', 'The cover pic has been uploaded!');
+						$this->addFlash('success', 'The image has been uploaded!');
 						return $this->redirectToRoute('admin_organisation');
 
 					} else {
@@ -120,16 +111,29 @@ class AdminController extends BaseController
 				} else {
 					print_r("Your file can max be 2 MB of size");
 				}
-
-			} else {
-				print_r($file);
 			}
+		}
+
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid()) {
+			// $form->getData() holds the submitted values
+			// but, the original `$task` variable has also been updated
+			$newOrganisation = $form->getData();
+			$logoId = $_POST['logo-choosable'];
+			$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($logoId);
+
+			$newOrganisation->setLogo($logo);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newOrganisation);
+			$em->flush();
 
 			$this->addFlash('success', 'The organisations details has been saved.');
 			return $this->redirectToRoute('admin_organisation');
 		}
 
 		$viewVar['form'] = $form->createView();
+		$viewVar['formUpload'] = $formUpload->createView();
 		return $this->render('admin/organisation.html.twig', $viewVar);
 	}
 
@@ -137,7 +141,8 @@ class AdminController extends BaseController
 	/**
 	 * @Route("/medialibrary", name="admin_media_library")
 	 */
-	public function mediaLibraryAction(Request $request){
+	public function mediaLibraryAction(Request $request)
+	{
 		$viewVar = $this->viewVariables("Media library");
 
 		$media = new Media();
@@ -154,19 +159,19 @@ class AdminController extends BaseController
 			echo "</pre>";
 
 			// Verifies if $request is a file
-			if ( $file instanceof UploadedFile ) {
-				if ( $file->getSize() < 2000000 ) {
+			if ($file instanceof UploadedFile) {
+				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace( ' ', '_', $originalName );
+					$originalName = str_replace(' ', '_', $originalName);
 
 					$mime_type = $file->getMimeType();
-					$type_array = explode( '/', $mime_type );
-					$type_check = $type_array[ sizeof( $type_array ) - 1 ];
+					$type_array = explode('/', $mime_type);
+					$type_check = $type_array[sizeof($type_array) - 1];
 
-					$valid_filetypes = array( "jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime" );
+					$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
 
-					if (in_array( strtolower( $type_check ), $valid_filetypes ) ) {
+					if (in_array(strtolower($type_check), $valid_filetypes)) {
 						$dateUploaded = new \DateTime();
 						$month = $dateUploaded->format("m");
 						$year = $dateUploaded->format("Y");
@@ -175,7 +180,7 @@ class AdminController extends BaseController
 						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
 
 						$size = $file->getSize();
-						$format = $type_array[ 0 ];
+						$format = $type_array[0];
 
 						$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
 						$media->setFileName($originalName);
@@ -214,9 +219,6 @@ class AdminController extends BaseController
 	}
 
 
-
-
-
 	/**
 	 * @Route("/users", name="admin_users")
 	 */
@@ -238,9 +240,6 @@ class AdminController extends BaseController
 	}
 
 
-
-
-
 	/**
 	 * @Route("/volunteers", name="admin_volunteers")
 	 */
@@ -252,13 +251,12 @@ class AdminController extends BaseController
 		foreach ($viewVar['volunteers'] as $volunteer) {
 			foreach ($countries as $country) {
 				if ($volunteer->getNationality() == $country['cca3']) {
-					$volunteer->setNationality($country['demonym'].", ".$country['name']['common']);
+					$volunteer->setNationality($country['demonym'] . ", " . $country['name']['common']);
 					break;
 				}
 
 			}
 		}
-
 
 
 		return $this->render('admin/volunteers.html.twig', $viewVar);
@@ -305,10 +303,6 @@ class AdminController extends BaseController
 	}
 
 
-
-
-
-
 	/**
 	 * @Route("/programs", name="admin_programs")
 	 */
@@ -316,7 +310,7 @@ class AdminController extends BaseController
 	{
 		$viewVar = $this->viewVariables("Programs");
 
-		return $this->render('admin/programs.html.twig',$viewVar);
+		return $this->render('admin/programs.html.twig', $viewVar);
 	}
 
 	/**
@@ -336,90 +330,9 @@ class AdminController extends BaseController
 			$newProgram = $form->getData();
 			$feature = new Media();
 			$file = $form->getData()->getLogo()->getPath();
+			$galleryMedia = $form->getData()['program_media_paths'];
 
-			echo "<pre>";
-			print_r($file);
-			echo "</pre>";
-
-			// Verifies if $request is a file
-			if ( $file instanceof UploadedFile ) {
-				echo "INSTANCE OF UPLOADFILE";
-				if ( $file->getSize() < 2000000 ) {
-
-					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace( ' ', '_', $originalName );
-
-					$mime_type = $file->getMimeType();
-					$type_array = explode( '/', $mime_type );
-					$type_check = $type_array[ sizeof( $type_array ) - 1 ];
-
-					$valid_filetypes = array( "jpg", "jpeg", "png" );
-
-					if (in_array( strtolower( $type_check ), $valid_filetypes ) ) {
-						$dateUploaded = new \DateTime("Pacific/Fiji");
-						$month = $dateUploaded->format("m");
-						$year = $dateUploaded->format("Y");
-
-						$upload_dir = "uploads/media-library";
-						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
-
-						$size = $file->getSize();
-						$format = $type_array[ 0 ];
-
-						$feature->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
-						$feature->setFileName($originalName);
-						$feature->setSize($size);
-						$feature->setFormat($format);
-
-						$uploadFileMover = new UploadFileMoverListener();
-						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
-
-						$newProgram->setFeature($feature);
-
-						$em = $this->getDoctrine()->getManager();
-						$em->persist($feature);
-						$em->persist($newProgram);
-						$em->flush();
-
-						$this->addFlash('success', 'The cover pic has been uploaded!');
-						return $this->redirectToRoute('admin_programs');
-
-					} else {
-						print_r("Your file is not an image.");
-					}
-
-				} else {
-					print_r("Your file can max be 2 MB of size");
-				}
-
-			} else {
-				print_r($file);
-			}
-
-			$this->addFlash('success', 'The program has been created');
-			return $this->redirectToRoute('admin_programs');
-		}
-
-		return $this->render('admin/programNew.html.twig', $viewVar);
-	}
-
-	/**
-	 * @Route("/program/{programId}", name="admin_program_update")
-	 */
-	public function programUpdateAction($programId, Request $request)
-	{
-		$viewVar = $this->viewVariables("New Program");
-
-		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
-		$viewVar['program'] = $program;
-
-		$form = $this->createForm(ProgramType::class, $program);
-
-		$form->handleRequest($request);
-		if ($form->isValid() && $form->isSubmitted()) {
-			$newProgram = $form->getData();
-			$feature = new Media();
-			$file = $form->getData()->getFeature()->getPath();
+			$newProgram->addProgramMedia($galleryMedia);
 
 			echo "<pre>";
 			print_r($file);
@@ -479,6 +392,103 @@ class AdminController extends BaseController
 			} else {
 				print_r($file);
 			}
+
+			$this->addFlash('success', 'The program has been created');
+			return $this->redirectToRoute('admin_programs');
+		}
+
+		return $this->render('admin/programNew.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/program/{programId}", name="admin_program_update")
+	 */
+	public function programUpdateAction($programId, Request $request)
+	{
+		$viewVar = $this->viewVariables("New Program");
+
+		$media = new Media();
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+		$viewVar['program'] = $program;
+
+		$form = $this->createForm(ProgramType::class, $program);
+		$formUpload = $this->createForm(MediaType::class, $media);
+
+		$formUpload->handleRequest($request);
+		$form->handleRequest($request);
+		if ($formUpload->isSubmitted() && $formUpload->isValid()) {
+			// $form->getData() holds the submitted values
+			// but, the original `$task` variable has also been updated
+			$file = $formUpload->getData()->getPath();
+			echo "<pre>";
+			print_r($file);
+			echo "</pre>";
+			// Verifies if $request is a file
+			if ($file instanceof UploadedFile) {
+				echo "INSTANCE OF UPLOADFILE";
+				if ($file->getSize() < 2000000) {
+
+					$originalName = $file->getClientOriginalName();
+					$originalName = str_replace(' ', '_', $originalName);
+
+					$mime_type = $file->getMimeType();
+					$type_array = explode('/', $mime_type);
+					$type_check = $type_array[sizeof($type_array) - 1];
+
+					$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
+
+					if (in_array(strtolower($type_check), $valid_filetypes)) {
+						$dateUploaded = new \DateTime("Pacific/Fiji");
+						$month = $dateUploaded->format("m");
+						$year = $dateUploaded->format("Y");
+
+						$upload_dir = "uploads/media-library";
+						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
+
+						$size = $file->getSize();
+						$format = $type_array[0];
+
+						$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$media->setFileName($originalName);
+						$media->setSize($size);
+						$media->setFormat($format);
+
+						$uploadFileMover = new UploadFileMoverListener();
+						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($media);
+						$em->flush();
+
+						$this->addFlash('success', 'The image has been uploaded!');
+						return $this->redirectToRoute('admin_program_update', array('programId' => $programId));
+
+					} else {
+						print_r("Your file is not an image.");
+					}
+
+				} else {
+					print_r("Your file can max be 2 MB of size");
+				}
+			}
+		} else if ($form->isValid() && $form->isSubmitted()) {
+			$newProgram = $form->getData();
+			$galleryMedia = $_POST['program_media'];
+			foreach ($galleryMedia as $item) {
+				$media = $this->getDoctrine()->getRepository('AppBundle:Media')->find($item);
+				$newProgram->addProgramMedia($media);
+			}
+
+			$featureId = $_POST['mediaOne-choosable'];
+			$feature = $this->getDoctrine()->getRepository('AppBundle:Media')->find($featureId);
+
+			$newProgram->setFeature($feature);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newProgram);
+			$em->flush();
+
+			$this->addFlash('success', 'The organisations details has been saved.');
 		}
 
 
@@ -489,13 +499,10 @@ class AdminController extends BaseController
 		}
 
 		$viewVar['form'] = $form->createView();
+		$viewVar['formUpload'] = $formUpload->createView();
 
 		return $this->render('admin/programUpdate.html.twig', $viewVar);
 	}
-
-
-
-
 
 
 	/**
@@ -507,5 +514,4 @@ class AdminController extends BaseController
 
 		return $this->render('admin/help.html.twig', $viewVar);
 	}
-
 }

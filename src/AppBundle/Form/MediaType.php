@@ -11,9 +11,9 @@ class MediaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-			$url = $_SERVER['REQUEST_URI'];
-			$aRoute = explode("/", $url);
-			$route = $aRoute[count($aRoute)-1];
+//			$url = $_SERVER['REQUEST_URI'];
+//			$aRoute = explode("/", $url);
+//			$route = $aRoute[count($aRoute)-1];
 
 			$attr = [
 				'class' => 'file',
@@ -21,12 +21,11 @@ class MediaType extends AbstractType
 				'accept' => "image/*",
 				"multiple" => "true"
 			];
-			$route != "medialibrary" ? $attr['data-show-upload'] = 'false' : $attr['data-show-upload'] = 'true' ;
+//			$route != "medialibrary" ? $attr['data-show-upload'] = 'false' : $attr['data-show-upload'] = 'true' ;
 
 			$builder
 				->add('path', FileType::class, array(
 					'attr' => $attr,
-					'data_class' => null,
 					'label_attr' => array(
 						'style' => 'display:none'
 					)

@@ -1,13 +1,22 @@
-{{ form_start(form) }}
-<div>
+{{ form_start(form, {'attr':{'novalidate':''}}) }}
+<div xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <h4>Identity</h4>
 	{{ form_row(form.name, { 'value' : organisation.name } ) }}
-  {{ form_label(form.logo) }}
   <div id="kv-avatar-errors-2" style="width:800px;display:none"></div>
-  <div class="kv-avatar" style="width:200px">
-    {{ form_widget(form.logo) }}
+
+  <label class="control-label">Logo</label>
+  <!-- Button trigger modal -->
+  <div>
+    <button type="button" class="btn btn-default btn-lg" id="mediaLibraryModalTrigger" data-toggle="modal" data-target="#mediaLibrary">
+      <div class="file-preview-thumbnails">
+        <div class="file-default-preview clickable" tabindex="-1">
+          <img src="/{{ organisation.logo.path }}{{ organisation.logo.filename }}" alt="Your Avatar" style="width:160px">
+          <h6 class="text-muted">Click to select</h6>
+        </div>
+      </div>
+    </button>
   </div>
-  {{ form_row(form.logo) }}
+
   {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
   {{ form_row(form.description, {'label': 'Short describption', 'value': organisation.description}) }}
   {{ form_row(form.about, { 'value' : organisation.about } ) }}
@@ -40,4 +49,36 @@
 </div>
 
 <button type="submit" class="btn btn-primary btn-sm">Save</button>
-{{ form_end(form) }}
+
+<!-- Modal -->
+<div class="modal fade" id="mediaLibrary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close mediaOneModal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Media Library</h4>
+        </div>
+      <div class="modal-body">
+        {% for media in medias %}
+          <div class="media-library-select inline-block">
+            <input id="mediaOne{{ media.id }}" type="radio" name="mediaOne-choosable" value="{{ media.id }}" {% if media.id == organisation.logo.id %}checked{% endif %} data-target="mediaOne{{ media.id }}">
+            <label class="media-choosable" for="mediaOne{{ media.id }}" style="background-image:url('/{{ media.path }}{{ media.filename }}')" data-img="/{{ media.path }}{{ media.filename }}"></label>
+          </div>
+        {% endfor %}
+        {{ form_end(form) }}
+      </div>
+      <div class="modal-footer">
+        <div class="pull-left">
+          {{ form_start(formUpload) }}
+            {{ form_widget(formUpload.path) }}
+          {{ form_end(formUpload) }}
+        </div>
+        <button type="button" class="btn btn-default mediaOneModal-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary mediaOneModal-save" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

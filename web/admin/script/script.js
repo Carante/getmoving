@@ -45,3 +45,27 @@ $("#program_startDateFlexible input").click(function () {
 $("#program_isActive input").click(function() {
 	toggleActive();
 });
+
+
+
+
+// Modal link with ALL media library
+$("#mediaLibraryModalTrigger").click(function () {
+	var curMediaOneId = $("input[name=mediaOne-choosable]:checked").val();
+	console.log(curMediaOneId);
+	localStorage.curMediaOneId = curMediaOneId;
+});
+$(".mediaOneModal-close").click(function() {
+	var curMediaOneId = localStorage.curMediaOneId;
+	console.log(curMediaOneId);
+	$("input[data-target=mediaOne"+curMediaOneId+"]").prop("checked", true);
+});
+$(".mediaOneModal-save").click(function() {
+	var newMediaOneId = $("input[name=mediaOne-choosable]:checked").val(),
+			newMediaOnePath = $("label[for=mediaOne"+newMediaOneId+"]").attr("data-img");
+	console.log(newMediaOneId);
+	localStorage.newMediaOneId = newMediaOneId;
+	localStorage.newMediaOnePath = newMediaOnePath;
+
+	$(".file-default-preview img").attr("src", newMediaOnePath);
+});
