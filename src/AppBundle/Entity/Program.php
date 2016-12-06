@@ -282,6 +282,10 @@ class Program
 		$this->feature = $feature;
 	}
 
+	public function getProgramParticipant()
+	{
+		return $this->programParticipant;
+	}
 	public function addProgramParticipant(User $user)
 	{
 		if ($this->programParticipant->contains($user)) {
@@ -290,12 +294,20 @@ class Program
 		$this->programParticipant[] = $user;
 	}
 
+	public function getProgramMedia()
+	{
+		return $this->programMedia;
+	}
 	public function addProgramMedia(Media $media)
 	{
 		if ($this->programMedia->contains($media)) {
 			return;
 		}
 		$this->programMedia[] = $media;
+	}
+	public function removeProgramMedia(Media $media)
+	{
+		$this->programMedia->removeElement($media);
 	}
 
 

@@ -411,6 +411,7 @@ class AdminController extends BaseController
 		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
 		$viewVar['program'] = $program;
 
+
 		$form = $this->createForm(ProgramType::class, $program);
 		$formUpload = $this->createForm(MediaType::class, $media);
 
@@ -474,6 +475,10 @@ class AdminController extends BaseController
 		} else if ($form->isValid() && $form->isSubmitted()) {
 			$newProgram = $form->getData();
 			$galleryMedia = $_POST['program_media'];
+			$curGallery = $newProgram->getProgramMedia();
+			foreach ($curGallery as $item) {
+				$newProgram->removeProgramMedia($item);
+			}
 			foreach ($galleryMedia as $item) {
 				$media = $this->getDoctrine()->getRepository('AppBundle:Media')->find($item);
 				$newProgram->addProgramMedia($media);

@@ -451,7 +451,7 @@ body {
 }
 
 /********* Modal link for Media Library ************/
-.media-library-select input[type=radio]{ /* HIDE RADIO */
+.media-library-select input[type=radio],.media-library-select input[type=checkbox]{ /* HIDE RADIO */
 	visibility: hidden; /* Makes input not-clickable */
 	position: absolute; /* Remove input from document flow */
 	margin:0;padding:0;
@@ -460,11 +460,15 @@ body {
 	appearance:none;
 }
 
-.media-library-select input[type=radio]:active +.media-choosable{opacity: .9;}
-.media-library-select input[type=radio]:checked +.media-choosable{ /* (RADIO CHECKED) IMAGE STYLES */
+.media-library-select input[type=radio]:active +.media-choosable,.media-library-select input[type=checkbox]:active +.media-choosable{opacity: .9;}
+.media-library-select input[type=radio]:checked +.media-choosable,.media-library-select input[type=checkbox]:checked +.media-choosable{ /* (RADIO CHECKED) IMAGE STYLES */
 	-webkit-filter: none;
 	-moz-filter: none;
 	filter: none;
+	border: 1px solid #2aabd2;
+	-webkit-box-shadow: 0 0 4px #2aabd2;
+	-moz-box-shadow: 0 0 4px #2aabd2;
+	box-shadow: 0 0 4px #2aabd2;
 }
 
 
@@ -485,6 +489,11 @@ body {
 	-webkit-filter: brightness(1.1) grayscale(.15) opacity(.9);
 	-moz-filter: brightness(1.1) grayscale(.15) opacity(.9);
 	filter: brightness(1.1) grayscale(.15) opacity(.9);
+}
+
+.modal-body {
+	max-height:75vh;
+	overflow-y: scroll;
 }
 
 

@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/ProgramType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ProgramType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/css/styles.css" afterPath="$PROJECT_DIR$/web/admin/css/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/script/script.js" afterPath="$PROJECT_DIR$/web/admin/script/script.js" />
     </list>
@@ -54,12 +46,16 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="787">
-                  <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-                  <folding />
+                <state relative-caret-position="892">
+                  <caret line="85" column="143" selection-start-line="85" selection-start-column="122" selection-end-line="85" selection-end-column="143" />
+                  <folding>
+                    <marker date="1481024952000" expanded="true" signature="2372:2385" ph="..." />
+                    <marker date="1481024952000" expanded="true" signature="2413:2445" ph="..." />
+                    <marker date="1481024952000" expanded="true" signature="2417:2429" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -67,18 +63,18 @@
           <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="73">
-                  <caret line="449" column="19" selection-start-line="449" selection-start-column="19" selection-end-line="449" selection-end-column="19" />
+                <state relative-caret-position="703">
+                  <caret line="492" column="0" selection-start-line="492" selection-start-column="0" selection-end-line="492" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="583">
-                  <caret line="481" column="20" selection-start-line="481" selection-start-column="20" selection-end-line="481" selection-end-column="20" />
+                <state relative-caret-position="58">
+                  <caret line="470" column="16" selection-start-line="470" selection-start-column="16" selection-end-line="470" selection-end-column="16" />
                   <folding>
                     <element signature="e#40#87#0#PHP" expanded="true" />
                     <element signature="e#743#885#0#PHP" expanded="false" />
@@ -103,10 +99,22 @@
                     <element signature="e#8936#11409#0#PHP" expanded="false" />
                     <element signature="e#11027#11043#1#PHP" expanded="true" />
                     <element signature="e#11679#11698#1#PHP" expanded="true" />
-                    <element signature="e#13630#13652#0#PHP" expanded="true" />
-                    <element signature="e#14055#14072#1#PHP" expanded="true" />
-                    <element signature="e#14232#14249#1#PHP" expanded="true" />
-                    <element signature="e#14703#14734#0#PHP" expanded="true" />
+                    <element signature="e#13631#13653#0#PHP" expanded="true" />
+                    <element signature="e#14190#14207#1#PHP" expanded="true" />
+                    <element signature="e#14367#14384#1#PHP" expanded="true" />
+                    <element signature="e#14838#14869#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Program.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Program.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="718">
+                  <caret line="305" column="35" selection-start-line="305" selection-start-column="35" selection-end-line="305" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#121#169#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -126,16 +134,28 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="_program.html.twig" pinned="false" current-in-tab="true">
+          <file leaf-file-name="_program.html.twig" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="538">
-                  <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+                <state relative-caret-position="313">
+                  <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#button#0;n#div#2;n#!!top" expanded="true" />
-                    <element signature="e#2471#2478#0#HTML" expanded="true" />
-                    <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+                    <element signature="e#3043#3050#0#HTML" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UploadFileMoverListener.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="373">
+                  <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -220,18 +240,18 @@
         <option value="$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" />
-        <option value="$PROJECT_DIR$/web/admin/css/styles.css" />
         <option value="$PROJECT_DIR$/web/admin/script/ajax.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ProgramType.php" />
-        <option value="$PROJECT_DIR$/web/admin/script/script.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/web/admin/css/styles.css" />
+        <option value="$PROJECT_DIR$/web/admin/script/script.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" />
       </list>
     </option>
   </component>
@@ -455,12 +475,12 @@
       <workItem from="1479940016799" duration="2137000" />
       <workItem from="1479960683498" duration="227000" />
       <workItem from="1479985277557" duration="89086000" />
-      <workItem from="1480634106795" duration="69836000" />
+      <workItem from="1480634106795" duration="76758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236043000" />
+    <option name="totallyTimeSpent" value="242965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -522,11 +542,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
-          <line>405</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
           <line>318</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -535,8 +550,13 @@
           <line>49</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
+          <line>405</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -904,36 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Program.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="249" column="20" selection-start-line="249" selection-start-column="20" selection-end-line="249" selection-end-column="20" />
-          <folding>
-            <element signature="e#121#169#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/admin/script/ajax.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="449" column="19" selection-start-line="449" selection-start-column="19" selection-end-line="449" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -985,14 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/MediaType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1012,10 +998,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Program.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="305" column="35" selection-start-line="305" selection-start-column="35" selection-end-line="305" selection-end-column="35" />
+          <folding>
+            <element signature="e#121#169#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="492" column="0" selection-start-line="492" selection-start-column="0" selection-end-line="492" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="481" column="20" selection-start-line="481" selection-start-column="20" selection-end-line="481" selection-end-column="20" />
+        <state relative-caret-position="58">
+          <caret line="470" column="16" selection-start-line="470" selection-start-column="16" selection-end-line="470" selection-end-column="16" />
           <folding>
             <element signature="e#40#87#0#PHP" expanded="true" />
             <element signature="e#743#885#0#PHP" expanded="false" />
@@ -1040,23 +1044,45 @@
             <element signature="e#8936#11409#0#PHP" expanded="false" />
             <element signature="e#11027#11043#1#PHP" expanded="true" />
             <element signature="e#11679#11698#1#PHP" expanded="true" />
-            <element signature="e#13630#13652#0#PHP" expanded="true" />
-            <element signature="e#14055#14072#1#PHP" expanded="true" />
-            <element signature="e#14232#14249#1#PHP" expanded="true" />
-            <element signature="e#14703#14734#0#PHP" expanded="true" />
+            <element signature="e#13631#13653#0#PHP" expanded="true" />
+            <element signature="e#14190#14207#1#PHP" expanded="true" />
+            <element signature="e#14367#14384#1#PHP" expanded="true" />
+            <element signature="e#14838#14869#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="892">
+          <caret line="85" column="143" selection-start-line="85" selection-start-column="122" selection-end-line="85" selection-end-column="143" />
+          <folding>
+            <marker date="1481024952000" expanded="true" signature="2372:2385" ph="..." />
+            <marker date="1481024952000" expanded="true" signature="2413:2445" ph="..." />
+            <marker date="1481024952000" expanded="true" signature="2417:2429" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+        <state relative-caret-position="313">
+          <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#button#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#2471#2478#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="e#3043#3050#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
