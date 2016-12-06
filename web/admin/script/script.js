@@ -87,5 +87,7 @@ $(".mediaOneModal-save").click(function() {
 		}
 	});
 
+	localStorage.curMediaOneId = newMediaOneId;
 	$(".file-default-preview.feature img").attr("src", newMediaOnePath);
+	$(".file-default-preview.logo img").attr("src", newMediaOnePath);
 });
