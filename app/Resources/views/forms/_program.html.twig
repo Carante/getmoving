@@ -17,11 +17,15 @@
   {% endif %}
 </div>
 <!-- Button trigger modal -->
-<div>
-  <button type="button" class="btn btn-default btn-lg mediaLibraryModalTrigger" data-entity="feature" data-toggle="modal" data-target="#mediaLibrary">
+<label class="control-label required">Feature image</label>
+<div class="margin--bot">
+  <button type="button" class="btn btn-default btn-lg mediaLibraryModalTrigger" data-entity="feature"
+          data-toggle="modal" data-target="#mediaLibrary">
     <div class="file-preview-thumbnails">
       <div class="file-default-preview feature clickable" tabindex="-1">
-        <img src="/{{ program.feature.path }}{{ program.feature.filename }}" alt="Preview" style="width:160px">
+        <img
+            src="{% if program.feature is not null %}/{{ program.feature.path }}{{ program.feature.filename }}{% else %}{{ asset('media/images/blank.gif') }}{% endif %}"
+            alt="Preview" style="width:160px">
         <h6 class="text-muted">Click to select</h6>
       </div>
     </div>
@@ -68,27 +72,30 @@
 <label class="control-label" for="program_media">Gallery images</label><br>
 
 <!-- Gallery choose imgs -->
-<button type="button" class="btn btn-default btn-block margin--bot mediaLibraryModalTrigger" data-entity="gallery" data-toggle="modal" data-target="#mediaLibrary">
-  Select Images
-</button>
-<div class="file-preview-thumbnails gallery row">
+<div class="well well-sm white row margin--whole-none">
+  <button type="button" class="btn btn-primary btn-block btn-sm margin--bot mediaLibraryModalTrigger"
+          data-entity="gallery" data-toggle="modal" data-target="#mediaLibrary">
+    Select Images
+  </button>
+  <div class="file-preview-thumbnails gallery">
     {% for media in medias %}
       {% for relation in program.programMedia %}
         {% if media.id == relation.id %}
-          <div class="file-default-preview col-md-15 text-center" tabindex="-1" style='height: 130px'>
-            <img src="/{{ media.path }}{{ media.filename }}" alt="Preview" style="max-width: 100%;max-height: 100%;">
+          <div class="file-default-preview col-md-15 text-center margin--bot-xs" tabindex="-1" style='height: 130px'>
+            <img src="/{{ media.path }}{{ media.filename }}" alt="Preview">
           </div>
         {% endif %}
       {% endfor %}
     {% endfor %}
   </div>
+</div>
 
 {# Render CSRF token etc .#}
 <div style="display:none">
   {{ form_rest(form) }}
 </div>
 
-<button type="submit" class="btn btn-primary btn-sm">Save</button>
+<button type="submit" class="btn btn-success btn-lg btn-block margin--top-huge">Save program</button>
 
 <!-- Modal Feature -->
 <div class="modal fade" id="mediaLibrary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -103,8 +110,12 @@
       <div class="modal-body feature">
         {% for media in medias %}
           <div class="media-library-select inline-block">
-            <input id="mediaOne{{ media.id }}" type="radio" name="mediaOne-choosable" value="{{ media.id }}" {% if media.id == program.feature.id %}checked{% endif %} data-target="mediaOne{{ media.id }}">
-            <label class="media-choosable" for="mediaOne{{ media.id }}" style="background-image:url('/{{ media.path }}{{ media.filename }}')" data-img="/{{ media.path }}{{ media.filename }}"></label>
+            <input id="mediaOne{{ media.id }}" type="radio" name="mediaOne-choosable" value="{{ media.id }}"
+                   {% if program.feature is not null and media.id == program.feature.id %}checked{% endif %}
+                   data-target="mediaOne{{ media.id }}">
+            <label class="media-choosable" for="mediaOne{{ media.id }}"
+                   style="background-image:url('/{{ media.path }}{{ media.filename }}')"
+                   data-img="/{{ media.path }}{{ media.filename }}"></label>
           </div>
         {% endfor %}
         {{ form_end(form) }}
@@ -112,8 +123,11 @@
       <div class="modal-body gallery">
         {% for media in medias %}
           <div class="media-library-select inline-block">
-            <input id="program_media{{ media.id }}" type="checkbox" name="program_media[]" value="{{ media.id }}" {% for relation in program.programMedia %}{% if media.id == relation.id %}checked{% endif %}{% endfor %} data-target="mediaGallery{{ media.id }}" data-img="/{{ media.path }}{{ media.filename }}">
-            <label class="media-choosable" for="program_media{{ media.id }}" style="background-image:url('/{{ media.path }}{{ media.filename }}')"></label>
+            <input id="program_media{{ media.id }}" type="checkbox" name="program_media[]" value="{{ media.id }}"
+                   {% for relation in program.programMedia %}{% if media.id == relation.id %}checked{% endif %}{% endfor %}
+                   data-target="mediaGallery{{ media.id }}" data-img="/{{ media.path }}{{ media.filename }}">
+            <label class="media-choosable" for="program_media{{ media.id }}"
+                   style="background-image:url('/{{ media.path }}{{ media.filename }}')"></label>
           </div>
         {% endfor %}
         {{ form_end(form) }}

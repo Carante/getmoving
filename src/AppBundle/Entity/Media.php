@@ -120,6 +120,12 @@ class Media
 	}
 
 
+	public function removeMedia(Media $media)
+	{
+		$this->removeMedia($media);
+	}
+
+
 	/////////////////////////////////
 	// Get Organisation for relations
 //	public function getOrganisation()

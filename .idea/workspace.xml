@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" afterPath="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Media.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Media.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/css/styles.css" afterPath="$PROJECT_DIR$/web/admin/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/script/script.js" afterPath="$PROJECT_DIR$/web/admin/script/script.js" />
     </list>
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,12 +52,12 @@
           <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="127">
-                  <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+                <state relative-caret-position="262">
+                  <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
                   <folding>
-                    <marker date="1481025470000" expanded="true" signature="2372:2385" ph="..." />
-                    <marker date="1481025470000" expanded="true" signature="2413:2445" ph="..." />
-                    <marker date="1481025470000" expanded="true" signature="2417:2429" ph="..." />
+                    <marker date="1481069685000" expanded="true" signature="2469:2482" ph="..." />
+                    <marker date="1481069685000" expanded="true" signature="2510:2542" ph="..." />
+                    <marker date="1481069685000" expanded="true" signature="2514:2526" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -60,8 +66,8 @@
           <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="703">
-                  <caret line="492" column="0" selection-start-line="492" selection-start-column="0" selection-end-line="492" selection-end-column="0" />
+                <state relative-caret-position="343">
+                  <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -70,36 +76,45 @@
           <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="440" column="65" selection-start-line="440" selection-start-column="65" selection-end-line="440" selection-end-column="65" />
+                <state relative-caret-position="598">
+                  <caret line="460" column="51" selection-start-line="460" selection-start-column="51" selection-end-line="460" selection-end-column="51" />
                   <folding>
                     <element signature="e#40#87#0#PHP" expanded="true" />
                     <element signature="e#743#885#0#PHP" expanded="false" />
                     <element signature="e#946#1094#0#PHP" expanded="false" />
-                    <element signature="e#3661#3678#1#PHP" expanded="true" />
-                    <element signature="e#3942#3962#1#PHP" expanded="true" />
-                    <element signature="e#4089#4119#0#PHP" expanded="true" />
-                    <element signature="e#4204#6484#0#PHP" expanded="false" />
-                    <element signature="e#6048#6069#1#PHP" expanded="true" />
-                    <element signature="e#6345#6366#1#PHP" expanded="true" />
-                    <element signature="e#6439#6469#0#PHP" expanded="true" />
-                    <element signature="e#6539#6678#0#PHP" expanded="false" />
-                    <element signature="e#6640#6663#0#PHP" expanded="true" />
-                    <element signature="e#6841#6870#0#PHP" expanded="true" />
-                    <element signature="e#6950#7456#0#PHP" expanded="false" />
-                    <element signature="e#7413#7441#0#PHP" expanded="true" />
-                    <element signature="e#7537#8661#0#PHP" expanded="false" />
-                    <element signature="e#7661#7677#1#PHP" expanded="true" />
-                    <element signature="e#8420#8438#1#PHP" expanded="true" />
-                    <element signature="e#8613#8646#0#PHP" expanded="true" />
-                    <element signature="e#8722#8870#0#PHP" expanded="false" />
-                    <element signature="e#8936#11409#0#PHP" expanded="false" />
-                    <element signature="e#11027#11043#1#PHP" expanded="true" />
-                    <element signature="e#11679#11698#1#PHP" expanded="true" />
-                    <element signature="e#14183#14205#0#PHP" expanded="true" />
-                    <element signature="e#14742#14759#1#PHP" expanded="true" />
-                    <element signature="e#14919#14936#1#PHP" expanded="true" />
-                    <element signature="e#15390#15421#0#PHP" expanded="true" />
+                    <element signature="e#1168#4139#0#PHP" expanded="false" />
+                    <element signature="e#3666#3683#1#PHP" expanded="true" />
+                    <element signature="e#3947#3967#1#PHP" expanded="true" />
+                    <element signature="e#4094#4124#0#PHP" expanded="true" />
+                    <element signature="e#4213#6493#0#PHP" expanded="false" />
+                    <element signature="e#6057#6078#1#PHP" expanded="true" />
+                    <element signature="e#6354#6375#1#PHP" expanded="true" />
+                    <element signature="e#6448#6478#0#PHP" expanded="true" />
+                    <element signature="e#6571#6921#0#PHP" expanded="false" />
+                    <element signature="e#6663#6680#1#PHP" expanded="true" />
+                    <element signature="e#6895#6916#1#PHP" expanded="true" />
+                    <element signature="e#6979#7118#0#PHP" expanded="false" />
+                    <element signature="e#7080#7103#0#PHP" expanded="true" />
+                    <element signature="e#7176#7325#0#PHP" expanded="false" />
+                    <element signature="e#7281#7310#0#PHP" expanded="true" />
+                    <element signature="e#7393#7899#0#PHP" expanded="false" />
+                    <element signature="e#7856#7884#0#PHP" expanded="true" />
+                    <element signature="e#7980#9104#0#PHP" expanded="false" />
+                    <element signature="e#8104#8120#1#PHP" expanded="true" />
+                    <element signature="e#8863#8881#1#PHP" expanded="true" />
+                    <element signature="e#9056#9089#0#PHP" expanded="true" />
+                    <element signature="e#9168#9316#0#PHP" expanded="false" />
+                    <element signature="e#12002#12021#1#PHP" expanded="true" />
+                    <element signature="e#12524#12541#1#PHP" expanded="true" />
+                    <element signature="e#12701#12718#1#PHP" expanded="true" />
+                    <element signature="e#12981#12997#1#PHP" expanded="true" />
+                    <element signature="e#13125#13153#0#PHP" expanded="true" />
+                    <element signature="e#13387#13406#1#PHP" expanded="true" />
+                    <element signature="e#15959#15981#0#PHP" expanded="true" />
+                    <element signature="e#16518#16535#1#PHP" expanded="true" />
+                    <element signature="e#16695#16712#1#PHP" expanded="true" />
+                    <element signature="e#17166#17197#0#PHP" expanded="true" />
+                    <element signature="e#17267#17403#0#PHP" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -117,11 +132,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MediaType.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/MediaType.php">
+          <file leaf-file-name="Media.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Media.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+                <state relative-caret-position="748">
+                  <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -131,15 +146,15 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="_program.html.twig" pinned="false" current-in-tab="false">
+          <file leaf-file-name="_program.html.twig" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="313">
-                  <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
+                <state relative-caret-position="193">
+                  <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#button#0;n#div#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#!!top" expanded="true" />
-                    <element signature="e#3043#3050#0#HTML" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+                    <element signature="e#3343#3350#0#HTML" expanded="true" />
                     <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
                   </folding>
@@ -147,25 +162,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UploadFileMoverListener.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php">
+          <file leaf-file-name="_organisation.html.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-                  <folding />
+                <state relative-caret-position="180">
+                  <caret line="12" column="174" selection-start-line="12" selection-start-column="174" selection-end-line="12" selection-end-column="174" />
+                  <folding>
+                    <element signature="e#2740#2747#0#HTML" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_organisation.html.twig" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig">
+          <file leaf-file-name="medialibrary.html.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#2644#2651#0#HTML" expanded="true" />
-                    <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-                  </folding>
+                <state relative-caret-position="480">
+                  <caret line="32" column="103" selection-start-line="32" selection-start-column="92" selection-end-line="32" selection-end-column="103" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -173,8 +188,8 @@
           <file leaf-file-name="programUpdate.html.twig" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+                <state relative-caret-position="180">
+                  <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -229,13 +244,10 @@
         <option value="$PROJECT_DIR$/app/Resources/views/reset_password.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/users.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Media.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Organisation.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/programs/all.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" />
         <option value="$PROJECT_DIR$/web/admin/script/ajax.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
@@ -243,11 +255,14 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ProgramType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Media.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig" />
+        <option value="$PROJECT_DIR$/web/admin/script/script.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
         <option value="$PROJECT_DIR$/web/admin/css/styles.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
-        <option value="$PROJECT_DIR$/web/admin/script/script.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       </list>
     </option>
@@ -472,12 +487,12 @@
       <workItem from="1479940016799" duration="2137000" />
       <workItem from="1479960683498" duration="227000" />
       <workItem from="1479985277557" duration="89086000" />
-      <workItem from="1480634106795" duration="78969000" />
+      <workItem from="1480634106795" duration="85264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245176000" />
+    <option name="totallyTimeSpent" value="251471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -539,33 +554,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
-          <line>318</line>
+          <line>350</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
-          <line>49</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php</url>
-          <line>405</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/users/signup.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -764,26 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -937,14 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/ProgramType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -994,51 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="492" column="0" selection-start-line="492" selection-start-column="0" selection-end-line="492" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#button#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#!!top" expanded="true" />
-            <element signature="e#3043#3050#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#2644#2651#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
-          <folding>
-            <marker date="1481025470000" expanded="true" signature="2372:2385" ph="..." />
-            <marker date="1481025470000" expanded="true" signature="2413:2445" ph="..." />
-            <marker date="1481025470000" expanded="true" signature="2417:2429" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1047,38 +975,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/sweetalert2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <marker date="1478858712000" expanded="true" signature="2013:2026" ph="..." />
+            <marker date="1478858712000" expanded="true" signature="3692:3699" ph="×" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/medialibrary.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="103" selection-start-line="32" selection-start-column="92" selection-end-line="32" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Media.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/programUpdate.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="174" selection-start-line="12" selection-start-column="174" selection-end-line="12" selection-end-column="174" />
+          <folding>
+            <element signature="e#2740#2747#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/script/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding>
+            <marker date="1481069685000" expanded="true" signature="2469:2482" ph="..." />
+            <marker date="1481069685000" expanded="true" signature="2510:2542" ph="..." />
+            <marker date="1481069685000" expanded="true" signature="2514:2526" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_program.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#button#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="e#3343#3350#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#9;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="440" column="65" selection-start-line="440" selection-start-column="65" selection-end-line="440" selection-end-column="65" />
+        <state relative-caret-position="598">
+          <caret line="460" column="51" selection-start-line="460" selection-start-column="51" selection-end-line="460" selection-end-column="51" />
           <folding>
             <element signature="e#40#87#0#PHP" expanded="true" />
             <element signature="e#743#885#0#PHP" expanded="false" />
             <element signature="e#946#1094#0#PHP" expanded="false" />
-            <element signature="e#3661#3678#1#PHP" expanded="true" />
-            <element signature="e#3942#3962#1#PHP" expanded="true" />
-            <element signature="e#4089#4119#0#PHP" expanded="true" />
-            <element signature="e#4204#6484#0#PHP" expanded="false" />
-            <element signature="e#6048#6069#1#PHP" expanded="true" />
-            <element signature="e#6345#6366#1#PHP" expanded="true" />
-            <element signature="e#6439#6469#0#PHP" expanded="true" />
-            <element signature="e#6539#6678#0#PHP" expanded="false" />
-            <element signature="e#6640#6663#0#PHP" expanded="true" />
-            <element signature="e#6841#6870#0#PHP" expanded="true" />
-            <element signature="e#6950#7456#0#PHP" expanded="false" />
-            <element signature="e#7413#7441#0#PHP" expanded="true" />
-            <element signature="e#7537#8661#0#PHP" expanded="false" />
-            <element signature="e#7661#7677#1#PHP" expanded="true" />
-            <element signature="e#8420#8438#1#PHP" expanded="true" />
-            <element signature="e#8613#8646#0#PHP" expanded="true" />
-            <element signature="e#8722#8870#0#PHP" expanded="false" />
-            <element signature="e#8936#11409#0#PHP" expanded="false" />
-            <element signature="e#11027#11043#1#PHP" expanded="true" />
-            <element signature="e#11679#11698#1#PHP" expanded="true" />
-            <element signature="e#14183#14205#0#PHP" expanded="true" />
-            <element signature="e#14742#14759#1#PHP" expanded="true" />
-            <element signature="e#14919#14936#1#PHP" expanded="true" />
-            <element signature="e#15390#15421#0#PHP" expanded="true" />
+            <element signature="e#1168#4139#0#PHP" expanded="false" />
+            <element signature="e#3666#3683#1#PHP" expanded="true" />
+            <element signature="e#3947#3967#1#PHP" expanded="true" />
+            <element signature="e#4094#4124#0#PHP" expanded="true" />
+            <element signature="e#4213#6493#0#PHP" expanded="false" />
+            <element signature="e#6057#6078#1#PHP" expanded="true" />
+            <element signature="e#6354#6375#1#PHP" expanded="true" />
+            <element signature="e#6448#6478#0#PHP" expanded="true" />
+            <element signature="e#6571#6921#0#PHP" expanded="false" />
+            <element signature="e#6663#6680#1#PHP" expanded="true" />
+            <element signature="e#6895#6916#1#PHP" expanded="true" />
+            <element signature="e#6979#7118#0#PHP" expanded="false" />
+            <element signature="e#7080#7103#0#PHP" expanded="true" />
+            <element signature="e#7176#7325#0#PHP" expanded="false" />
+            <element signature="e#7281#7310#0#PHP" expanded="true" />
+            <element signature="e#7393#7899#0#PHP" expanded="false" />
+            <element signature="e#7856#7884#0#PHP" expanded="true" />
+            <element signature="e#7980#9104#0#PHP" expanded="false" />
+            <element signature="e#8104#8120#1#PHP" expanded="true" />
+            <element signature="e#8863#8881#1#PHP" expanded="true" />
+            <element signature="e#9056#9089#0#PHP" expanded="true" />
+            <element signature="e#9168#9316#0#PHP" expanded="false" />
+            <element signature="e#12002#12021#1#PHP" expanded="true" />
+            <element signature="e#12524#12541#1#PHP" expanded="true" />
+            <element signature="e#12701#12718#1#PHP" expanded="true" />
+            <element signature="e#12981#12997#1#PHP" expanded="true" />
+            <element signature="e#13125#13153#0#PHP" expanded="true" />
+            <element signature="e#13387#13406#1#PHP" expanded="true" />
+            <element signature="e#15959#15981#0#PHP" expanded="true" />
+            <element signature="e#16518#16535#1#PHP" expanded="true" />
+            <element signature="e#16695#16712#1#PHP" expanded="true" />
+            <element signature="e#17166#17197#0#PHP" expanded="true" />
+            <element signature="e#17267#17403#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -10,7 +10,7 @@
     <button type="button" class="btn btn-default btn-lg" id="mediaLibraryModalTrigger" data-toggle="modal" data-target="#mediaLibrary">
       <div class="file-preview-thumbnails">
         <div class="file-default-preview logo clickable" tabindex="-1">
-          <img src="/{{ organisation.logo.path }}{{ organisation.logo.filename }}" alt="Your Avatar" style="width:160px">
+          <img src="{% if organisation.logo is not null %}/{{ organisation.logo.path }}{{ organisation.logo.filename }}{% else %}{{ asset('media/images/blank.gif') }}{% endif %}" alt="Your Avatar" style="width:160px">
           <h6 class="text-muted">Click to select</h6>
         </div>
       </div>

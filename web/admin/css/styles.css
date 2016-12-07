@@ -496,14 +496,11 @@ body {
 	overflow-y: scroll;
 }
 
-
-/*label.media-choosable{*/
-	/*display: inline-block;*/
-	/*width: 135px;*/
-	/*height:104px;*/
-	/*overflow: hidden;*/
-	/*border-radius: 5px;*/
-	/*margin: 10px 2px;*/
-	/*text-align: center;*/
-	/*line-height: 104px;*/
-/*}*/
+.file-preview-thumbnails.gallery .file-default-preview img {
+	position: absolute;
+	max-width: 95%;
+	max-height: 95%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

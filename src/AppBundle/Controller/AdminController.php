@@ -44,6 +44,11 @@ class AdminController extends BaseController
 	}
 
 
+
+
+
+
+
 	/**
 	 * @Route("/organisation", name="admin_organisation")
 	 */
@@ -138,6 +143,10 @@ class AdminController extends BaseController
 	}
 
 
+
+
+
+
 	/**
 	 * @Route("/medialibrary", name="admin_media_library")
 	 */
@@ -218,6 +227,23 @@ class AdminController extends BaseController
 		return $this->render('admin/medialibrary.html.twig', $viewVar);
 	}
 
+	/**
+	 * @Route("/media/delete/{mediaId}", name="admin_media_delete")
+	 */
+	public function mediaDeleteAction($mediaId){
+		$media = $this->getDoctrine()->getRepository('AppBundle:Media')->find($mediaId);
+
+		$em = $this->getDoctrine()->getEntityManager();
+		$em->remove($media);
+		$em->flush();
+
+		$this->addFlash('success', 'The media has successfully been deleted');
+		return $this->redirectToRoute('admin_media_library');
+	}
+
+
+
+
 
 	/**
 	 * @Route("/users", name="admin_users")
@@ -238,6 +264,9 @@ class AdminController extends BaseController
 
 		return $this->render('admin/userProfile.html.twig', $viewVar);
 	}
+
+
+
 
 
 	/**
@@ -303,6 +332,9 @@ class AdminController extends BaseController
 	}
 
 
+
+
+
 	/**
 	 * @Route("/programs", name="admin_programs")
 	 */
@@ -321,36 +353,54 @@ class AdminController extends BaseController
 		$viewVar = $this->viewVariables("New Program");
 
 		$program = new Program();
-		$form = $this->createForm(ProgramType::class, $program);
-		$viewVar['form'] = $form->createView();
 		$viewVar['program'] = $program;
 
+		$media = new Media();
+		$form = $this->createForm(ProgramType::class, $program);
+		$formUpload = $this->createForm(MediaType::class, $media);
+
+		$formUpload->handleRequest($request);
 		$form->handleRequest($request);
-		if ($form->isValid() && $form->isSubmitted()) {
-			$newProgram = $form->getData();
-			$feature = new Media();
-			$file = $form->getData()->getLogo()->getPath();
-			$galleryMedia = $form->getData()['program_media_paths'];
-
-			$newProgram->addProgramMedia($galleryMedia);
-
+		if ($formUpload->isSubmitted() && $formUpload->isValid()) {
+			// $form->getData() holds the submitted values
+			// but, the original `$task` variable has also been updated
+			$file = $formUpload->getData()->getPath();
 			echo "<pre>";
 			print_r($file);
 			echo "</pre>";
-
 			// Verifies if $request is a file
 			if ($file instanceof UploadedFile) {
 				echo "INSTANCE OF UPLOADFILE";
 				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace(' ', '_', $originalName);
+					$originalNameStart = str_replace(' ', '_', $originalName);
+					$unique = false;
+					$count = 1;
 
+					do {
+						foreach ($viewVar['medias'] as $item){
+							if ($item->getFileName() == $originalName) {
+								$unique = false;
+								$originalName = explode(".", $originalNameStart);
+								$originalName[0] = $originalName[0].$count;
+								$originalName = implode(".", $originalName);
+								$count++;
+//								echo $count;
+								break;
+							} else {
+								$unique = true;
+							}
+							echo $unique . " - ". $originalName . " || ";
+						}
+					} while ($unique != true);
+
+//					die();
 					$mime_type = $file->getMimeType();
 					$type_array = explode('/', $mime_type);
 					$type_check = $type_array[sizeof($type_array) - 1];
 
-					$valid_filetypes = array("jpg", "jpeg", "png");
+					$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
 
 					if (in_array(strtolower($type_check), $valid_filetypes)) {
 						$dateUploaded = new \DateTime("Pacific/Fiji");
@@ -363,23 +413,20 @@ class AdminController extends BaseController
 						$size = $file->getSize();
 						$format = $type_array[0];
 
-						$feature->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
-						$feature->setFileName($originalName);
-						$feature->setSize($size);
-						$feature->setFormat($format);
+						$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$media->setFileName($originalName);
+						$media->setSize($size);
+						$media->setFormat($format);
 
 						$uploadFileMover = new UploadFileMoverListener();
 						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
 
-						$newProgram->setFeature($feature);
-
 						$em = $this->getDoctrine()->getManager();
-						$em->persist($feature);
-						$em->persist($newProgram);
+						$em->persist($media);
 						$em->flush();
 
-						$this->addFlash('success', 'The cover pic has been uploaded!');
-						return $this->redirectToRoute('admin_programs');
+						$this->addFlash('success', 'The image has been uploaded!');
+						return $this->redirectToRoute('admin_program_new');
 
 					} else {
 						print_r("Your file is not an image.");
@@ -388,14 +435,34 @@ class AdminController extends BaseController
 				} else {
 					print_r("Your file can max be 2 MB of size");
 				}
-
-			} else {
-				print_r($file);
+			}
+		} else if ($form->isValid() && $form->isSubmitted()) {
+			$newProgram = $form->getData();
+			$galleryMedia = $_POST['program_media'];
+			$curGallery = $newProgram->getProgramMedia();
+			foreach ($curGallery as $item) {
+				$newProgram->removeProgramMedia($item);
+			}
+			foreach ($galleryMedia as $item) {
+				$media = $this->getDoctrine()->getRepository('AppBundle:Media')->find($item);
+				$newProgram->addProgramMedia($media);
 			}
 
-			$this->addFlash('success', 'The program has been created');
+			$featureId = $_POST['mediaOne-choosable'];
+			$feature = $this->getDoctrine()->getRepository('AppBundle:Media')->find($featureId);
+
+			$newProgram->setFeature($feature);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newProgram);
+			$em->flush();
+
+			$this->addFlash('success', 'The organisations details has been saved.');
 			return $this->redirectToRoute('admin_programs');
 		}
+
+		$viewVar['form'] = $form->createView();
+		$viewVar['formUpload'] = $formUpload->createView();
 
 		return $this->render('admin/programNew.html.twig', $viewVar);
 	}
@@ -405,10 +472,9 @@ class AdminController extends BaseController
 	 */
 	public function programUpdateAction($programId, Request $request)
 	{
-		$viewVar = $this->viewVariables("New Program");
-
 		$media = new Media();
 		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+		$viewVar = $this->viewVariables("Program-".$program->getTitle());
 		$viewVar['program'] = $program;
 
 
@@ -528,6 +594,8 @@ class AdminController extends BaseController
 
 		return $this->render('admin/programUpdate.html.twig', $viewVar);
 	}
+
+
 
 
 	/**
