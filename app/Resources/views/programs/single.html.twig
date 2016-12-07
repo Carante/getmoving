@@ -84,19 +84,12 @@
         </div>
       </div>
       <div class="row container-escape-fluid">
-        <div class="sy-box">
-          <div class="sy-slides-wrap">
-            <div class="sy-slides-crop" style="position: static;height: 350px;">
-              <ul id="media-slider" class="sy-list">
-                {% for media in program.programMedia %}
-                  <li>
-                    <a href="#slide{{ media.id }}"><img src="/{{ media.path }}{{ media.filename }}"
-                                                        alt="{{ media.filename }}"></a>
-                  </li>
-                {% endfor %}
-              </ul>
+        <div id="media-slider" class="sy-list">
+          {% for media in program.programMedia %}
+            <div>
+              <img src="/{{ media.path }}{{ media.filename }}" alt="{{ media.filename }}">
             </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -111,10 +104,14 @@
   {{ parent() }}
   <script>
     $(document).ready(function () {
-      $('#media-slider').slippry({
-        'caption': false,
-        'adaptiveHeight': false,
-        'kenZoom': 105
+      $('#media-slider').slick({
+        dots: true,
+        mobileFirst: true,
+        autoplay: true,
+        speed: 500,
+        centerMode: true,
+        fade: true,
+        cssEase: 'ease-in-out'
       })
     });
   </script>

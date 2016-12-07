@@ -5,7 +5,7 @@
   <div class="new-media-form">
     {{ form_start(form) }}
 
-      {{ form_widget(form.path) }}
+      {{ form_widget(form.path, {'full_name':'media[path][]'}) }}
     {{ form_end(form) }}
   </div>
   <div class="row margin--top-l">

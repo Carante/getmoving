@@ -1,47 +1,58 @@
 {{ form_start(form, {'attr':{'novalidate':''}}) }}
-<div xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-  <h4>Identity</h4>
-	{{ form_row(form.name, { 'value' : organisation.name } ) }}
-  <div id="kv-avatar-errors-2" style="width:800px;display:none"></div>
 
-  <label class="control-label">Logo</label>
-  <!-- Button trigger modal -->
-  <div>
-    <button type="button" class="btn btn-default btn-lg" id="mediaLibraryModalTrigger" data-toggle="modal" data-target="#mediaLibrary">
-      <div class="file-preview-thumbnails">
-        <div class="file-default-preview logo clickable" tabindex="-1">
-          <img src="{% if organisation.logo is not null %}/{{ organisation.logo.path }}{{ organisation.logo.filename }}{% else %}{{ asset('media/images/blank.gif') }}{% endif %}" alt="Your Avatar" style="width:160px">
-          <h6 class="text-muted">Click to select</h6>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Identity</h4>
+    {{ form_row(form.name, { 'value' : organisation.name } ) }}
+    <div id="kv-avatar-errors-2" style="width:800px;display:none"></div>
+
+    <label class="control-label">Logo</label>
+    <!-- Button trigger modal -->
+    <div>
+      <button type="button" class="btn btn-default btn-lg" id="mediaLibraryModalTrigger" data-toggle="modal"
+              data-target="#mediaLibrary">
+        <div class="file-preview-thumbnails">
+          <div class="file-default-preview logo clickable" tabindex="-1">
+            <img
+                src="{% if organisation.logo is not null %}/{{ organisation.logo.path }}{{ organisation.logo.filename }}{% else %}{{ asset('media/images/blank.gif') }}{% endif %}"
+                alt="Your Avatar" style="width:160px">
+            <h6 class="text-muted">Click to select</h6>
+          </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
+    {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
+    {{ form_row(form.description, {'label': 'Short describption', 'value': organisation.description}) }}
   </div>
-
-  {{ form_row(form.punchline, { 'value' : organisation.punchline } ) }}
-  {{ form_row(form.description, {'label': 'Short describption', 'value': organisation.description}) }}
-  {{ form_row(form.about, { 'value' : organisation.about } ) }}
-  {{ form_row(form.mission, { 'value' : organisation.mission } ) }}
-  {{ form_row(form.vision, { 'value' : organisation.vision } ) }}
-  {{ form_label(form.coreValues) }}
-  {{ form_row(form.coreValues.vars.prototype) }}
 </div>
-
-<div>
-  <h4>Contact information</h4>
-  {{ form_row(form.emailOfficial, { 'value' : organisation.emailOfficial } ) }}
-  {{ form_row(form.emailSupport, { 'value' : organisation.emailSupport } ) }}
-  {{ form_row(form.address, { 'value' : organisation.address } ) }}
+<div class="row">
+  <div class="col-xs-12">
+    {{ form_row(form.about, { 'value' : organisation.about } ) }}
+    {{ form_row(form.mission, { 'value' : organisation.mission } ) }}
+    {{ form_row(form.vision, { 'value' : organisation.vision } ) }}
+    {{ form_label(form.coreValues) }}
+    {{ form_row(form.coreValues.vars.prototype) }}
+  </div>
 </div>
-
-<div>
-  <h4>Social media channels</h4>
-  {{ form_row(form.facebook, { 'value' : organisation.facebook } ) }}
-  {{ form_row(form.twitter, { 'value' : organisation.twitter } ) }}
-  {{ form_row(form.instagram, { 'value' : organisation.instagram } ) }}
-  {{ form_row(form.snapchat, { 'value' : organisation.snapchat } ) }}
-  {{ form_row(form.youtube, { 'value' : organisation.youtube } ) }}
-  {{ form_row(form.linkedin, { 'value' : organisation.linkedin } ) }}
-  {{ form_row(form.googleplus, { 'value' : organisation.googleplus } ) }}
+<div class="row">
+  <div class="col-md-6">
+    <h4>Contact information</h4>
+    {{ form_row(form.emailOfficial, { 'value' : organisation.emailOfficial } ) }}
+    {{ form_row(form.emailSupport, { 'value' : organisation.emailSupport } ) }}
+    {{ form_row(form.address, { 'value' : organisation.address } ) }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Social media channels</h4>
+    {{ form_row(form.facebook, { 'value' : organisation.facebook } ) }}
+    {{ form_row(form.twitter, { 'value' : organisation.twitter } ) }}
+    {{ form_row(form.instagram, { 'value' : organisation.instagram } ) }}
+    {{ form_row(form.snapchat, { 'value' : organisation.snapchat } ) }}
+    {{ form_row(form.youtube, { 'value' : organisation.youtube } ) }}
+    {{ form_row(form.linkedin, { 'value' : organisation.linkedin } ) }}
+    {{ form_row(form.googleplus, { 'value' : organisation.googleplus } ) }}
+  </div>
 </div>
 {# Render CSRF token etc .#}
 <div style="display:none">
@@ -59,12 +70,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title" id="myModalLabel">Media Library</h4>
-        </div>
+      </div>
       <div class="modal-body">
         {% for media in medias %}
           <div class="media-library-select inline-block">
-            <input id="mediaOne{{ media.id }}" type="radio" name="mediaOne-choosable" value="{{ media.id }}" {% if media.id == organisation.logo.id %}checked{% endif %} data-target="mediaOne{{ media.id }}">
-            <label class="media-choosable" for="mediaOne{{ media.id }}" style="background-image:url('/{{ media.path }}{{ media.filename }}')" data-img="/{{ media.path }}{{ media.filename }}"></label>
+            <input id="mediaOne{{ media.id }}" type="radio" name="mediaOne-choosable" value="{{ media.id }}"
+                   {% if organisation.logo is not null and media.id == organisation.logo.id %}checked{% endif %}
+                   data-target="mediaOne{{ media.id }}">
+            <label class="media-choosable" for="mediaOne{{ media.id }}"
+                   style="background-image:url('/{{ media.path }}{{ media.filename }}')"
+                   data-img="/{{ media.path }}{{ media.filename }}"></label>
           </div>
         {% endfor %}
         {{ form_end(form) }}
@@ -72,7 +87,7 @@
       <div class="modal-footer">
         <div class="pull-left">
           {{ form_start(formUpload) }}
-            {{ form_widget(formUpload.path) }}
+          {{ form_widget(formUpload.path) }}
           {{ form_end(formUpload) }}
         </div>
         <button type="button" class="btn btn-default mediaOneModal-close" data-dismiss="modal">Close</button>

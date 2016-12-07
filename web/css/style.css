@@ -27,6 +27,7 @@ section {
 .container-escape-fluid{
 	position: absolute;
 	left:0;
+	margin:0;
 	width:100%;
 }
 
@@ -647,9 +648,24 @@ section {
 	vertical-align: middle;
 }
 
+#media-slider{
+	height:60vh;
+	max-height:550px;
+	min-height: 200px;
+	overflow: hidden;
+}
+
 .program_info_caption{
 	font-size: 19px;
 	font-weight:500;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.slick-prev {
+	z-index:9999;
+	left:30px;
+}
+.slick-next{
+	z-index:9999;
+	right:30px;
+}

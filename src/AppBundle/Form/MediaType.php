@@ -27,7 +27,7 @@ class MediaType extends AbstractType
 				->add('path', FileType::class, array(
 					'attr' => $attr,
 					'label_attr' => array(
-						'style' => 'display:none'
+						'style' => 'display:none',
 					)
 				))
 			;

@@ -124,7 +124,7 @@ class AdminController extends BaseController
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
 			$newOrganisation = $form->getData();
-			$logoId = $_POST['logo-choosable'];
+			$logoId = $_POST['mediaOne-choosable'];
 			$logo = $this->getDoctrine()->getRepository('AppBundle:Media')->find($logoId);
 
 			$newOrganisation->setLogo($logo);
@@ -161,64 +161,68 @@ class AdminController extends BaseController
 		if ($form->isSubmitted() && $form->isValid()) {
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
-			$file = $form->getData()->getPath();
-
-			echo "<pre>";
-			print_r($file);
-			echo "</pre>";
+			$files = $form->getData()->getPath();
+//
+//			echo "<pre>";
+//			print_r($files);
+//			echo "</pre>";
 
 			// Verifies if $request is a file
-			if ($file instanceof UploadedFile) {
-				if ($file->getSize() < 2000000) {
+			foreach ($files as $file) {
+				$media = new Media();
 
-					$originalName = $file->getClientOriginalName();
-					$originalName = str_replace(' ', '_', $originalName);
+				echo "<pre>";
+				print_r($file);
+				echo "</pre>";
 
-					$mime_type = $file->getMimeType();
-					$type_array = explode('/', $mime_type);
-					$type_check = $type_array[sizeof($type_array) - 1];
+				if ($file instanceof UploadedFile) {
+					if ($file->getSize() < 2000000) {
 
-					$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
+						$originalName = $file->getClientOriginalName();
+						$originalName = str_replace(' ', '_', $originalName);
 
-					if (in_array(strtolower($type_check), $valid_filetypes)) {
-						$dateUploaded = new \DateTime();
-						$month = $dateUploaded->format("m");
-						$year = $dateUploaded->format("Y");
+						$mime_type = $file->getMimeType();
+						$type_array = explode('/', $mime_type);
+						$type_check = $type_array[sizeof($type_array) - 1];
 
-						$upload_dir = "uploads/media-library";
-						$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
+						$valid_filetypes = array("jpg", "jpeg", "png", "mp4", "ogg", "mpeg", "quicktime");
 
-						$size = $file->getSize();
-						$format = $type_array[0];
+						if (in_array(strtolower($type_check), $valid_filetypes)) {
+							$dateUploaded = new \DateTime();
+							$month = $dateUploaded->format("m");
+							$year = $dateUploaded->format("Y");
 
-						$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
-						$media->setFileName($originalName);
-						$media->setSize($size);
-						$media->setFormat($format);
+							$upload_dir = "uploads/media-library";
+							$sub_dir = $year . DIRECTORY_SEPARATOR . $month;
 
-						$uploadFileMover = new UploadFileMoverListener();
-						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+							$size = $file->getSize();
+							$format = $type_array[0];
 
-						$em = $this->getDoctrine()->getManager();
-						$em->persist($media);
-						$em->flush();
+							$media->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+							$media->setFileName($originalName);
+							$media->setSize($size);
+							$media->setFormat($format);
 
+							$uploadFileMover = new UploadFileMoverListener();
+							$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
 
-						$this->addFlash('success', 'The cover pic has been uploaded!');
-						return $this->redirectToRoute('admin_media_library');
+							$em = $this->getDoctrine()->getManager();
+							$em->persist($media);
+							$em->flush();
+
+						} else {
+							print_r("Your file is not an image.");
+						}
 
 					} else {
-						print_r("Your file is not an image.");
+						print_r("Your file can max be 2 MB of size");
 					}
 
 				} else {
-					print_r("Your file can max be 2 MB of size");
+					print_r($file);
 				}
-
-			} else {
-				print_r($file);
 			}
-
+//			die();
 			$this->addFlash('success', 'The media has been uploaded.');
 			return $this->redirectToRoute('admin_media_library');
 		}

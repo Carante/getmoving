@@ -1,32 +1,37 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block body %}
-    <h1 class="page-header">Organisation</h1>
-    <div class="admin-input-wrap">
-        {{ include('forms/_organisation.html.twig') }}
-    </div>
+  <h1 class="page-header">Organisation</h1>
+  <div class="row">
+    {{ include('forms/_organisation.html.twig') }}
+  </div>
 {% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
+  {{ parent() }}
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script>
-        {#$("#organisation_logo_path").fileinput({#}
-            {#overwriteInitial: true,#}
-            {#maxFileSize: 500,#}
-            {#showClose: false,#}
-            {#showCaption: false,#}
-            {#showBrowse: false,#}
-            {#browseOnZoneClick: true,#}
-            {#elErrorContainer: '#kv-avatar-errors-2',#}
-            {#msgErrorClass: 'alert alert-block alert-danger',#}
-            {#defaultPreviewContent: '<img src="/{{ logo.path }}{{ logo.filename }}" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',#}
-            {#layoutTemplates: {main2: '{preview}'},#}
-            {#allowedFileExtensions: ["jpg", "png", "gif"]#}
-        {#});#}
-    </script>
+  {{ parent() }}
+  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      mode: "exact",
+      selector: "#organisation_about",
+      height: 600
+    });
+    //
+    //        tinymce.init({
+    //            mode : "exact",
+    //            selector :"#organisation_mission",
+    //            height:400
+    //        });
+    //
+    //        tinymce.init({
+    //            mode : "exact",
+    //            selector :"#organisation_vision",
+    //            height:400
+    //        });
+  </script>
 {% endblock %}
 
