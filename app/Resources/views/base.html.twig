@@ -21,6 +21,7 @@
         {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css" />#}
 
         <!-- Custom styles -->
+        <link rel="stylesheet" href="{{ asset('css/slippry.css') }}">
         <link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
         <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     {% endblock %}
@@ -76,7 +77,7 @@
     {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>#}
     {#<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.common.min.js"></script>#}
 
-
+    <script src="{{ asset('js/slippry.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 {% endblock %}
 </body>

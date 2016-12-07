@@ -24,6 +24,20 @@ class ProgramController extends BaseController
 	}
 
 	/**
+	 * @Route("/{programId}", name="program_details")
+	 */
+	public function programDetailAction($programId){
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+		$viewVar = $this->viewVariablesPublic($program->getTitle());
+		$viewVar['program'] = $program;
+
+		$participants = $program->getProgramParticipant();
+		$viewVar['participants'] = count($participants);
+
+		return $this->render('/programs/single.html.twig', $viewVar);
+	}
+
+	/**
 	 * @Route("/{programId}/register", name="register_for_program")
 	 */
 	public function registerAction($programId, Request $request)

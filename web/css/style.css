@@ -24,6 +24,12 @@ section {
 	padding: 10px 0 40px 0;
 }
 
+.container-escape-fluid{
+	position: absolute;
+	left:0;
+	width:100%;
+}
+
 /************* Colors *************/
 .color--white{ color: #FFFFFF !important; }
 .color--blue{ color: #251669 !important; }
@@ -40,6 +46,13 @@ section {
 .green{ background: #34BC9D; }
 .purple{ background: #3b1352;}
 
+.border--white{ border: 1px solid #FFFFFF; }
+.border--blue{ border: 1px solid #251669; }
+.border--black{ border: 1px solid #000000; }
+.border--gray{ border: 1px solid #DADADA; }
+.border--green{ border: 1px solid #34BC9D; }
+.border--purple{ border: 1px solid #3b1352;}
+
 .gradient--red-light {
 	background: -webkit-gradient(linear, 0 584, 360 0, color-stop(0.011, #e94b56), color-stop(0.011, #eb4b56), color-stop(0.08, #ea4a55), color-stop(0.08, #eb4955), color-stop(0.081, #ec4955), color-stop(0.244, #ed4a56), color-stop(0.244, #eb4b56), color-stop(0.278, #ec4c57), color-stop(0.279, #ec4d57), color-stop(0.301, #ec4d57), color-stop(0.301, #eb4d57), color-stop(0.367, #ed4f5b), color-stop(0.367, #ec505b), color-stop(0.37, #eb515c), color-stop(0.395, #ec525d), color-stop(0.395, #eb535d), color-stop(0.412, #eb535d), color-stop(0.415, #eb545e), color-stop(0.45, #ed5660), color-stop(0.45, #eb5760), color-stop(0.491, #ed5a65), color-stop(0.491, #eb5c66), color-stop(0.518, #ec5d67), color-stop(0.518, #ec5f68), color-stop(0.532, #ed6069), color-stop(0.532, #ed616a), color-stop(0.533, #ed626a), color-stop(0.558, #ee636b), color-stop(0.564, #ec636b), color-stop(0.571, #ed646c), color-stop(0.574, #eb656c), color-stop(0.586, #ed676e), color-stop(0.587, #eb686e), color-stop(0.6, #eb686e), color-stop(0.6, #ea686f), color-stop(0.615, #ec6a71), color-stop(0.615, #eb6b71), color-stop(0.626, #ed6d73), color-stop(0.632, #ea6d73), color-stop(0.654, #ec6f75), color-stop(0.654, #ec7176), color-stop(0.655, #ec7276), color-stop(0.67, #eb7479), color-stop(0.683, #ea757a), color-stop(0.696, #ec777c), color-stop(0.696, #e9777b), color-stop(0.708, #eb797d), color-stop(0.709, #ea7a7d), color-stop(0.724, #e97b80), color-stop(0.746, #ed7e83), color-stop(0.746, #eb7f83), color-stop(0.749, #eb8084), color-stop(0.765, #ea8084), color-stop(0.778, #ec8286), color-stop(0.778, #ea8386), color-stop(0.779, #ea8487), color-stop(0.791, #eb8588), color-stop(0.791, #ea8588), color-stop(0.793, #ea868a), color-stop(0.813, #ec888c), color-stop(0.813, #eb888c), color-stop(0.832, #ed8a8e), color-stop(0.832, #ed8b8f), color-stop(0.833, #ea8b8e), color-stop(0.844, #ec8d90), color-stop(0.848, #eb8e90), color-stop(0.857, #ec8f91), color-stop(0.857, #ec8e92), color-stop(0.861, #ec8f94), color-stop(0.861, #e98f93), color-stop(0.879, #eb9195), color-stop(0.881, #eb9396), color-stop(0.902, #ec9497), color-stop(0.902, #eb9597), color-stop(0.924, #ed9799), color-stop(0.924, #ec989a), color-stop(0.93, #ec999c), color-stop(0.943, #ec999c), color-stop(0.943, #ec9b9d), color-stop(0.969, #ec9c9e), color-stop(0.969, #eb9d9f), color-stop(0.989, #ec9ea0), color-stop(0.989, #ec9fa0), color-stop(0.992, #eca0a1), to(#eda1a4));
 	background: -webkit-linear-gradient(158.34872711328734deg, #e94b56 1.1%, #eb4b56 1.1%, #ea4a55 8%, #eb4955 8%, #ec4955 8.1%, #ed4a56 24.4%, #eb4b56 24.4%, #ec4c57 27.8%, #ec4d57 27.9%, #ec4d57 30.1%, #eb4d57 30.1%, #ed4f5b 36.7%, #ec505b 36.7%, #eb515c 37%, #ec525d 39.5%, #eb535d 39.5%, #eb535d 41.2%, #eb545e 41.5%, #ed5660 45%, #eb5760 45%, #ed5a65 49.1%, #eb5c66 49.1%, #ec5d67 51.8%, #ec5f68 51.8%, #ed6069 53.2%, #ed616a 53.2%, #ed626a 53.3%, #ee636b 55.8%, #ec636b 56.4%, #ed646c 57.1%, #eb656c 57.4%, #ed676e 58.6%, #eb686e 58.7%, #eb686e 60%, #ea686f 60%, #ec6a71 61.5%, #eb6b71 61.5%, #ed6d73 62.6%, #ea6d73 63.2%, #ec6f75 65.4%, #ec7176 65.4%, #ec7276 65.5%, #eb7479 67%, #ea757a, #ec777c 69.6%, #e9777b 69.6%, #eb797d 70.8%, #ea7a7d 70.9%, #e97b80 72.4%, #ed7e83 74.6%, #eb7f83 74.6%, #eb8084 74.9%, #ea8084 76.5%, #ec8286 77.8%, #ea8386 77.8%, #ea8487 77.9%, #eb8588 79.1%, #ea8588 79.1%, #ea868a 79.3%, #ec888c 81.3%, #eb888c 81.3%, #ed8a8e 83.2%, #ed8b8f 83.2%, #ea8b8e 83.3%, #ec8d90 84.4%, #eb8e90 84.8%, #ec8f91 85.7%, #ec8e92 85.7%, #ec8f94 86.1%, #e98f93 86.1%, #eb9195 87.9%, #eb9396 88.1%, #ec9497 90.2%, #eb9597 90.2%, #ed9799 92.4%, #ec989a 92.4%, #ec999c 93%, #ec999c 94.3%, #ec9b9d 94.3%, #ec9c9e 96.9%, #eb9d9f 96.9%, #ec9ea0 98.9%, #ec9fa0 98.9%, #eca0a1 99.2%, #eda1a4);
@@ -55,6 +68,18 @@ section {
 	background: radial-gradient(ellipse at center,  #3b1352 0%,#24072a 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b1352', endColorstr='#24072a',GradientType=1 );
 }
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+}
+
 
 /********** SPACING **********/
 /* FULL PADDING */
@@ -563,3 +588,68 @@ section {
 .icons-social .GM-icon-youtube p { color: #bb0000;}
 
 .icons-social-lg i { font-size: 28px}
+
+
+
+/******* Programs overview *********/
+.program-preview{
+	background-size:cover;
+	background-repeat:no-repeat;
+	display:inline-block;
+	height:320px;
+	-webkit-transition: all 250ms ease-in;
+	-moz-transition: all 250ms ease-in;
+	transition: all 250ms ease-in;
+	-webkit-filter: brightness(1.2) grayscale(.25) opacity(.85);
+	-moz-filter: brightness(1.2) grayscale(.25) opacity(.85);
+	filter: brightness(1.2) grayscale(.25) opacity(.85);
+}
+	.program-preview:active{opacity: .9;}
+	.program-preview:hover{
+		-webkit-filter: brightness(1) grayscale(0) opacity(1);
+		-moz-filter: brightness(1) grayscale(0) opacity(1);
+		filter: brightness(1) grayscale(0) opacity(1);
+	}
+.program_links{
+	position: absolute;
+	bottom:20px;
+	left:50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+
+
+/********** Single program ***********/
+.feature {
+	height:420px;
+	margin-top: 0;
+	width: calc(100% + 60px);
+	text-align: center;
+	line-height:420px;
+	-webkit-box-shadow: inset 0 3px 5px rgba(56,56,56,0.61);
+	-moz-box-shadow: inset 0 1px 5px rgba(56,56,56,0.61);
+	box-shadow: inset 0 1px 5px rgba(56,56,56,0.61);
+}
+
+.program-heading{
+	color: #ffffff;
+	line-height:1.2em;
+	font-size:62px;
+	margin:0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:lighter;
+	text-shadow: -3px 2px 6px #000, -3px 2px 6px #000;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.program_info_caption{
+	font-size: 19px;
+	font-weight:500;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+

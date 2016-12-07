@@ -1,36 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<section class="white">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h1>Choose your proect</h1>
-					<p>GetMoving is a brand new and booming organsiation. Our main focus is to offer a unique opportunity for young people, to come to lovely Fiji and help the society grow and advance. The participant will leave with a certainty of that he/she has done a significant difference for the people in Fiji</p>
-					<p>Being a new organistation we need your help. Follow us on the following platforms to be informed about new programs, special deals, events and much more...</p>
-				</div>
-			</div>
-			<div class="row margin--top">
-				{% for program in programs %}
-					<div class="col-md-6 padding--whole-l" {% if program.feature is not null %}style="background: url('/{{ program.feature.path }}{{ program.feature.filename }}') no-repeat center center; background-size:cover;">{% endif %}
-						<h2 class="text-center">{{ program.title }}</h2>
-						<p class="list-price">Price: $ {{ program.price }}/wk | Min. {{ program.minDuration }} weeks</p>
-						<p class="location">{{ program.location }}</p>
-						<div class="description">
-							{{ program.teaser }}
-						</div>
-						<div class="program_links margin--top">
-							<a href="{{ path('register_for_program', {'programId': program.id}) }}"><button class="btn btn-success btn-sm margin--right-l">Register</button></a>
-							<a href=""><button class="btn btn-default btn-sm">Read more</button></a>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+  <section class="white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>Choose your proect</h1>
+          <p>GetMoving is a brand new and booming organsiation. Our main focus is to offer a unique opportunity for
+            young people, to come to lovely Fiji and help the society grow and advance. The participant will leave with
+            a certainty of that he/she has done a significant difference for the people in Fiji</p>
+          <p>Being a new organistation we need your help. Follow us on the following platforms to be informed about new
+            programs, special deals, events and much more...</p>
+        </div>
+      </div>
+      <div class="container-escape-fluid margin--top">
+        {% for program in programs %}
+          <div class="col-md-6 padding--whole-l program-preview color--purple"
+               {% if program.feature is not null %}style="background-image: url('/{{ program.feature.path }}{{ program.feature.filename }}');">{% endif %}
+            <h2 class="text-center">{{ program.title }}</h2>
+            <p class="list-price">Price: $ {{ program.price }}/wk | Min. {{ program.minDuration }} weeks</p>
+            <p class="location">{{ program.location }}</p>
+            <div class="description">
+              {{ program.teaser }}
+            </div>
+            <div class="program_links margin--top">
+              <a href="{{ path('register_for_program', {'programId': program.id}) }}">
+                <button class="btn btn-success btn-sm margin--right-l">Register</button>
+              </a>
+              <a href="{{ path('program_details',{'programId':program.id}) }}">
+                <button class="btn btn-default btn-sm">Read more</button>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block stylesheets %}
-	{{ parent() }}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
 {% endblock %}
 
