@@ -22,6 +22,12 @@ $(document).ready(function() {
 
 $(window).resize(function(){
 	sliderHeightAdjust();
+});
+
+$(".step-change").click(function(){
+	var step = $(this).attr("data-step");
+	step == 7 ? printInfo() : false ;
+	changeStep(step);
 })
 
 function sliderHeightAdjust(){
@@ -44,7 +50,7 @@ function changeStep(step){
 	$(".step-wrap").fadeOut();
 	setTimeout(function(){
 		$("#register_step_"+step).fadeIn();
-	}, 500)
+	}, 500);
 }
 
 function printInfo(){

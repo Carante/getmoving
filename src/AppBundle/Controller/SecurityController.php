@@ -44,6 +44,14 @@ class SecurityController extends BaseController
 	}
 
 	/**
+	 * @Route("/access_denied", name="security_access_denied")
+	 */
+	public function accessDeniedAction()
+	{
+		return $this->redirectToRoute('home');
+	}
+
+	/**
 	 * @Route("/retrieve-password", name="security_retrieve_password")
 	 */
 	public function retrievePasswordAction(Request $request)
@@ -118,6 +126,7 @@ class SecurityController extends BaseController
 			$viewVar['form'] = $form->createView();
 			return $this->render('/reset_password.html.twig', $viewVar);
 	}
+
 	public function volunteerUpdateAction($volunteerId, Request $request)
 	{
 

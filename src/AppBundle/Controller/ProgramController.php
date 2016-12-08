@@ -26,7 +26,8 @@ class ProgramController extends BaseController
 	/**
 	 * @Route("/{programId}", name="program_details")
 	 */
-	public function programDetailAction($programId){
+	public function programDetailAction($programId)
+	{
 		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
 		$viewVar = $this->viewVariablesPublic($program->getTitle());
 		$viewVar['program'] = $program;
@@ -50,7 +51,7 @@ class ProgramController extends BaseController
 		$form = $this->createForm(UserRegistrationForm::class);
 		$form->handleRequest($request);
 
-		if ($form->isValid() ) {
+		if ($form->isValid()) {
 			$user = $form->getData();
 
 			$program->addProgramParticipant($user);
@@ -72,5 +73,22 @@ class ProgramController extends BaseController
 
 		$viewVar['form'] = $form->createView();
 		return $this->render('/users/register.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/{programId}/register/{userId}", name="register_logged_in_for_program")
+	 */
+	public function registerLoggedInAction($programId, $userId)
+	{
+		$user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+
+		$program->addProgramParticipant($user);
+
+		$em = $this->getDoctrine()->getManager();
+		$em->persist($program);
+		$em->flush();
+
+		return $this->redirectToRoute('programs_list');
 	}
 }

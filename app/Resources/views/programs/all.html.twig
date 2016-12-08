@@ -24,7 +24,12 @@
               {{ program.teaser }}
             </div>
             <div class="program_links margin--top">
-              <a href="{{ path('register_for_program', {'programId': program.id}) }}">
+              <a href="
+                {% if is_granted('ROLE_USER') %}
+                  {{ path('register_logged_in_for_program', {'programId': program.id, 'userId': app.user.id}) }}
+                {% else %}
+                  {{ path('register_for_program', {'programId': program.id}) }}
+                {% endif %}">
                 <button class="btn btn-success btn-sm margin--right-l">Register</button>
               </a>
               <a href="{{ path('program_details',{'programId':program.id}) }}">
