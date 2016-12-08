@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	console.log("ready");
+	sliderHeightAdjust();
 
 
 	$('.datepicker.birthday').datepicker({
@@ -17,15 +18,26 @@ $(document).ready(function() {
 		changeYear: true,
 		format: 'yyyy-mm-dd'
 	});
-
-	$('.step-change').click(function() {
-		var step = $(this).attr("data-step");
-		changeStep(step);
-		printInfo();
-	})
-
 });
 
+$(window).resize(function(){
+	sliderHeightAdjust();
+})
+
+function sliderHeightAdjust(){
+	var paH = $("#media-slider").height(),
+			paW = $("#media-slider").width();
+
+	$(".slider-mediaOne img").each(function(){
+		var elH = $(this).height(),
+				elW = $(this).width();
+
+		var offsetY = (paH - elH) / 2,
+				offsetX = (paW - elW) / 2;
+
+		$(this).css({'margin-top':offsetY, 'margin-left':offsetX});
+	})
+}
 
 function changeStep(step){
 	console.log(step);
@@ -91,3 +103,4 @@ function printInfo(){
 	$("#futplace"+postfix).html(eduFuturePlace);
 	$("#futprogram"+postfix).html(eduFutureProgram);
 }
+

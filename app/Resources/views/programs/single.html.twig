@@ -83,10 +83,14 @@
           {{ program.description|raw }}
         </div>
       </div>
-      <div class="row container-escape-fluid">
-        <div id="media-slider" class="sy-list">
+    </div>
+  </section>
+  <section class="padding--whole-none">
+    <div class="container-fluid">
+      <div class="row">
+        <div id="media-slider" class="margin--whole-none">
           {% for media in program.programMedia %}
-            <div>
+            <div class="slider-mediaOne">
               <img src="/{{ media.path }}{{ media.filename }}" alt="{{ media.filename }}">
             </div>
           {% endfor %}
@@ -108,7 +112,8 @@
         dots: true,
         mobileFirst: true,
         autoplay: true,
-        speed: 500,
+        autoplaySpeed: 3200,
+        speed: 1400,
         centerMode: true,
         fade: true,
         cssEase: 'ease-in-out'
