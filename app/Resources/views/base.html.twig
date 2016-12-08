@@ -57,7 +57,8 @@
                 <li><a href="{{ path('why') }}">Why Us?</a></li>
                 <li><a href="{{ path('programs_list') }}">Programs</a></li>
                 {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('security_logout') }}">Logout</a></li>
+                    <li><a href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">Profile</a></li>
+                    {#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
                 {% else %}
                     <li><a href="{{ path('security_login') }}">Login</a></li>
                 {% endif %}

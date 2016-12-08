@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <section>
+    <div class="container">
+      <h1 class="color--purple">
+        {{ app.user.firstName }}
+        {% if app.user.middleName is not null %}
+          {{ app.user.middleName }}
+        {% endif %}
+        {{ app.user.lastName }}
+      </h1>
+    </div>
+  </section>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}
+

@@ -6,7 +6,9 @@
     {{ form_row(form.middleName) }}
     {{ form_row(form.lastName) }}
     {{ form_row(form.dateOfBirth) }}
-    {{ form_row(form.sex) }}
+    {{ form_row(form.sex, {
+      'label': 'Gender'
+    }) }}
     {{ form_row(form.nationality) }}
     <div class="row margin--top">
       <span class="btn btn-primary btn-sm pull-right step-change" data-step="2">Next <i class="fa fa-arrow-right"></i></span>

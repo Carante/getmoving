@@ -14,36 +14,22 @@ use Symfony\Component\Validator\Constraints\Date;
 class UserController extends BaseController
 {
 	/**
-	 * @Route("/register", name="user_register")
+	 * @Route("/{firstName}-{lastName}", name="profile")
 	 */
-	public function registerAction(Request $request)
-	{
-		$viewVar = $this->viewVariablesPublic('Register');
-		$form = $this->createForm(UserRegistrationForm::class);
+	public function profileAction($firstName, $lastName){
+		$user = $this->getUser();
+		$uFirstName = $user->getFirstName();
+		$uLastName = $user->getLastName();
+		$viewVar = $this->viewVariablesPublic($uFirstName." ".$uLastName);
 
-		$form->handleRequest($request);
-		if ($form->isValid() ) {
-			/** @var  User $user */
-			$user = $form->getData();
-			$user->setRoles(['ROLE_VOLUNTEER']);
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($user);
-			$em->flush();
-
-			$this->addFlash('success', 'Welcome '.$user->getEmail());
-
-			return $this->get("security.authentication.guard_handler")
-				->authenticateUserAndHandleSuccess(
-					$user,
-					$request,
-					$this->get("app.security.login_form_authenticator"),
-					'main'
-				);
+		if ($firstName == $uFirstName && $lastName == $uLastName)
+		{
+			return $this->render('/users/profile.html.twig', $viewVar);
 		}
 
-		$viewVar['form'] = $form->createView();
-		return $this->render('register.html.twig', $viewVar);
+		return $this->redirectToRoute('home');
 	}
+
 
 	/**
 	 * @Route("/newTest")

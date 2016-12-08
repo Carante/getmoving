@@ -165,7 +165,7 @@ class User implements UserInterface
 
 	// Address Information
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $addressCountry;
 
@@ -175,17 +175,17 @@ class User implements UserInterface
 	private $addressRegion;
 
 	/**
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="integer", nullable=true)
 	 */
 	private $addressZip;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $addressCity;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $addressStreet;
 
@@ -195,7 +195,7 @@ class User implements UserInterface
 	private $addressPoBox;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $addressHouseNo;
 
@@ -207,17 +207,17 @@ class User implements UserInterface
 
 	// Educational Information
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $eduLevelExpected;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $eduCurrentPlace;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $eduCurrentProgram;
 

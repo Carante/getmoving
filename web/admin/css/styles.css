@@ -422,6 +422,15 @@ body {
 	.mobile-all--caps{ text-transform: uppercase !important; }
 }
 
+.radio {
+	display: inline-block;
+	margin:0 10px 0 0;
+}
+
+.intl-tel-input.allow-dropdown{
+	display: block;
+}
+
 
 .mediaImg{
 	opacity:.75;

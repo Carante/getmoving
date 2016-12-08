@@ -28,5 +28,6 @@
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="sweetalert2.common" level="application" />
     <orderEntry type="library" name="slick" level="application" />
+    <orderEntry type="library" name="jquery.dataTables" level="application" />
   </component>
 </module>

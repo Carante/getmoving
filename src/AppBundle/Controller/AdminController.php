@@ -6,6 +6,8 @@ use AppBundle\Doctrine\UploadFileMoverListener;
 use AppBundle\Entity\Media;
 use AppBundle\Entity\Organisation;
 use AppBundle\Entity\Program;
+use AppBundle\Entity\User;
+use AppBundle\Form\AdminType;
 use AppBundle\Form\MediaType;
 use AppBundle\Form\OrganisationType;
 use AppBundle\Form\ProgramType;
@@ -147,6 +149,7 @@ class AdminController extends BaseController
 
 
 
+
 	/**
 	 * @Route("/medialibrary", name="admin_media_library")
 	 */
@@ -249,6 +252,9 @@ class AdminController extends BaseController
 
 
 
+
+
+
 	/**
 	 * @Route("/users", name="admin_users")
 	 */
@@ -256,10 +262,52 @@ class AdminController extends BaseController
 	{
 		$viewVar = $this->viewVariables("Users");
 
+		$countries = json_decode(file_get_contents('../web/dist/countries.json'), true);
+		foreach ($viewVar['users'] as $user) {
+			foreach ($countries as $country) {
+				if ($user->getNationality() == $country['cca3']) {
+					$user->setNationality($country['demonym'] . ", " . $country['name']['common']);
+					break;
+				}
+			}
+			$role = $user->getRoles()[0];
+			$aRole = explode("_", $role);
+			$plainRole = $aRole[count($aRole)-1];
+			$user->setRoles([$plainRole]);
+		}
+
 		return $this->render('admin/users.html.twig', $viewVar);
 	}
 
 	/**
+	 * @Route("/user/new", name="admin_user_new")
+	 */
+	public function userAddAction(Request $request){
+		$viewVar = $this->viewVariables("New user");
+
+		$user = new User();
+
+		$form = $this->createForm(AdminType::class, $user);
+
+		$form->handleRequest($request);
+		if ($form->isValid() && $form->isSubmitted()) {
+			$newUser = $form->getData();
+			$newUser->setRoles(['ROLE_ADMIN']);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newUser);
+			$em->flush();
+
+			$this->addFlash('success', 'The user has been created!');
+
+			return $this->redirectToRoute('admin_users');
+		}
+
+		$viewVar['form'] = $form->createView();
+		return 	$this->render('/usersNew.html.twig', $viewVar);
+	}
+
+		/**
 	 * @Route("/profile", name="admin_profile")
 	 */
 	public function profileAction()
@@ -268,6 +316,11 @@ class AdminController extends BaseController
 
 		return $this->render('admin/userProfile.html.twig', $viewVar);
 	}
+
+
+
+
+
 
 
 
@@ -334,6 +387,11 @@ class AdminController extends BaseController
 
 		return $this->render('admin/volunteerUpdate.html.twig', $viewVar);
 	}
+
+
+
+
+
 
 
 
@@ -598,6 +656,10 @@ class AdminController extends BaseController
 
 		return $this->render('admin/programUpdate.html.twig', $viewVar);
 	}
+
+
+
+
 
 
 

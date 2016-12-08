@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	toggleDisabled();
 	toggleActive();
+	$(".dataTable").DataTable();
 })
 
 function toggleDisabled() {

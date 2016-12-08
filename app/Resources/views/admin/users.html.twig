@@ -2,15 +2,19 @@
 
 {% block body %}
   <h1 class="page-header">Users</h1>
-  <div class="row">
-    <table class="table table-bordered table-responsive">
+  <div>
+    <a href="{{ path('admin_user_new') }}">
+      <button class="btn btn-success"><i class="fa fa-user-plus"></i> New user</button>
+    </a>
+  </div>
+  <div class="row margin--top-l">
+    <table id="usersTable" class="dataTable table table-striped table-hover" data-toggle="table" data-order='[[ 0, "desc" ]]' data-page-length="25">
       <thead>
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Nationality</th>
       <th>Role</th>
-      <th></th>
       </thead>
       <tbody>
       {% for user in users %}
@@ -19,8 +23,7 @@
           <td>{{ user.email }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.nationality }}</td>
-          <td>{{ user.roles[0] }}</td>
-          <td><a href="{{ path('admin_volunteer_edit', {'volunteerId': user.id}) }}"><button class="btn btn-sm btn-primary">Edit <i class="fa fa-pencil"></i></button></a></td>
+          <td>{{ user.roles[0]|capitalize }}</td>
         </tr>
       {% endfor %}
       </tbody>

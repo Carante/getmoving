@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{bootstrap, html5shiv, jquery, jquery-ui, respond, slick, sweetalert2.common, tinymce}" />
+    <file url="PROJECT" libraries="{bootstrap, html5shiv, jquery, jquery-ui, jquery.dataTables, respond, slick, sweetalert2.common, tinymce}" />
   </component>
 </project>

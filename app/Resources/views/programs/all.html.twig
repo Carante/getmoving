@@ -15,11 +15,11 @@
       </div>
       <div class="container-escape-fluid margin--top">
         {% for program in programs %}
-          <div class="col-md-6 padding--whole-l program-preview color--purple"
+          <div class="col-md-6 padding--whole-l program-preview color--white text--shadow"
                {% if program.feature is not null %}style="background-image: url('/{{ program.feature.path }}{{ program.feature.filename }}');">{% endif %}
-            <h2 class="text-center">{{ program.title }}</h2>
+            <h2 class="text-center light">{{ program.title }}</h2>
             <p class="list-price">Price: $ {{ program.price }}/wk | Min. {{ program.minDuration }} weeks</p>
-            <p class="location">{{ program.location }}</p>
+            <h4 class="location light">{{ program.location }}</h4>
             <div class="description">
               {{ program.teaser }}
             </div>

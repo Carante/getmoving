@@ -218,6 +218,13 @@ section {
 }
 
 /********* TEXT ***********/
+h1,h2,h3,h4,h5,h6{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height:1.2em;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .bold{ font-weight: 600 !important; }
 .regular{ font-weight: 300 !important; }
 .light{ font-weight: 100 !important; }
@@ -227,7 +234,7 @@ section {
 }
 .line-through { text-decoration: line-through !important;}
 .all--caps{ text-transform: uppercase !important; }
-.text--shadow{ text-shadow: -1px 1px 1px rgba(45, 45, 45, 0.18); }
+.text--shadow{ text-shadow: -3px 2px 6px #000, -3px 2px 6px #000; }
 
 @media screen and (max-width: 768px){
 	body{
@@ -704,4 +711,8 @@ section {
 .slick-dots li.slick-active button:before {
 	opacity: .75;
 	color: white;
+}
+
+.intl-tel-input.allow-dropdown{
+	display: block;
 }

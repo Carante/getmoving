@@ -37,6 +37,20 @@ class HomeController extends BaseController
 	{
 		$viewVar = $this->viewVariablesPublic("Connected");
 
+		$organisation = $viewVar['organisation'];
+		$socialcount = 0;
+		!empty($organisation->getFacebook()) ? $socialcount++ : false ;
+		!empty($organisation->getTwitter()) ? $socialcount++ : false ;
+		!empty($organisation->getInstagram()) ? $socialcount++ : false ;
+		!empty($organisation->getSnapchat()) ? $socialcount++ : false ;
+		!empty($organisation->getYoutube()) ? $socialcount++ : false ;
+		!empty($organisation->getGoogleplus()) ? $socialcount++ : false ;
+		!empty($organisation->getLinkedin()) ? $socialcount++ : false ;
+
+
+		($socialcount != 5 && $socialcount != 7) ? $socialDiv = 12 / $socialcount : ($socialcount == 5 ? $socialDiv = 15 : $socialcount = 17) ;
+		$viewVar['socialDiv'] = $socialDiv;
+
 		// Create the form according to the FormType created previously.
 		// And give the proper parameters
 		$form = $this->createForm(ContactType::class, null,array(

@@ -1,52 +1,83 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<section class="white">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h1>Let's get connected!</h1>
-					<p>GetMoving is a brand new and booming organsiation. Our main focus is to offer a unique opportunity for young people, to come to lovely Fiji and help the society grow and advance. The participant will leave with a certainty of that he/she has done a significant difference for the people in Fiji</p>
-					<p>Being a new organistation we need your help. Follow us on the following platforms to be informed about new programs, special deals, events and much more...</p>
-				</div>
-			</div>
-			<div class="row icons-social icons-social-lg margin--top-huge">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="col-sm-15 GM-icon-facebook">
-						<a href="https://facebook.com"><i class="fa fa-facebook-f icon-circle"></i></a>
-						<p>GetMoving Fiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-twitter">
-						<a href="https://twitter.com"><i class="fa fa-twitter icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-instagram">
-						<a href="https://instagram.com"><i class="fa fa-instagram icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-snapchat">
-						<a href="https://snapchat.com"><i class="fa fa-snapchat-ghost icon-circle"></i></a>
-						<p>@GetMovingFiji</p>
-					</div>
-					<div class="col-sm-15 GM-icon-youtube">
-						<a href="https://youtube.com"><i class="fa fa-youtube icon-circle"></i></a>
-						<p>GetMoving Fiji</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="GM-contact-form" class="gradient--red-light color--white">
-		<div class="container">
-			<div class="col-md-6 col-md-offset-3">
-				<h1><i class="fa fa-envelope" style="font-size: 62px"></i></h1>
-				{{ include('forms/_contact.html.twig') }}
-			</div>
-		</div>
-	</section>
+  <section class="white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>Let's get connected!</h1>
+          <p>GetMoving is a brand new and booming organsiation. Our main focus is to offer a unique opportunity for
+            young people, to come to lovely Fiji and help the society grow and advance. The participant will leave with
+            a certainty of that he/she has done a significant difference for the people in Fiji</p>
+          <p>Being a new organistation we need your help. Follow us on the following platforms to be informed about new
+            programs, special deals, events and much more...</p>
+        </div>
+      </div>
+      <div class="row icons-social icons-social-lg margin--top-huge">
+        <div class="col-md-10 col-md-offset-1">
+          {% if organisation.facebook is not null %}
+            <div class="col-sm-{{ socialDiv }} GM-icon-facebook">
+              <a href="https://facebook.com/{{ organisation.facebook }}"><i class="fa fa-facebook-f icon-circle"></i></a>
+              <p>{{ organisation.facebook }}</p>
+            </div>
+          {% endif %}
+
+          {% if organisation.twitter is not null %}
+          <div class="col-sm-{{ socialDiv }} GM-icon-twitter">
+            <a href="https://twitter.com/{{ organisation.twitter }}"><i class="fa fa-twitter icon-circle"></i></a>
+            <p>@{{ organisation.twitter }}</p>
+          </div>
+          {% endif %}
+
+          {% if organisation.instagram %}
+          <div class="col-sm-{{ socialDiv }} GM-icon-instagram">
+            <a href="https://instagram.com/{{ organisation.instagram }}"><i class="fa fa-instagram icon-circle"></i></a>
+            <p>@{{ organisation.instagram }}</p>
+          </div>
+          {% endif %}
+
+          {% if organisation.snapchat is not null %}
+          <div class="col-sm-{{ socialDiv }} GM-icon-snapchat">
+            <i class="fa fa-snapchat-ghost icon-circle"></i>
+            <p>{{ organisation.snapchat }}</p>
+          </div>
+          {% endif %}
+
+          {% if organisation.youtube is not null %}
+          <div class="col-sm-{{ socialDiv }} GM-icon-youtube">
+            <a href="https://youtube.com/{{ organisation.youtube }}"><i class="fa fa-youtube icon-circle"></i></a>
+            <p>{{ organisation.youtube }}</p>
+          </div>
+          {% endif %}
+
+          {% if organisation.googleplus is not null %}
+            <div class="col-sm-{{ socialDiv }} GM-icon-googleplus">
+              <a href="https://youtube.com"><i class="fa fa-google-plus icon-circle"></i></a>
+              <p>{{ organisation.googleplus }}</p>
+            </div>
+          {% endif %}
+
+          {% if organisation.linkedin is not null %}
+            <div class="col-sm-{{ socialDiv }} GM-icon-linkedin">
+              <a href="https://youtube.com"><i class="fa fa-linkedin icon-circle"></i></a>
+              <p>{{ organisation.linkedin }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="GM-contact-form" class="green color--white">
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <h1><i class="fa fa-envelope" style="font-size: 62px"></i></h1>
+        {{ include('forms/_contact.html.twig') }}
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block stylesheets %}
-	{{ parent() }}
+  {{ parent() }}
 {% endblock %}
 
