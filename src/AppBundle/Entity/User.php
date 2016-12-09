@@ -153,7 +153,7 @@ class User implements UserInterface
 	private $sex;
 
 	/**
-	 * @ORM\Column(type="string", length=3)
+	 * @ORM\Column(type="string")
 	 */
 	private $nationality;
 
@@ -232,18 +232,6 @@ class User implements UserInterface
 	private $eduFutureProgram;
 
 
-	// Program signup fields
-	/**
-	 * @ORM\Column(type="date", nullable=true)
-	 */
-	private $programArrival;
-
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
-	private $programDuration;
-
-
 	// Selective boolean
 	/**
 	 * @ORM\Column(type="boolean")
@@ -271,6 +259,13 @@ class User implements UserInterface
 	 * @ORM\Column(type="string", nullable=true)
 	 */
 	private $policeReportFile;
+
+
+	// Relations
+	/**
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\ProgramParticipants", mappedBy="user")
+	 */
+	private $userPrograms;
 
 
 	///////////////////////
@@ -506,31 +501,6 @@ class User implements UserInterface
 	}
 
 
-	//////////////////////
-	// Program information
-
-	// Arrival getter'n'setter
-	public function getProgramArrival()
-	{
-		return $this->programArrival;
-	}
-
-	public function setProgramArrival($programArrival)
-	{
-		$this->programArrival = $programArrival;
-	}
-
-	// Duration getter'n'setter
-	public function getProgramDuration()
-	{
-		return $this->programDuration;
-	}
-
-	public function setProgramDuration($programDuration)
-	{
-		$this->programDuration = $programDuration;
-	}
-
 
 	//////////////////
 	// BOOLEAN CHOICES
@@ -592,6 +562,11 @@ class User implements UserInterface
 	public function setPoliceReportFile($policeReportFile)
 	{
 		$this->policeReportFile = $policeReportFile;
+	}
+
+	public function getUserPrograms()
+	{
+		return $this->userPrograms;
 	}
 
 

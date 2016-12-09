@@ -43,6 +43,8 @@ abstract class BaseController extends Controller
 		$programs = $this->getDoctrine()->getRepository('AppBundle:Program')->findAll();
 		$viewVar['programs'] = $programs;
 
+		$participants = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->findAll();
+		$viewVar['participants'] = $participants;
 
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		$orgName = "Dummy";
@@ -74,9 +76,11 @@ abstract class BaseController extends Controller
 		));
 		$viewVar['programs'] = $programs;
 
-
 		$profiles = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
 		$viewVar['profiles'] = $profiles;
+
+		$participants = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->findAll();
+		$viewVar['participants'] = $participants;
 
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
 		if (!empty($organisations)) {

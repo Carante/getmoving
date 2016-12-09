@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+    <h2 class="color--purple light">Profile</h2>
+    {{ form_row(form.email) }}
+    {{ form_row(form.phone) }}
+
+    <h2 class="color--purple light">Address</h2>
+    {{ form_row(form.addressCountry) }}
+    {{ form_row(form.addressRegion) }}
+    {{ form_row(form.addressZip) }}
+    {{ form_row(form.addressCity) }}
+    {{ form_row(form.addressStreet) }}
+    {{ form_row(form.addressPoBox) }}
+    {{ form_row(form.addressHouseNo) }}
+    {{ form_row(form.addressCo) }}
+
+    <h2 class="color--purple light">Education</h2>
+    {{ form_row(form.eduLevelExpected) }}
+    {{ form_row(form.eduCurrentPlace) }}
+    {{ form_row(form.eduCurrentProgram) }}
+    {{ form_row(form.eduFuturePlace) }}
+    {{ form_row(form.eduFutureProgram) }}
+    <button class="btn btn-success btn-block margin--top" type="submit">Save <i class="fa fa"></i></button>
+  </div>
+</div>
+{# Render CSRF token etc .#}
+<div style="display:none">
+  {{ form_rest(form) }}
+</div>
+{{ form_end(form) }}

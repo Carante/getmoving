@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <section>
+    <div class="container">
+      <h1>A lttle info about your plans!</h1>
+      <div class="row form-wrap registration-form-wrap">
+        <div class="col-xs-12">
+          {{ include('forms/_participant.html.twig') }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}

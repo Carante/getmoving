@@ -6,10 +6,12 @@ use AppBundle\Doctrine\UploadFileMoverListener;
 use AppBundle\Entity\Media;
 use AppBundle\Entity\Organisation;
 use AppBundle\Entity\Program;
+use AppBundle\Entity\ProgramParticipants;
 use AppBundle\Entity\User;
 use AppBundle\Form\AdminType;
 use AppBundle\Form\MediaType;
 use AppBundle\Form\OrganisationType;
+use AppBundle\Form\ParticipantType;
 use AppBundle\Form\ProgramType;
 use AppBundle\Form\UserRegistrationForm;
 use AppBundle\Form\UserType;
@@ -304,7 +306,7 @@ class AdminController extends BaseController
 		}
 
 		$viewVar['form'] = $form->createView();
-		return 	$this->render('/usersNew.html.twig', $viewVar);
+		return 	$this->render('/admin/usersNew.html.twig', $viewVar);
 	}
 
 		/**
@@ -362,7 +364,7 @@ class AdminController extends BaseController
 
 		$viewVar = $this->viewVariables($vName);
 
-		$viewVar['volunteer'] = $volunteer;;
+		$viewVar['volunteer'] = $volunteer;
 
 		$form = $this->createForm(UserType::class, $volunteer);
 
@@ -386,6 +388,69 @@ class AdminController extends BaseController
 		$viewVar['form'] = $form->createView();
 
 		return $this->render('admin/volunteerUpdate.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/volunteer/{volunteerId}/participations", name="admin_volunteer_participations")
+	 */
+	public function volunteerParticipationsAction($volunteerId, Request $request){
+		$volunteer = $this->getDoctrine()->getRepository('AppBundle:User')->find($volunteerId);
+		$vFirstName = $volunteer->getFirstname();
+		$vMiddleName = $volunteer->getMiddlename();
+		$vLastName = $volunteer->getLastname();
+
+		$participation = new ProgramParticipants();
+
+		$form = $this->createForm(ParticipantType::class, $participation);
+
+		empty($vMiddleName) ? $vName = $vFirstName . " " . $vLastName : $vName = $vFirstName . " " . $vMiddleName . " " . $vLastName;
+
+		$viewVar = $this->viewVariables($vName." participations");
+		$viewVar['volunteer'] = $volunteer;;
+
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid())
+		{
+			$newParticipationId = $_POST['participationId'];
+			$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($newParticipationId);
+
+			$newParticipation->setArrivalDate($form->getData()->getArrivalDate());
+			$newParticipation->setDuration($form->getData()->getDuration());
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newParticipation);
+			$em->flush();
+		}
+
+		$viewVar['form'] = $form->createView();
+		return	$this->render('admin/volunteerParticipations.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/participation/{participationId}/{userId}/{programId}", name="admin_update_participation")
+	 */
+	public function updateParticipationAction($participationId, $userId, $programId)
+	{
+		$participation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($participationId);
+		if ($participation->getUser()->getId() == $userId && $participation->getProgram()->getId() == $programId)
+		{
+			$duration = $_GET['duration'];
+			$arrival = $_GET['arrival'];
+			$arrival = new \DateTime($arrival);
+
+			$participation->setArrivalDate($arrival);
+			$participation->setDuration($duration);
+
+//			echo "<pre>";
+//			print_r($participation);
+//			echo "</pre>";
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($participation);
+			$em->flush();
+
+			return $this->redirectToRoute('admin_volunteer_participations', array('volunteerId' => $userId));
+		}
 	}
 
 
@@ -427,9 +492,9 @@ class AdminController extends BaseController
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
 			$file = $formUpload->getData()->getPath();
-			echo "<pre>";
-			print_r($file);
-			echo "</pre>";
+//			echo "<pre>";
+//			print_r($file);
+//			echo "</pre>";
 			// Verifies if $request is a file
 			if ($file instanceof UploadedFile) {
 				echo "INSTANCE OF UPLOADFILE";

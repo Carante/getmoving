@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Program;
+use AppBundle\Entity\ProgramParticipants;
+use AppBundle\Form\ParticipantType;
 use AppBundle\Form\UserRegistrationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -32,7 +34,7 @@ class ProgramController extends BaseController
 		$viewVar = $this->viewVariablesPublic($program->getTitle());
 		$viewVar['program'] = $program;
 
-		$participants = $program->getProgramParticipant();
+		$participants = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->findBy(array('program' => $program));
 		$viewVar['participants'] = count($participants);
 
 		return $this->render('/programs/single.html.twig', $viewVar);
@@ -43,23 +45,71 @@ class ProgramController extends BaseController
 	 */
 	public function registerAction($programId, Request $request)
 	{
-		$viewVar = $this->viewVariablesPublic('SignUp');
+		$viewVar = $this->viewVariablesPublic('Register');
 
 		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
 		$viewVar['program'] = $program;
 
+//		$participant = new ProgramParticipants();
+//		$participant->setProgram($program);
+
+
 		$form = $this->createForm(UserRegistrationForm::class);
 		$form->handleRequest($request);
 
-		if ($form->isValid()) {
+		if ($form->isSubmitted()) {
 			$user = $form->getData();
-
-			$program->addProgramParticipant($user);
 
 			$user->setRoles(['ROLE_VOLUNTEER']);
 
+//			$arrival = $_GET['arrivalDate'];
+//			$duration = $form->getData()->getDuration();
+//
+//			$participant->setUser($user);
+//			$participant->setArrivalDate($arrival);
+//			$participant->setDuration($duration);
+//			echo "<pre>";
+//			print_r($user);
+//			print_r($participant);
+//			echo "</pre>";
+//			die();
+
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($user);
+//			$em->persist($participant);
+			$em->flush();
+
+			return $this->redirectToRoute('register_logged_in_for_program', array(
+				'programId' => $programId,
+				'userId' => $user->getId()
+			));
+		}
+
+		$viewVar['form'] = $form->createView();
+		return $this->render('/users/register.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/{programId}/register/{userId}", name="register_logged_in_for_program")
+	 */
+	public function registerLoggedInAction($programId, $userId, Request $request)
+	{
+		$viewVar = $this->viewVariablesPublic('SignUp');
+		$user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+		$participant = new ProgramParticipants();
+
+		$form = $this->createForm(ParticipantType::class, $participant);
+
+		$form->handleRequest($request);
+		if ($form->isValid() && $form->isSubmitted())
+		{
+			$newParticipant = $form->getData();
+			$newParticipant->setUser($user);
+			$newParticipant->setProgram($program);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($newParticipant);
 			$em->flush();
 
 			return $this->get("security.authentication.guard_handler")
@@ -72,23 +122,6 @@ class ProgramController extends BaseController
 		}
 
 		$viewVar['form'] = $form->createView();
-		return $this->render('/users/register.html.twig', $viewVar);
-	}
-
-	/**
-	 * @Route("/{programId}/register/{userId}", name="register_logged_in_for_program")
-	 */
-	public function registerLoggedInAction($programId, $userId)
-	{
-		$user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
-		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
-
-		$program->addProgramParticipant($user);
-
-		$em = $this->getDoctrine()->getManager();
-		$em->persist($program);
-		$em->flush();
-
-		return $this->redirectToRoute('programs_list');
+		return $this->render('/users/register_program.html.twig', $viewVar);
 	}
 }

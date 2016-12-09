@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <section class="white">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="page-header color--purple">Edit your profile</h1>
+          {{ include('forms/_updateProfile.html.twig') }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('js/intlTelInput.min.js') }}"></script>
+  <script src="{{ asset('js/utils.js') }}"></script>
+  <script>
+    $("#user_phone").intlTelInput();
+  </script>
+{% endblock %}
+

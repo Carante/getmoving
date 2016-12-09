@@ -1,11 +1,29 @@
 {% extends 'admin/base.html.twig' %}
 
+
+
 {% block body %}
+  {% set participations = 0 %}
+  {% for participant in participants %}
+    {% if participant.user.id == volunteer.id %}
+      {% set participations = participations+1 %}
+    {% endif %}
+  {% endfor %}
   <h1 class="page-header">{{ volunteer.firstName }} {% if volunteer.middleName is not null %}{{ volunteer.middleName }} {% endif %}{{ volunteer.lastName }}</h1>
       {{ include('forms/_updateVolunteer.html.twig') }}
+  <a href="{{ path('admin_volunteer_participations', {'volunteerId':volunteer.id}) }}"><button class="btn btn-primary btn-sm margin--top">Edit participation{% if participations > 1 %}s{% endif %}</button></a>
 {% endblock %}
 
 {% block stylesheets %}
   {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('js/intlTelInput.min.js') }}"></script>
+  <script src="{{ asset('js/utils.js') }}"></script>
+  <script>
+    $("#user_phone").intlTelInput();
+  </script>
 {% endblock %}
 

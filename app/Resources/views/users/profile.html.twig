@@ -1,17 +1,229 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <section>
+  <section class="white">
     <div class="container">
-      <h1 class="color--purple">
-        {{ app.user.firstName }}
-        {% if app.user.middleName is not null %}
-          {{ app.user.middleName }}
+      <div class="row account-info-wrap text-left">
+
+        <div class="col-md-6">
+          <h2 class="light color--purple margin--bot-xs">My account</h2>
+
+          <div class="row border--purple margin--whole-none">
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-user"></i> Full name</div>
+              <div class="col-sm-7 bold">
+                {{ user.firstName }}
+                {% if user.middleName is not null %}
+                  {{ user.middleName }}
+                {% endif %}
+                {{ user.lastName }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-envelope"></i> Email</div>
+              <div class="col-sm-7 bold">
+                {{ user.email }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-phone"></i> Phone number</div>
+              <div class="col-sm-7 bold">
+                {{ user.phone }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-globe"></i> Nationality</div>
+              <div class="col-sm-7 bold">
+                {{ user.nationality }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-calendar"></i> Birthday</div>
+              <div class="col-sm-7 bold">
+                {{ user.dateOfBirth|date("M - d - Y") }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h2 class="light color--purple margin--bot-xs">My studies</h2>
+
+          <div class="row border--purple margin--whole-none">
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-graduation-cap"></i> Expected level
+              </div>
+              <div class="col-sm-7 bold">
+                {{ user.eduLevelExpected }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-building"></i> Current school</div>
+              <div class="col-sm-7 bold">
+                {{ user.eduCurrentPlace }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-bookmark"></i> Current studies</div>
+              <div class="col-sm-7 bold">
+                {{ user.eduCurrentProgram }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-building-o"></i> Future school</div>
+              <div class="col-sm-7 bold">
+                {{ user.eduFuturePlace }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-bookmark-o"></i> Future studies</div>
+              <div class="col-sm-7 bold">
+                {{ user.eduFutureProgram }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h2 class="light color--purple margin--bot-xs">My address</h2>
+
+          <div class="row border--purple margin--whole-none">
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-globe"></i> Country</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressCountry }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-location-arrow"></i> Region</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressRegion }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-map-marker"></i> City, zip</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressCity }}, {{ user.addressZip }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-road"></i> Street</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressStreet }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-home"></i> Housenumber</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressHouseNo }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s border-bot--gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-building"></i> Suite, Flat, PoBox
+                etc.
+              </div>
+              <div class="col-sm-7 bold">
+                {{ user.addressPoBox }}
+              </div>
+            </div>
+
+            <div class="row margin--whole-none padding--whole-s light-gray">
+              <div class="col-sm-5 color--gray border-right--gray"><i class="fa fa-user-circle"></i> C/O name</div>
+              <div class="col-sm-7 bold">
+                {{ user.addressCo }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- account-info-wrap -->
+      <div class="row margin--top-xl">
+        <div class="col-md-6">
+          <a href="{{ path('profile_update', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">
+            <button class="btn btn-primary btn-block ">Edit profile</button>
+          </a>
+          <a href="{{ path('security_logout') }}">
+            <button class="btn btn-default btn-sm btn-block margin--top">logout</button>
+          </a>
+        </div>
+      </div>
+    </div> <!-- container ends -->
+  </section>
+  {% set participations = 0 %}
+  {% for participant in participants %}
+    {% if participant.user.id == app.user.id %}
+      {% set participations = +1 %}
+    {% endif %}
+  {% endfor %}
+  {% if participations > 0 %}
+
+  <section class="gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="light color--purple">Registered program{% if participations > 1 %}s{% endif %}</h2>
+        </div>
+      </div>
+      {% for participant in participants %}
+        {% if participant.user.id == app.user.id %}
+
+          <div class="row row-eq-height margin--bot-l">
+            <div class="col-md-4 padding--top-s padding--bot color--white text--shadow profile-participanting-feature"
+                 {% if participant.program.feature is not null %}style="background-image: url('/{{ participant.program.feature.path }}{{ participant.program.feature.filename }}');">{% endif %}
+              <h2 class="text-center light">{{ participant.program.title }}</h2>
+              <br>
+              <h4 class="text-center">{{ participant.program.location }}</h4>
+            </div>
+            <div class="col-md-8 margin--bot-none padding--whole-none">
+              <table class="table table-responsive border--purple margin--whole-none"
+                     style="table-layout: fixed; height:100%">
+                <thead class="purple color--white text--shadow">
+                <tr>
+                  <th class="light margin--bot-none"><i class="fa fa-calendar"></i> Arriving</th>
+                  <th class="light margin--bot-none"><i class="fa fa-clock-o"></i> Duration</th>
+                  <th class="light margin--bot-none"><i class="fa fa-graduation-cap"></i> Role</th>
+                  <th class="light margin--bot-none"><i class="fa fa-home"></i> Stay</th>
+                  <th class="light margin--bot-none"><i class="fa fa-cutlery"></i> Meals</th>
+                  <th class="light margin--bot-none"><i class="fa fa-dollar"></i> Total price</th>
+                  <th class="light margin--bot-none"><i class="fa fa-minus-circle"></i> Resign</th>
+                </tr>
+                </thead>
+
+                <tbody class="color--purple white padding--bot">
+                <tr>
+                  <td>{{ participant.arrivalDate|date("M-d-Y") }}</td>
+                  <td class="border-right--gray border-left--gray">{{ participant.duration }}</td>
+                  <td>{{ participant.program.role }}</td>
+                  <td class="border-right--gray border-left--gray">{{ participant.program.stay }}</td>
+                  <td>{{ participant.program.meals }}</td>
+                  <td class="border-right--gray border-left--gray">{{ participant.program.price * participant.duration }} FJD
+                  </td>
+                  <td><a href="{{ path('user_resign_program', {'programId': participant.program.id, 'userId': app.user.id}) }}">
+                      <button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle"></i> Resign</button>
+                    </a></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         {% endif %}
-        {{ app.user.lastName }}
-      </h1>
+      {% endfor %}
     </div>
   </section>
+  {% endif %}
 {% endblock %}
 
 {% block stylesheets %}

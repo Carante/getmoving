@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ProgramParticipants;
 use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
@@ -20,8 +21,8 @@ class UserRegistrationForm extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$countryChoices = $this->arrayOfCountries();
-		$durationChoices = $this->arrayOfDuration();
+		$countryChoices = $this->arrayOfCountries("country");
+		$nationalityChoices = $this->arrayOfCountries("nationality");
 
 		$builder->add('firstName', TextType::class)
 			->add('middleName', TextType::class, array(
@@ -39,17 +40,10 @@ class UserRegistrationForm extends AbstractType
 			->add('email', EmailType::class)
 			->add('phone', NumberType::class)
 			->add('nationality', ChoiceType::class, array(
-				'choices' => $countryChoices
+				'choices' => $nationalityChoices
 			))
 			->add('plainPassword', RepeatedType::class, array(
 				'type' => PasswordType::class
-			))
-			->add('programArrival', DateType::class, array(
-				// add a class that can be selected in JavaScript
-//				'attr' => ['class' => 'datepicker']
-			))
-			->add('programDuration', ChoiceType::class, array(
-				'choices' => $durationChoices
 			))
 			->add('addressCountry', ChoiceType::class, array(
 				'choices' => $countryChoices
@@ -86,23 +80,25 @@ class UserRegistrationForm extends AbstractType
 	}
 
 
-	private function arrayOfCountries()
+	private function arrayOfCountries($data)
 	{
 		$countries = json_decode(file_get_contents('../web/dist/countries.json'), true);
-		$countryChoices = array();
-		foreach ($countries as $country) {
-			$countryChoices[$country['name']['common']] = $country['cca3'];
+		if ($data == "nationality")
+		{
+			$countryChoices = array();
+			foreach ($countries as $country) {
+				$countryChoices[$country['name']['common']] = $country['demonym'];
+			}
 		}
+		if ($data == "country")
+		{
+			$countryChoices = array();
+			foreach ($countries as $country) {
+				$countryChoices[$country['name']['common']] = $country['name']['common'];
+			}
+		}
+
 
 		return $countryChoices;
-	}
-
-	private function arrayOfDuration()
-	{
-		$durationChoices = array();
-		for ($i = 2; $i <= 12; $i++) {
-			$durationChoices[$i." weeks"] = $i;
-		}
-		return $durationChoices;
 	}
 }

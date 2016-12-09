@@ -22,8 +22,20 @@
         <td>{{ volunteer.email }}</td>
         <td>{{ volunteer.phone }}</td>
         <td>{{ volunteer.nationality }}</td>
-        <td>{{ volunteer.programArrival|date("Y-m-d") }}</td>
-        <td>{{ volunteer.programDuration }} weeks</td>
+        <td>
+          {% for participant in participants %}
+            {% if participant.user.id == volunteer.id %}
+              {{ participant.arrivalDate|date("Y-m-d") }} <br>
+            {% endif %}
+          {% endfor %}
+        </td>
+        <td>
+          {% for participant in participants %}
+            {% if participant.user.id == volunteer.id %}
+              {{ participant.duration }} weeks <br>
+            {% endif %}
+          {% endfor %}
+        </td>
         <td class="text-center"><a href="{{ path('admin_volunteer_edit', {'volunteerId': volunteer.id}) }}"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
       </tr>
     {% endfor %}

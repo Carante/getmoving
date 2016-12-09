@@ -5,10 +5,10 @@ AppBundle\Entity\User:
     lastName: Paustian
     dateOfBirth: <dateTimeBetween('1991-05-02', '1991-05-02')>
     sex: 1
-    nationality: DNK
+    nationality: Danish
     email: solution@carante.dk
     phone: 21469172
-    addressCountry: DNK
+    addressCountry: Denmark
     addressRegion: Copenhagen
     addressCity: Søborg
     addressZip: 2860
@@ -20,17 +20,15 @@ AppBundle\Entity\User:
     plainPassword: turtles
     roles: ['ROLE_ADMIN']
 
-  user_{1..50}:
+  user_{1..100}:
     firstName: <firstName()>
     lastName: <lastName()>
     dateOfBirth: <dateTimeBetween('1970-10-10', '2000-10-10')>
     sex: <numberBetween(0-1)>
-    nationality: '30%? DNK : 15%? AUT : 10%? SWE : 15%? NOR : 13%? DEU : PAN'
-    programArrival:  <dateTimeBetween('now', '+10 months')>
-    programDuration: <numberBetween(2, 12)>
+    nationality: '30%? Danish : 15%? Austrian : 10%? Swedish : 15%? Norwegian : 13%? Germany : Panamanian'
     email: c.kaiser.p+<current()>@gmail.com
     phone: <numberBetween(22222222, 99999999)>
-    addressCountry: '30%? DNK : 15%? AUT : 10% SWE : 15% NOR : 13% GER : BAN'
+    addressCountry: '30%? Denmark : 15%? Austria : 10% Sweden : 15% Norway : 13% Germany : Panama'
     addressRegion: <state()>
     addressCity: <city()>
     addressZip: <numberBetween(1000, 9999)>
@@ -40,7 +38,7 @@ AppBundle\Entity\User:
     eduCurrentPlace: KEA
     eduCurrentProgram: Web Development
     plainPassword: turtles
-    roles: ['2%? ROLE_ADMIN : ROLE_VOLUNTEER']
+    roles: ['6%? ROLE_ADMIN : ROLE_VOLUNTEER']
 
 AppBundle\Entity\Organisation:
   organisation_{1}:
@@ -62,7 +60,7 @@ AppBundle\Entity\Organisation:
 
 
 AppBundle\Entity\Program:
-  program_{1..4}:
+  program_{1..6}:
     title: <sentence(1.5)>
     teaser: <paragraph(1)>
     description: <paragraph(5.15)>
@@ -75,3 +73,11 @@ AppBundle\Entity\Program:
     startDate:  <dateTimeBetween('now', '+2 years')>
     flexStart: <boolean(75)>
     isActive: <boolean(75)>
+
+AppBundle\Entity\ProgramParticipants:
+  programParticipant_{1..80}:
+    user: '@user_*'
+    program: '@program_*'
+    arrivalDate:  <dateTimeBetween('now', '+10 months')>
+    duration: <numberBetween(2, 12)>
+

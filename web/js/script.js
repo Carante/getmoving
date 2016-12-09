@@ -26,7 +26,7 @@ $(window).resize(function(){
 
 $(".step-change").click(function(){
 	var step = $(this).attr("data-step");
-	step == 7 ? printInfo() : false ;
+	step == 6 ? printInfo() : false ;
 	changeStep(step);
 })
 
@@ -61,17 +61,17 @@ function printInfo(){
 	var firstName = $(prefix+"firstName").val(),
 			middleName = $(prefix+"middleName").val(),
 			lastName = $(prefix+"lastName").val(),
-			sex = $(prefix+"sex").val(),
+			sex = $("input[name='user_registration_form[sex]']:checked").val(),
 			yearOfBirth = $(prefix+"dateOfBirth_year").val(),
 			monthOfBirth = $(prefix+"dateOfBirth_month").val(),
 			dayOfBirth = $(prefix+"dateOfBirth_day").val(),
 			nationality = $(prefix+"nationality").val(),
 			email = $(prefix+"email").val(),
 			phone = $(prefix+"phone").val(),
-			arrivalYear = $(prefix+"programArrival_year").val(),
-			arrivalMonth = $(prefix+"programArrival_month").val(),
-			arrivalDay = $(prefix+"programArrival_day").val(),
-			programDuration = $(prefix+"programDuration").val(),
+			arrivalYear = $(prefix+"arrivalDate_year").val(),
+			arrivalMonth = $(prefix+"arrivalDate_month").val(),
+			arrivalDay = $(prefix+"arrivalDate_day").val(),
+			programDuration = $(prefix+"duration").val(),
 			addressCountry = $(prefix+"addressCountry").val(),
 			addressRegion = $(prefix+"addressRegion").val(),
 			addressZip = $(prefix+"addressZip").val(),

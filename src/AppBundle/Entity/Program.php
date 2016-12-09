@@ -88,8 +88,7 @@ class Program
 	private $isActive = true;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
-	 * @ORM\JoinTable(name="program_participants")
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\ProgramParticipants", mappedBy="program")
 	 */
 	private $programParticipant;
 
@@ -107,7 +106,6 @@ class Program
 
 	public function __construct()
 	{
-		$this->programParticipant = new ArrayCollection();
 		$this->programMedia = new ArrayCollection();
 	}
 
@@ -282,17 +280,6 @@ class Program
 		$this->feature = $feature;
 	}
 
-	public function getProgramParticipant()
-	{
-		return $this->programParticipant;
-	}
-	public function addProgramParticipant(User $user)
-	{
-		if ($this->programParticipant->contains($user)) {
-			return;
-		}
-		$this->programParticipant[] = $user;
-	}
 
 	public function getProgramMedia()
 	{

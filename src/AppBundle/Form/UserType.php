@@ -20,19 +20,20 @@ class UserType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$countryChoices = $this->arrayOfCountries();
+		$nationalityChoices = $this->arrayOfCountries('nationality');
+		$countryChoices = $this->arrayOfCountries('country');
 		$durationChoices = $this->arrayOfDuration();
 
 		$builder
 			->add('email', EmailType::class)
 			->add('phone', NumberType::class)
-			->add('programArrival', \Symfony\Component\Form\Extension\Core\Type\DateType::class, array(
+//			->add('programArrival', \Symfony\Component\Form\Extension\Core\Type\DateType::class, array(
 				// add a class that can be selected in JavaScript
 //				'attr' => ['class' => 'datepicker']
-			))
-			->add('programDuration', ChoiceType::class, array(
-				'choices' => $durationChoices
-			))
+//			))
+//			->add('programDuration', ChoiceType::class, array(
+//				'choices' => $durationChoices
+//			))
 			->add('addressCountry', ChoiceType::class, array(
 				'choices' => $countryChoices
 			))
@@ -67,12 +68,22 @@ class UserType extends AbstractType
 	}
 
 
-	private function arrayOfCountries()
+	private function arrayOfCountries($data)
 	{
 		$countries = json_decode(file_get_contents('../web/dist/countries.json'), true);
-		$countryChoices = array();
-		foreach ($countries as $country) {
-			$countryChoices[$country['name']['common']] = $country['cca3'];
+		if ($data == "nationality")
+		{
+			$countryChoices = array();
+			foreach ($countries as $country) {
+				$countryChoices[$country['name']['common']] = $country['demonym'];
+			}
+		}
+		if ($data == "country")
+		{
+			$countryChoices = array();
+			foreach ($countries as $country) {
+				$countryChoices[$country['name']['common']] = $country['name']['common'];
+			}
 		}
 
 		return $countryChoices;

@@ -30,7 +30,10 @@ section {
 	margin:0;
 	width:100%;
 }
-
+.radio {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
 /************* Colors *************/
 .color--white{ color: #FFFFFF !important; }
 .color--blue{ color: #251669 !important; }
@@ -44,6 +47,7 @@ section {
 .blue{ background: #251669; }
 .black{ background: #000000; }
 .gray{ background: #DADADA; }
+.light-gray{ background: #F9F9F9; }
 .green{ background: #34BC9D; }
 .purple{ background: #3b1352;}
 
@@ -53,6 +57,40 @@ section {
 .border--gray{ border: 1px solid #DADADA; }
 .border--green{ border: 1px solid #34BC9D; }
 .border--purple{ border: 1px solid #3b1352;}
+.border--none{ border: none !important; }
+
+.border-top--white{ border-top: 1px solid #FFFFFF; }
+.border-top--blue{ border-top: 1px solid #251669; }
+.border-top--black{ border-top: 1px solid #000000; }
+.border-top--gray{ border-top: 1px solid #DADADA; }
+.border-top--green{ border-top: 1px solid #34BC9D; }
+.border-top--purple{ border-top: 1px solid #3b1352;}
+.border-top--none{ border-top: none !important;}
+
+.border-bot--white{ border-bottom: 1px solid #FFFFFF; }
+.border-bot--blue{ border-bottom: 1px solid #251669; }
+.border-bot--black{ border-bottom: 1px solid #000000; }
+.border-bot--gray{ border-bottom: 1px solid #DADADA; }
+.border-bot--green{ border-bottom: 1px solid #34BC9D; }
+.border-bot--purple{ border-bottom: 1px solid #3b1352;}
+.border-bot--none{ border-bot: none !important;}
+
+.border-left--white{ border-left: 1px solid #FFFFFF; }
+.border-left--blue{ border-left: 1px solid #251669; }
+.border-left--black{ border-left: 1px solid #000000; }
+.border-left--gray{ border-left: 1px solid #DADADA; }
+.border-left--green{ border-left: 1px solid #34BC9D; }
+.border-left--purple{ border-left: 1px solid #3b1352;}
+.border-left--none{ border-left: none !important;}
+
+.border-right--white{ border-right: 1px solid #FFFFFF; }
+.border-right--blue{ border-right: 1px solid #251669; }
+.border-right--black{ border-right: 1px solid #000000; }
+.border-right--gray{ border-right: 1px solid #DADADA; }
+.border-right--green{ border-right: 1px solid #34BC9D; }
+.border-right--purple{ border-right: 1px solid #3b1352;}
+.border-right--none{ border-right: none !important;}
+
 
 .gradient--red-light {
 	background: -webkit-gradient(linear, 0 584, 360 0, color-stop(0.011, #e94b56), color-stop(0.011, #eb4b56), color-stop(0.08, #ea4a55), color-stop(0.08, #eb4955), color-stop(0.081, #ec4955), color-stop(0.244, #ed4a56), color-stop(0.244, #eb4b56), color-stop(0.278, #ec4c57), color-stop(0.279, #ec4d57), color-stop(0.301, #ec4d57), color-stop(0.301, #eb4d57), color-stop(0.367, #ed4f5b), color-stop(0.367, #ec505b), color-stop(0.37, #eb515c), color-stop(0.395, #ec525d), color-stop(0.395, #eb535d), color-stop(0.412, #eb535d), color-stop(0.415, #eb545e), color-stop(0.45, #ed5660), color-stop(0.45, #eb5760), color-stop(0.491, #ed5a65), color-stop(0.491, #eb5c66), color-stop(0.518, #ec5d67), color-stop(0.518, #ec5f68), color-stop(0.532, #ed6069), color-stop(0.532, #ed616a), color-stop(0.533, #ed626a), color-stop(0.558, #ee636b), color-stop(0.564, #ec636b), color-stop(0.571, #ed646c), color-stop(0.574, #eb656c), color-stop(0.586, #ed676e), color-stop(0.587, #eb686e), color-stop(0.6, #eb686e), color-stop(0.6, #ea686f), color-stop(0.615, #ec6a71), color-stop(0.615, #eb6b71), color-stop(0.626, #ed6d73), color-stop(0.632, #ea6d73), color-stop(0.654, #ec6f75), color-stop(0.654, #ec7176), color-stop(0.655, #ec7276), color-stop(0.67, #eb7479), color-stop(0.683, #ea757a), color-stop(0.696, #ec777c), color-stop(0.696, #e9777b), color-stop(0.708, #eb797d), color-stop(0.709, #ea7a7d), color-stop(0.724, #e97b80), color-stop(0.746, #ed7e83), color-stop(0.746, #eb7f83), color-stop(0.749, #eb8084), color-stop(0.765, #ea8084), color-stop(0.778, #ec8286), color-stop(0.778, #ea8386), color-stop(0.779, #ea8487), color-stop(0.791, #eb8588), color-stop(0.791, #ea8588), color-stop(0.793, #ea868a), color-stop(0.813, #ec888c), color-stop(0.813, #eb888c), color-stop(0.832, #ed8a8e), color-stop(0.832, #ed8b8f), color-stop(0.833, #ea8b8e), color-stop(0.844, #ec8d90), color-stop(0.848, #eb8e90), color-stop(0.857, #ec8f91), color-stop(0.857, #ec8e92), color-stop(0.861, #ec8f94), color-stop(0.861, #e98f93), color-stop(0.879, #eb9195), color-stop(0.881, #eb9396), color-stop(0.902, #ec9497), color-stop(0.902, #eb9597), color-stop(0.924, #ed9799), color-stop(0.924, #ec989a), color-stop(0.93, #ec999c), color-stop(0.943, #ec999c), color-stop(0.943, #ec9b9d), color-stop(0.969, #ec9c9e), color-stop(0.969, #eb9d9f), color-stop(0.989, #ec9ea0), color-stop(0.989, #ec9fa0), color-stop(0.992, #eca0a1), to(#eda1a4));
@@ -235,6 +273,7 @@ h1,h2,h3,h4,h5,h6{
 .line-through { text-decoration: line-through !important;}
 .all--caps{ text-transform: uppercase !important; }
 .text--shadow{ text-shadow: -3px 2px 6px #000, -3px 2px 6px #000; }
+.text--shadow-light{ text-shadow: -1px 1px 3px rgba(57,57,57,0.42); }
 
 @media screen and (max-width: 768px){
 	body{

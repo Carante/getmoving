@@ -47,6 +47,36 @@ $("#program_isActive input").click(function () {
 	toggleActive();
 });
 
+$(".particion-save").click(function () {
+	var targetId = $(this).attr('data-target'),
+			userId = $(this).attr('data-user'),
+			programId = $(this).attr('data-program');
+
+	var newArrival = $("input[name=arrivalDate][data-target="+targetId+"]").val(),
+			newDuration = $("select[name=duration][data-target="+targetId+"]").val();
+
+	console.log(targetId);
+	console.log(userId);
+	console.log(programId);
+	console.log(newArrival);
+	console.log(newDuration);
+
+	swal({
+		title: "Update particion",
+		text: "Are you sure you want to update this volunteers participation?",
+		type: "info",
+		showCancelButton: true,
+		confirmButtonColor: "#1B9061",
+		confirmButtonText: "Yes, update!",
+		showLoaderOnConfirm: true,
+		onClose: function () {
+			var location = "/admin/participation/"+targetId+"/"+userId+"/"+programId+"?arrival="+newArrival+"&duration="+newDuration;
+			console.log(location);
+			window.location.href = location;
+		}
+	});
+});
+
 
 // Modal link with ALL media library
 $(".mediaLibraryModalTrigger").click(function () {
@@ -96,7 +126,6 @@ $(".mediaOneModal-save").click(function () {
 
 // Delete single media from library
 $(".mediaModal-delete").click(function () {
-	console.log("SWAL triggered");
 	var target = $(this).attr('data-mediaTarget');
 	swal({
 		title: "Delete media",
