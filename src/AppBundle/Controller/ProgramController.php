@@ -81,8 +81,8 @@ class ProgramController extends BaseController
 
 			$psw = $form->getData()->getPlainPassword();
 
-			$this->sendEmailUser($user, $psw);
-			$this->sendEmailSystem($user);
+			$this->sendEmailUserAdded($user, $psw);
+			$this->sendEmailSystemUserAdded($user);
 
 			$this->addFlash('success', 'An email has been sent to you with your login information.');
 			return $this->redirectToRoute('register_logged_in_for_program', array(

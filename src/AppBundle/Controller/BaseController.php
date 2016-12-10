@@ -137,7 +137,7 @@ abstract class BaseController extends Controller
 		return $mailer->send($message);
 	}
 
-	protected function sendEmailUserAdded($type = "new user", User $user, $password = "", ProgramParticipants $participation = null){
+	protected function sendEmailUserAdded(User $user, $password = ""){
 		$currentOrg = new Organisation();
 
 		$organisations = $this->getDoctrine()->getRepository('AppBundle:Organisation')->findAll();
@@ -169,27 +169,14 @@ abstract class BaseController extends Controller
 			->setUsername($GMmail)
 			->setPassword($GMmailPassword);
 
-		switch ($type) {
-			case "new user":
-				$body = "
+
+		$body = "
 					<h2>Welcome to ".$name."</h2>
 					<h4>Herer are your login information</h4>
 					<p><strong>Email: </strong>".$userEmail."</p>
 					<p><strong>Password: </strong>".$password."</p>
 					For any questions please contact us on: ".$supportEmail
-				;
-				break;
-			case "registered":
-				$program = $participation->getProgram();
-				$body = "
-					<h2>You have planned to volunteer!</h2>
-					<h4>".$program->getTitle()."</h4>
-					<p>You have successfully signe up for participating in the program ".$program->getTitle()."</p>
-					<p>Your participation will start ".$participation->getArrivalDate()." and it will last for ".$participation->getDuration()." weeks.</p>
-					For any questions please contact us on: ".$supportEmail
-				;
-				break;
-		}
+		;
 
 		$mailer = \Swift_Mailer::newInstance($transport);
 		$message = \Swift_Message::newInstance($name." | Welcome")
