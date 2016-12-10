@@ -51,6 +51,7 @@ class UserRegistrationForm extends AbstractType
 			->add('addressStreet', TextType::class)
 			->add('addressPoBox', TextType::class, array(
 				'required' => false,
+				'label' => 'Suite, Flat, PoBox, etc.'
 			))
 			->add('addressHouseNo', TextType::class)
 			->add('addressCo', TextType::class, array(
@@ -58,9 +59,15 @@ class UserRegistrationForm extends AbstractType
 			))
 			->add('addressZip', TextType::class)
 			->add('addressCity', TextType::class)
-			->add('addressRegion', TextType::class)
-			->add('eduCurrentPlace', TextType::class)
-			->add('eduCurrentProgram', TextType::class)
+			->add('addressRegion', TextType::class, array(
+				'required' => false
+			))
+			->add('eduCurrentPlace', TextType::class, array(
+				'required' => false
+			))
+			->add('eduCurrentProgram', TextType::class, array(
+				'required' => false
+			))
 			->add('eduFuturePlace', TextType::class, array(
 				'required' => false,
 			))

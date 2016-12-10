@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Organisation;
 use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -65,11 +66,11 @@ class HomeController extends BaseController
 
 			if($form->isValid()){
 				// Send mail
-				if($this->sendEmail($form->getData())){
+				if($this->sendEmailContact($form->getData())){
 
 					// Everything OK, redirect to wherever you want ! :
-
-					return $this->redirectToRoute('home');
+					$this->addFlash('success', 'Your email has been sent');
+					return $this->redirectToRoute('contact');
 				}else{
 					// An error ocurred, handle
 					var_dump("Errooooor :(");
@@ -80,25 +81,5 @@ class HomeController extends BaseController
 		$viewVar['form'] = $form->createView();
 		return $this->render('contact.html.twig', $viewVar);
 	}
-
-	private function sendEmail($data){
-		$GMmail = 'c.kaiser.p@gmail.com';
-		$GMmailPassword = 'paustian';
-
-		// http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
-		$transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465,'ssl')
-			->setUsername($GMmail)
-			->setPassword($GMmailPassword);
-
-		$mailer = \Swift_Mailer::newInstance($transport);
-		$message = \Swift_Message::newInstance($data['subject'])
-			->setFrom(array('contactform@fiji-getmoving.com' => $data['name']))
-			->setTo(array($GMmail => "GetMoving Support"))
-			->setReplyTo(array($data['email'] => $data['name']))
-			->setBody($data['message'], 'text/html');
-
-		return $mailer->send($message);
-	}
-
 
 }

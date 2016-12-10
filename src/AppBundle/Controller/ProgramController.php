@@ -79,6 +79,12 @@ class ProgramController extends BaseController
 //			$em->persist($participant);
 			$em->flush();
 
+			$psw = $form->getData()->getPlainPassword();
+
+			$this->sendEmailUser($user, $psw);
+			$this->sendEmailSystem($user);
+
+			$this->addFlash('success', 'An email has been sent to you with your login information.');
 			return $this->redirectToRoute('register_logged_in_for_program', array(
 				'programId' => $programId,
 				'userId' => $user->getId()
@@ -111,6 +117,9 @@ class ProgramController extends BaseController
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($newParticipant);
 			$em->flush();
+
+			$this->sendEmailUserParticipation($user, $newParticipant);
+			$this->sendEmailSystemUserParticipation($user, $newParticipant);
 
 			return $this->get("security.authentication.guard_handler")
 				->authenticateUserAndHandleSuccess(
