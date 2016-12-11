@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
     </list>
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +42,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+                <state relative-caret-position="465">
+                  <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
                   <folding>
                     <element signature="e#7#47#0#PHP" expanded="true" />
                   </folding>
@@ -54,11 +54,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/app.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="37" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="37" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -113,16 +113,6 @@
                     <marker date="1481342992000" expanded="true" signature="584:657" ph="ALTER TABLE user... " />
                     <marker date="1481342992000" expanded="true" signature="1010:1074" ph="ALTER TABLE user... " />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Organisation.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Organisation.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1050">
-                  <caret line="95" column="46" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -249,8 +239,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/UserRegistrationForm.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
-        <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/web/app.php" />
       </list>
     </option>
   </component>
@@ -385,7 +375,7 @@
     <property name="FullScreen" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value="app.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/app.php&#10;composer.js&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/composer.json&#10;appKer&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/AppKernel.php&#10;Version20161210170952&#9;null&#9;null&#10;parameters.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/parameters.yml&#10;config.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/config.yml&#10;_organ&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/forms/_organisation.html.twig&#10;programTyp&#9;null&#9;null&#10;userNew&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/usersNew.html.twig&#10;volun&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/volunteerUpdate.html.twig&#10;Version20161209172950&#9;null&#9;null&#10;home.html&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/home.html.twig&#10;Version20161209140526&#9;null&#9;null&#10;fixtures.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/DataFixtures/ORM/fixtures.yml&#10;fixtu&#9;null&#9;null&#10;organisati&#9;null&#9;null&#10;contact&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/contact.html.twig&#10;regi&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/users/register.html.twig&#10;profil&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/userProfile.html.twig&#10;vol&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/volunteers.html.twig&#10;regist&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/register.html.twig&#10;Version20161209092711&#9;null&#9;null&#10;security.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;why&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/why.html.twig&#10;style&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/css/style.css&#10;Version20161204223746&#9;null&#9;null&#10;Version20161202152023&#9;null&#9;null&#10;fos&#9;null&#9;null&#10;user.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/Entity/User.php&#10;appker&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/AppKernel.php&#10;PostAuthenticationGuardToken&#9;null&#9;null&#10;style.css&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/css/style.css&#10;styl&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/admin/css/styles.css&#10;contac&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/contact.html.twig&#10;Version20161128164755&#9;null&#9;null&#10;Version20161127230215&#9;null&#9;null&#10;RuntimeReflectionService&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/RuntimeReflectionService.php&#10;mappinge&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/MappingException.php&#10;Version20161126183846&#9;null&#9;null&#10;Version20161126153650.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/DoctrineMigrations/Version20161126153650.php&#10;abstractToke&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Authentication/Token/AbstractToken.php&#10;UserTwo&#9;null&#9;null&#10;UserTw&#9;null&#9;null&#10;Version20161126095633.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/DoctrineMigrations/Version20161126095633.php&#10;config_&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/config_dev.yml&#10;sec&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;services&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/services.yml&#10;security.y&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;securit&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/Controller/SecurityController.php&#10;appk&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/AppKernel.php" />
+    <property name="SearchEverywhereHistoryKey" value="confi&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/config.yml&#10;app.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/app.php&#10;composer.js&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/composer.json&#10;appKer&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/AppKernel.php&#10;Version20161210170952&#9;null&#9;null&#10;parameters.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/parameters.yml&#10;config.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/config.yml&#10;_organ&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/forms/_organisation.html.twig&#10;programTyp&#9;null&#9;null&#10;userNew&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/usersNew.html.twig&#10;volun&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/volunteerUpdate.html.twig&#10;Version20161209172950&#9;null&#9;null&#10;home.html&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/home.html.twig&#10;Version20161209140526&#9;null&#9;null&#10;fixtures.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/DataFixtures/ORM/fixtures.yml&#10;fixtu&#9;null&#9;null&#10;organisati&#9;null&#9;null&#10;contact&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/contact.html.twig&#10;regi&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/users/register.html.twig&#10;profil&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/userProfile.html.twig&#10;vol&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/admin/volunteers.html.twig&#10;regist&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/register.html.twig&#10;Version20161209092711&#9;null&#9;null&#10;security.ym&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;why&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/why.html.twig&#10;style&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/css/style.css&#10;Version20161204223746&#9;null&#9;null&#10;Version20161202152023&#9;null&#9;null&#10;fos&#9;null&#9;null&#10;user.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/Entity/User.php&#10;appker&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/AppKernel.php&#10;PostAuthenticationGuardToken&#9;null&#9;null&#10;style.css&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/css/style.css&#10;styl&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/web/admin/css/styles.css&#10;contac&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/Resources/views/contact.html.twig&#10;Version20161128164755&#9;null&#9;null&#10;Version20161127230215&#9;null&#9;null&#10;RuntimeReflectionService&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/RuntimeReflectionService.php&#10;mappinge&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/MappingException.php&#10;Version20161126183846&#9;null&#9;null&#10;Version20161126153650.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/DoctrineMigrations/Version20161126153650.php&#10;abstractToke&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Authentication/Token/AbstractToken.php&#10;UserTwo&#9;null&#9;null&#10;UserTw&#9;null&#9;null&#10;Version20161126095633.php&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/DoctrineMigrations/Version20161126095633.php&#10;config_&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/config_dev.yml&#10;sec&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;services&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/services.yml&#10;security.y&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/app/config/security.yml&#10;securit&#9;FILE&#9;file:///Users/carante/KEA/WebDeveloping/3. Semester/Bachelor/Application/getmoving-fiji/src/AppBundle/Controller/SecurityController.php" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -476,12 +466,12 @@
       <workItem from="1479960683498" duration="227000" />
       <workItem from="1479985277557" duration="89086000" />
       <workItem from="1480634106795" duration="105189000" />
-      <workItem from="1481170422872" duration="43310000" />
+      <workItem from="1481170422872" duration="43638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314706000" />
+    <option name="totallyTimeSpent" value="315034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -799,14 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1017,14 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -1037,13 +1011,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+        <state relative-caret-position="465">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="e#7#47#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
