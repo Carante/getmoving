@@ -2,6 +2,7 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle;
 
 class AppKernel extends Kernel
 {
