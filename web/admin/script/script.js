@@ -1,8 +1,13 @@
 $(document).ready(function () {
 	toggleDisabled();
 	toggleActive();
+	squareImgAdjustment();
 	$(".dataTable").DataTable();
-})
+});
+
+$(window).resize(function() {
+	squareImgAdjustment();
+});
 
 function toggleDisabled() {
 	var checker = $("input#program_flexStart"),
@@ -36,8 +41,22 @@ function toggleActive() {
 			dateSelector.attr('disabled', 'disabled')
 		}
 	}
-
 }
+
+function squareImgAdjustment(){
+	var parent = $('.squareImg-placeholder'),
+			child = $(".squareImg-placeholder img");
+
+	var paW = parent.width();
+
+	parent.height(paW);
+
+	var chH = child.height(),
+			chW = child.width();
+
+	chW >= chH ? child.height(paW) : child.width(paW) ;
+}
+
 
 $("#program_startDateFlexible input").click(function () {
 	toggleDisabled();

@@ -1,151 +1,234 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"/>
-	<title>GetMoving - Fiji</title>
-	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+  <meta charset="UTF-8"/>
+  <title>GetMoving - Fiji</title>
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-	<link rel="stylesheet" href="{{ asset('css/normalizer.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/normalizer.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
 
-	<!-- CDN styles -->
-	{#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">#}
-	{#<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"#}
-	      {#integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
-	{#<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"#}
-	      {#integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
-	{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css"/>#}
+  <!-- CDN styles -->
+  {#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">#}
+  {#<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"#}
+  {#integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
+  {#<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"#}
+  {#integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
+  {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css"/>#}
 
-	<!-- Custom styles -->
-	<link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
-	<link rel="stylesheet" href="{{ asset("css/style.css") }}">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
+  <link rel="stylesheet" href="{{ asset("css/style.css") }}">
 </head>
 
 <nav class="GM-navbar landing-nav">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-			        data-target="#GM-collapsed-menu" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="{{ path('home') }}"><img src="{{ logo }}"
-			                                                       alt="GetMoving Fiji logo" width="125px"></a>
-		</div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#GM-collapsed-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ logo }}"
+                                                             alt="GetMoving Fiji logo" width="125px"></a>
+    </div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse navbar-right" id="GM-collapsed-menu">
-			<ul class="GM-nav">
-				<li><a href="{{ path('contact') }}">Get in touch</a></li>
-				<li><a href="{{ path('why') }}">Why Us?</a></li>
-				<li><a href="{{ path('programs_list') }}">Programs</a></li>
-				{% if is_granted('ROLE_USER') %}
-					<li><a href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">Profile</a></li>
-					{#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
-				{% else %}
-					<li><a href="{{ path('security_login') }}">Login</a></li>
-				{% endif %}
-				{#<li><a id="GM-loginTrigger">Login</a></li>#}
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="GM-collapsed-menu">
+      <ul class="GM-nav">
+        <li><a href="{{ path('contact') }}">Get in touch</a></li>
+        <li><a href="{{ path('why') }}">Why Us?</a></li>
+        <li><a href="{{ path('programs_list') }}">Programs</a></li>
+        {% if is_granted('ROLE_USER') %}
+          <li><a
+                href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">Profile</a>
+          </li>
+          {#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
+        {% else %}
+          <li><a href="{{ path('security_login') }}">Login</a></li>
+        {% endif %}
+        {#<li><a id="GM-loginTrigger">Login</a></li>#}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
 <div class="GM-full-wrap">
-	<div class="GM-fullbackground GM-video">
-		<video width="100%" height="100%" poster="{{ asset('media/images/rakiraki.JPG') }}" class="fullscreen-bg__video"
-		       autoplay loop muted>
-			<source src="{{ asset('media/videos/flyby.mp4') }}" type="video/mp4">
-			Your browser does not support the video tag.
-		</video>
-	</div>
-	<div class="GM-register-wrap text-center text--shadow">
-		<a href="{{ path('programs_list') }}">
-			<button class="ghost-btn ghost-btn-light ghost-btn-lg">SEE THE PROGRAMS</button>
-		</a>
-	</div>
+  <div class="GM-fullbackground GM-video">
+    <video width="100%" height="100%" poster="{{ asset('media/images/rakiraki.JPG') }}" class="fullscreen-bg__video"
+           autoplay loop muted>
+      <source src="{{ asset('media/videos/flyby.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="GM-register-wrap text-center text--shadow">
+    <a href="{{ path('programs_list') }}">
+      <button class="ghost-btn ghost-btn-light ghost-btn-lg">SEE THE PROGRAMS</button>
+    </a>
+  </div>
 </div>
 
 <div class="landing-page-content">
-	<section class="">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1>GetMoving - Fiji</h1>
-					<h3>Be a difference, make a difference</h3>
-				</div>
-			</div>
-			<div class="row padding--top-l padding--bot-huge">
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-user icon-circle color--white gradient--red-light"></i>
-						<h2>Best Service</h2>
-						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
-					</div>
-				</div>
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-dollar icon-circle color--white gradient--red-light"></i>
-						<h2>Best Price</h2>
-						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
-					</div>
-				</div>
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-thumbs-up icon-circle color--white gradient--red-light"></i>
-						<h2>Best Experience</h2>
-						<p>We know how life in Fiji works and we ensure you the most authentic experience.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 margin--bot">
-					<button class="ghost-btn">Read about the program</button>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="gradient--deep-purple text-center color--white">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>GetMoving - Fiji</h1>
+          <h3>Be a difference, make a difference</h3>
+        </div>
+      </div>
+      <div class="row padding--top-l padding--bot-huge">
+        <div class="col-sm-4 padding--whole">
+          <div class="icons-triplet">
+            <i class="fa fa-user icon-circle color--green"></i>
+            <h2>Best Service</h2>
+            <p>We take care of all the logistics in Fiji and you can always reach us.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 padding--whole">
+          <div class="icons-triplet">
+            <i class="fa fa-dollar icon-circle color--green"></i>
+            <h2>Best Price</h2>
+            <p>Our prices are the most competetive at the market. Value for money is the key.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 padding--whole">
+          <div class="icons-triplet">
+            <i class="fa fa-thumbs-up icon-circle color--green "></i>
+            <h2>Best Experience</h2>
+            <p>We know how life in Fiji works and we ensure you the most authentic experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="gradient--deep-purple text-center color--white">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1>GetMoving - Fiji</h1>
-					<h3>Be a difference, make a difference</h3>
-				</div>
-			</div>
-			<div class="row padding--top-l padding--bot-huge">
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-user icon-circle color--green"></i>
-						<h2>Best Service</h2>
-						<p>We take care of all the logistics in Fiji and you can always reach us.</p>
-					</div>
-				</div>
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-dollar icon-circle color--green"></i>
-						<h2>Best Price</h2>
-						<p>Our prices are the most competetive at the market. Value for money is the key.</p>
-					</div>
-				</div>
-				<div class="col-sm-4 padding--whole">
-					<div class="icons-triplet">
-						<i class="fa fa-thumbs-up icon-circle color--green "></i>
-						<h2>Best Experience</h2>
-						<p>We know how life in Fiji works and we ensure you the most authentic experience.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="white color--purple">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>This why im hot</h1>
+        <p>Apple pie chupa chups jelly-o muffin apple pie chupa chups tart powder. Croissant chupa chups caramels I love
+          lollipop chupa chups biscuit. I love sweet toffee marzipan cake macaroon jelly tiramisu candy canes. Candy
+          marshmallow caramels tiramisu. Candy apple pie cake cake chupa chups macaroon jelly-o fruitcake powder.
+          Brownie tootsie roll fruitcake wafer bear claw muffin I love cotton candy I love. Fruitcake marzipan gummi
+          bears muffin cotton candy I love macaroon pudding. Chocolate marzipan wafer tart marzipan chocolate cake.
+          Sweet bonbon tart sweet roll lollipop. Sweet roll icing gummies chupa chups pastry. Cookie chocolate halvah
+          jujubes I love croissant tiramisu liquorice. Soufflé candy canes bonbon marshmallow caramels.</p>
+      </div>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="teaser--img"></div>
+    </div>
+  </div>
+
+  <section class="green white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="quote color--white">
+            <div class="testimonial-img"></div>
+            <h4>- Sofie Thaller -</h4>
+            <h5>Teching at a lochal school</h5>
+            <p>"Sadly I’ve been back at work this week and it really makes you miss living so relaxed on Fiji time.
+              Melbourne’s weather is definitely no match as well.</p>
+            <p>I thoroughly enjoyed my time at the island school and this is thanks to in particular my beautiful host
+              family, but also the wonderful, hard working teachers at the school and the entire village community
+              there."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="gradient--deep-purple color--white light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Contact</h3>
+          <img src="{{ logo }}" alt="{{ organisation.name }} logo" class="footer-logo">
+          <p>{{ organisation.name }}</p>
+          <p>{{ organisation.address|raw }}</p>
+          <p>{{ organisation.emailSupport }}</p>
+        </div>
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Get around</h3>
+          <p><a href="{{ path('why') }}"><i class="fa fa-angle-right"></i> Why choose {{ organisation.name }}</a></p>
+          <p><a href="{{ path('contact') }}"><i class="fa fa-angle-right"></i> Get in touch with us</a></p>
+          <p><a href="{{ path('programs_list') }}"><i class="fa fa-angle-right"></i> See all the programs</a></p>
+          <p>
+            {% if is_granted('ROLE_USER') %}
+              <a href="{{ path('profile') }}">
+                <i class="fa fa-angle-right"></i> Your
+                profile {{ app.user.firstName|capitalize }} {{ app.user.lastName|capitalize }}
+              </a>
+            {% else %}
+              <a href="{{ path('security_login') }}">
+                <i class="fa fa-angle-right"></i> Login to see your profile
+              </a>
+            {% endif %}
+          </p>
+          <p><a href="{{ path('terms_and_conditions') }}"><i class="fa fa-angle-right"></i> Terms &amp; conditions</a>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Programs</h3>
+          {% for program in programs %}
+            <p><a href="{{ path('program_details', {'programId': program.id}) }}"><i
+                    class="fa fa-angle-right"></i> {{ program.title|capitalize }}</a></p>
+          {% endfor %}
+        </div>
+        <div class="col-md-3 social--icons">
+          <h3 class="margin--whole-none light">Lets get social</h3>
+          {% if organisation.facebook is not null %}
+            <a href="https://facebook.com/{{ organisation.facebook }}"><i class="fa fa-facebook-f"></i></a>
+          {% endif %}
+
+          {% if organisation.twitter is not null %}
+            <a href="https://twitter.com/{{ organisation.twitter }}"><i class="fa fa-twitter"></i></a>
+          {% endif %}
+
+          {% if organisation.instagram %}
+            <a href="https://instagram.com/{{ organisation.instagram }}"><i class="fa fa-instagram"></i></a>
+          {% endif %}
+
+          {% if organisation.snapchat is not null %}
+            <i class="fa fa-snapchat-ghost icon-circle"></i>
+          {% endif %}
+
+          {% if organisation.youtube is not null %}
+            <a href="https://youtube.com/{{ organisation.youtube }}"><i class="fa fa-youtube"></i></a>
+          {% endif %}
+
+          {% if organisation.googleplus is not null %}
+            <a href="https://youtube.com"><i class="fa fa-google-plus"></i></a>
+          {% endif %}
+
+          {% if organisation.linkedin is not null %}
+            <a href="https://youtube.com"><i class="fa fa-linkedin icon-circle"></i></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="row developer">
+        <div class="col-xs-12 text-center ">
+          <p>
+            Designed and developed by <a href="http://www.carante.dk">carante IVS</a>.
+            <br><span class="copyright">&copy; {{ "now"|date('Y') }} All rights reserved</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
+
 
 <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
@@ -156,8 +239,8 @@
 {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>#}
 {#<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>#}
 {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"#}
-        {#integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"#}
-        {#crossorigin="anonymous"></script>#}
+{#integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"#}
+{#crossorigin="anonymous"></script>#}
 {#<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.common.min.js"></script>#}
 
 

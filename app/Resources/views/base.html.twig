@@ -1,97 +1,183 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}{{ pageTitle }}{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title %}{{ pageTitle }}{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-    {% block stylesheets %}
-        {#<link rel="stylesheet" href="{{ asset('css/normalizer.min.css') }}">#}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-        {#<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">#}
+  {% block stylesheets %}
+    {#<link rel="stylesheet" href="{{ asset('css/normalizer.min.css') }}">#}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    {#<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">#}
 
-        <!-- CDN styles -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css" />
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.less"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.less"/>
+    <!-- CDN styles -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.less"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.less"/>
 
-        <!-- Custom styles -->
-        <link rel="stylesheet" href="{{ asset('bundles/slick/slick.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/slick/slick-theme.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/slick/slick.less') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/slick/slick-theme.less') }}">
-        <link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
-        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    {% endblock %}
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/slick/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/slick/slick.less') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/slick/slick-theme.less') }}">
+    <link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+  {% endblock %}
 </head>
 <body>
 
 {% block menu %}
-    <nav class="GM-navbar">
-        <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#GM-collapsed-menu" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ logo }}"
-                                                                   alt="GetMoving Fiji logo"></a>
-        </div>
+  <nav class="GM-navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#GM-collapsed-menu" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ logo }}"
+                                                               alt="GetMoving Fiji logo"></a>
+      </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right" id="GM-collapsed-menu">
-            <ul class="GM-nav">
-                <li><a href="{{ path('contact') }}">Get in touch</a></li>
-                <li><a href="{{ path('why') }}">Why Us?</a></li>
-                <li><a href="{{ path('programs_list') }}">Programs</a></li>
-                {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">Profile</a></li>
-                    {#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
-                {% else %}
-                    <li><a href="{{ path('security_login') }}">Login</a></li>
-                {% endif %}
-                {#<li><a id="GM-loginTrigger">Login</a></li>#}
-            </ul>
-        </div><!-- /.navbar-collapse -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right" id="GM-collapsed-menu">
+        <ul class="GM-nav">
+          <li><a href="{{ path('contact') }}">Get in touch</a></li>
+          <li><a href="{{ path('why') }}">Why Us?</a></li>
+          <li><a href="{{ path('programs_list') }}">Programs</a></li>
+          {% if is_granted('ROLE_USER') %}
+            <li><a
+                  href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">Profile</a>
+            </li>
+            {#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
+          {% else %}
+            <li><a href="{{ path('security_login') }}">Login</a></li>
+          {% endif %}
+          {#<li><a id="GM-loginTrigger">Login</a></li>#}
+        </ul>
+      </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-</nav>
+  </nav>
 {% endblock %}
 {% for msg in app.session.flashBag.get('success') %}
-    <div class="alert alert-success">{{ msg }}</div>
+  <div class="alert alert-success">{{ msg }}</div>
 {% endfor %}
 {% for msg in app.session.flashBag.get('error') %}
-    <div class="alert alert-danger">{{ msg }}</div>
+  <div class="alert alert-danger">{{ msg }}</div>
 {% endfor %}
 {% block body %}
 {% endblock %}
 
+{% block footer %}
+  <footer class="gradient--deep-purple color--white light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Contact</h3>
+          <img src="{{ logo }}" alt="{{ organisation.name }} logo" class="footer-logo">
+          <p>{{ organisation.name }}</p>
+          <p>{{ organisation.address|raw }}</p>
+          <p>{{ organisation.emailSupport }}</p>
+        </div>
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Get around</h3>
+          <p><a href="{{ path('why') }}"><i class="fa fa-angle-right"></i> Why choose {{ organisation.name }}</a></p>
+          <p><a href="{{ path('contact') }}"><i class="fa fa-angle-right"></i> Get in touch with us</a></p>
+          <p><a href="{{ path('programs_list') }}"><i class="fa fa-angle-right"></i> See all the programs</a></p>
+          <p>
+            {% if is_granted('ROLE_USER') %}
+              <a href="{{ path('profile') }}">
+                <i class="fa fa-angle-right"></i> Your profile {{ app.user.firstName|capitalize }} {{ app.user.lastName|capitalize }}
+              </a>
+            {% else %}
+              <a href="{{ path('security_login') }}">
+                <i class="fa fa-angle-right"></i> Login to see your profile
+              </a>
+            {% endif %}
+          </p>
+          <p><a href="{{ path('terms_and_conditions') }}"><i class="fa fa-angle-right"></i> Terms &amp; conditions</a>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h3 class="margin--whole-none light">Programs</h3>
+          {% for program in programs %}
+            <p><a href="{{ path('program_details', {'programId': program.id}) }}"><i class="fa fa-angle-right"></i> {{ program.title|capitalize }}</a></p>
+          {% endfor %}
+        </div>
+        <div class="col-md-3 social--icons">
+          <h3 class="margin--whole-none light">Lets get social</h3>
+          {% if organisation.facebook is not null %}
+            <a href="https://facebook.com/{{ organisation.facebook }}"><i class="fa fa-facebook-f"></i></a>
+          {% endif %}
+
+          {% if organisation.twitter is not null %}
+            <a href="https://twitter.com/{{ organisation.twitter }}"><i class="fa fa-twitter"></i></a>
+          {% endif %}
+
+          {% if organisation.instagram %}
+            <a href="https://instagram.com/{{ organisation.instagram }}"><i class="fa fa-instagram"></i></a>
+          {% endif %}
+
+          {% if organisation.snapchat is not null %}
+            <i class="fa fa-snapchat-ghost icon-circle"></i>
+          {% endif %}
+
+          {% if organisation.youtube is not null %}
+            <a href="https://youtube.com/{{ organisation.youtube }}"><i class="fa fa-youtube"></i></a>
+          {% endif %}
+
+          {% if organisation.googleplus is not null %}
+            <a href="https://youtube.com"><i class="fa fa-google-plus"></i></a>
+          {% endif %}
+
+          {% if organisation.linkedin is not null %}
+            <a href="https://youtube.com"><i class="fa fa-linkedin icon-circle"></i></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="row developer">
+        <div class="col-xs-12 text-center ">
+          <p>
+            Designed and developed by <a href="http://www.carante.dk">carante IVS</a>.
+            <br><span class="copyright">&copy; {{ "now"|date('Y') }} All rights reserved</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
+
 {% block javascripts %}
-    {#<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>#}
-    {#<script src="{{ asset('js/jquery-ui.min.js') }}"></script>#}
-    {#<script src="{{ asset('js/bootstrap.min.js') }}"></script>#}
-    {#<script src="{{ asset('js/sweetalert2.min.js') }}"></script>#}
+  {#<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>#}
+  {#<script src="{{ asset('js/jquery-ui.min.js') }}"></script>#}
+  {#<script src="{{ asset('js/bootstrap.min.js') }}"></script>#}
+  {#<script src="{{ asset('js/sweetalert2.min.js') }}"></script>#}
 
-    <!-- CDN scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.common.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <!-- CDN scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.1.0/sweetalert2.common.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
-    <script src="{{ asset('bundles/slick/slick.min.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('bundles/slick/slick.min.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
 {% endblock %}
 </body>
 </html>

@@ -82,4 +82,12 @@ class HomeController extends BaseController
 		return $this->render('contact.html.twig', $viewVar);
 	}
 
+	/**
+	 * @Route("/terms", name="terms_and_conditions")
+	 */
+	public function termsAction(){
+		$viewVar = $this->viewVariablesPublic('Terms & conditions');
+		return 	$this->render('terms.html.twig', $viewVar);
+	}
+
 }
