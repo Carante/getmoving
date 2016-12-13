@@ -116,7 +116,7 @@ abstract class BaseController extends Controller
 			$currentOrg = $organisations[$count];
 		}
 
-		$GMmail = 'c.kaiser.p';
+		$GMmail = 'c.kaiser.p@gmail.com';
 		$GMmailPassword = 'paustian';
 
 		$name = $currentOrg->getName();
