@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
     </list>
     <ignored path="getmoving-fiji.iws" />
@@ -31,12 +32,12 @@
           <file leaf-file-name="BaseController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="127" column="37" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
+                <state relative-caret-position="512">
+                  <caret line="134" column="12" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
                   <folding>
                     <element signature="e#1322#1353#1#PHP" expanded="true" />
                     <element signature="e#2443#2474#1#PHP" expanded="true" />
-                    <marker date="1481661904000" expanded="true" signature="5552:5646" ph="..." />
+                    <marker date="1481662134000" expanded="true" signature="5651:5745" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -460,12 +461,12 @@
       <workItem from="1479960683498" duration="227000" />
       <workItem from="1479985277557" duration="89086000" />
       <workItem from="1480634106795" duration="105189000" />
-      <workItem from="1481170422872" duration="62938000" />
+      <workItem from="1481170422872" duration="63092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334334000" />
+    <option name="totallyTimeSpent" value="334488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1017,12 +1018,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="127" column="37" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
+        <state relative-caret-position="512">
+          <caret line="134" column="12" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
           <folding>
             <element signature="e#1322#1353#1#PHP" expanded="true" />
             <element signature="e#2443#2474#1#PHP" expanded="true" />
-            <marker date="1481661904000" expanded="true" signature="5552:5646" ph="..." />
+            <marker date="1481662134000" expanded="true" signature="5651:5745" ph="..." />
           </folding>
         </state>
       </provider>
