@@ -99,7 +99,7 @@
           <p><a href="{{ path('programs_list') }}"><i class="fa fa-angle-right"></i> See all the programs</a></p>
           <p>
             {% if is_granted('ROLE_USER') %}
-              <a href="{{ path('profile') }}">
+              <a href="{{ path('profile', {'firstName':app.user.firstName, 'lastName':app.user.lastName}) }}">
                 <i class="fa fa-angle-right"></i> Your profile {{ app.user.firstName|capitalize }} {{ app.user.lastName|capitalize }}
               </a>
             {% else %}
