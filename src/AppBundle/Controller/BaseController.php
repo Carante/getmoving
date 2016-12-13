@@ -126,7 +126,7 @@ abstract class BaseController extends Controller
 		echo $GMmailPassword;
 
 		// http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
-		$transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 25)
+		$transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
 			->setUsername($GMmail)
 			->setPassword($GMmailPassword);
 
