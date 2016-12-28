@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <section class="white">
-    <div class="container">
-      <div class="row">
+  <section class="white padding--bot-none">
+    <div class="container programs-container">
+      <div class="row programs-list-intro">
         <div class="col-md-10 col-md-offset-1">
           <h1>Choose your proect</h1>
           <p>GetMoving is a brand new and booming organsiation. Our main focus is to offer a unique opportunity for
@@ -13,7 +13,7 @@
             programs, special deals, events and much more...</p>
         </div>
       </div>
-      <div class="container-escape-fluid margin--top">
+      <div class="program-list container-escape-fluid">
         {% for program in programs %}
           <div class="col-md-6 padding--whole-l program-preview color--white text--shadow"
                {% if program.feature is not null %}style="background-image: url('/{{ program.feature.path }}{{ program.feature.filename }}');">{% endif %}

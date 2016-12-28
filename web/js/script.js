@@ -2,6 +2,8 @@ $(document).ready(function() {
 	console.log("ready");
 	sliderHeightAdjust();
 
+	programListHeight();
+
 
 	$('.datepicker.birthday').datepicker({
 		minDate: "-70Y",
@@ -22,6 +24,7 @@ $(document).ready(function() {
 
 $(window).resize(function(){
 	sliderHeightAdjust();
+	programListHeight();
 });
 
 $(".step-change").click(function(){
@@ -110,3 +113,11 @@ function printInfo(){
 	$("#futprogram"+postfix).html(eduFutureProgram);
 }
 
+
+function programListHeight() {
+	var listHeight = $(".program-list").height(),
+			prevHeight = $(".programs-list-intro").height(),
+			newHeight = prevHeight + listHeight;
+
+	$(".programs-container").height(newHeight);
+}
