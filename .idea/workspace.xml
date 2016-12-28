@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" afterPath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/organisation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/users.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/users.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/volunteerParticipations.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/volunteerParticipations.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_participant.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_participant.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/home.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/programs/all.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/programs/all.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/reset_password.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/reset_password.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/security/retrieve_password.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/security/retrieve_password.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/why.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/why.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ProgramController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Organisation.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Organisation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Program.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/ProgramParticipants.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/ProgramParticipants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/MediaType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/css/styles.css" afterPath="$PROJECT_DIR$/web/admin/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/script/script.js" afterPath="$PROJECT_DIR$/web/admin/script/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,8 +31,8 @@
           <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="132">
-                  <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+                <state relative-caret-position="2310">
+                  <caret line="324" column="0" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
                   <folding>
                     <element signature="e#40#87#0#PHP" expanded="true" />
                     <element signature="e#1145#1293#0#PHP" expanded="false" />
@@ -92,17 +64,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+                <state relative-caret-position="510">
+                  <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="619">
@@ -215,10 +187,10 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/OrganisationType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/forms/_organisation.html.twig" />
         <option value="$PROJECT_DIR$/web/admin/script/script.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/why.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/programs/all.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
       </list>
     </option>
   </component>
@@ -609,12 +581,12 @@
       <workItem from="1481772282735" duration="4070000" />
       <workItem from="1482223283187" duration="16789000" />
       <workItem from="1482793840311" duration="6495000" />
-      <workItem from="1482881621181" duration="12275000" />
+      <workItem from="1482881621181" duration="12657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375757000" />
+    <option name="totallyTimeSpent" value="376139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -960,30 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#87#0#PHP" expanded="true" />
-            <element signature="e#1145#1293#0#PHP" expanded="false" />
-            <element signature="e#1367#4342#0#PHP" expanded="false" />
-            <element signature="e#8727#8743#1#PHP" expanded="true" />
-            <element signature="e#9075#9088#1#PHP" expanded="true" />
-            <element signature="e#9256#9269#1#PHP" expanded="true" />
-            <element signature="e#9337#9486#0#PHP" expanded="false" />
-            <element signature="e#9559#10065#0#PHP" expanded="false" />
-            <element signature="e#10146#11260#0#PHP" expanded="false" />
-            <element signature="e#11366#15234#0#PHP" expanded="false" />
-            <element signature="e#16196#16344#0#PHP" expanded="false" />
-            <element signature="e#24305#24441#0#PHP" expanded="false" />
-            <marker date="1482888559000" expanded="true" signature="8765:9094" ph="..." />
-            <marker date="1482888559000" expanded="true" signature="17033:17074" ph="..." />
-            <marker date="1482888559000" expanded="true" signature="20994:21031" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations/Version20161228145249.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1083,22 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/why.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1111,6 +1043,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="324" column="0" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#87#0#PHP" expanded="true" />
+            <element signature="e#1145#1293#0#PHP" expanded="false" />
+            <element signature="e#1367#4342#0#PHP" expanded="false" />
+            <element signature="e#8727#8743#1#PHP" expanded="true" />
+            <element signature="e#9075#9088#1#PHP" expanded="true" />
+            <element signature="e#9256#9269#1#PHP" expanded="true" />
+            <element signature="e#9337#9486#0#PHP" expanded="false" />
+            <element signature="e#9559#10065#0#PHP" expanded="false" />
+            <element signature="e#10146#11260#0#PHP" expanded="false" />
+            <element signature="e#11366#15234#0#PHP" expanded="false" />
+            <element signature="e#16196#16344#0#PHP" expanded="false" />
+            <element signature="e#24305#24441#0#PHP" expanded="false" />
+            <marker date="1482888559000" expanded="true" signature="8765:9094" ph="..." />
+            <marker date="1482888559000" expanded="true" signature="17033:17074" ph="..." />
+            <marker date="1482888559000" expanded="true" signature="20994:21031" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>

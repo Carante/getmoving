@@ -35,7 +35,12 @@ class HomeController extends BaseController
 		!empty($organisation->getCoreValueFourIcon()) ? $coreValuesCount++ : false ;
 		!empty($organisation->getCoreValueFiveIcon()) ? $coreValuesCount++ : false ;
 
-		($coreValuesCount != 5) ? $coreValueDiv = 12 / $coreValuesCount : ($coreValuesCount == 5 ? $coreValueDiv = 15 : false) ;
+		if ($coreValuesCount != 0) {
+			($coreValuesCount != 5) ? $coreValueDiv = 12 / $coreValuesCount : ($coreValuesCount == 5 ? $coreValueDiv = 15 : false);
+		} else {
+			$coreValueDiv = 12;
+		}
+
 		$viewVar['coreValueDiv'] = $coreValueDiv;
 
 
