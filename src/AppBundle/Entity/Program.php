@@ -18,8 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Program
 {
-
-
 	/**
 	 * @ORM\Id
 	 * @ORM\GeneratedValue(strategy="AUTO")

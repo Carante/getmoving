@@ -1,49 +1,84 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<section class="color--purple">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h2>Why</h2>
-					<div>
-						{{ organisation.about|raw }}
-					</div>
-					</div>
-			</div>
-		</div>
-	</section>
+  <section class="color--purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Why</h2>
+          <div>
+            {{ organisation.about|raw }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="gray color--gray">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h1>Why</h1>
-					<h1><i class="fa fa-thumbs-up"></i> <i class="fa fa-check"></i> <i class="fa fa-star"></i> <i class="fa fa-trophy"></i></h1>
-			</div>
-		</div>
-	</section>
+  <section class="gray color--gray padding--bot">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="margin--bot-xl">Core Value</h1>
+          <div class="row">
+            {% if organisation.coreValueOneIcon is not null %}
+              <div class="col-sm-{{ coreValueDiv }} core-value">
+                <h1><i class="fa {{ organisation.coreValueOneIcon }}"></i></h1>
+                <h4><span>{{ organisation.coreValueOne }}</span></h4>
+              </div>
+            {% endif %}
 
-	<section class="white color--purple">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h2>Mission</h2>
-					<div>
-						{{ organisation.mission }}
-					</div>
-					<h2>Vision</h2>
-					<div>
-						{{ organisation.vision }}
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+            {% if organisation.coreValueTwoIcon is not null %}
+              <div class="col-sm-{{ coreValueDiv }} core-value">
+                <h1><i class="fa {{ organisation.coreValueTwoIcon }}"></i></h1>
+                <h4><span>{{ organisation.coreValueTwo }}</span></h4>
+              </div>
+            {% endif %}
+
+            {% if organisation.coreValueThreeIcon is not null %}
+              <div class="col-sm-{{ coreValueDiv }} core-value">
+                <h1><i class="fa {{ organisation.coreValueThreeIcon }}"></i></h1>
+                <h4><span>{{ organisation.coreValueThree }}</span></h4>
+              </div>
+            {% endif %}
+
+            {% if organisation.coreValueFourIcon is not null %}
+              <div class="col-sm-{{ coreValueDiv }} core-value">
+                <h1><i class="fa {{ organisation.coreValueFourIcon }}"></i></h1>
+                <h4><span>{{ organisation.coreValueFour }}</span></h4>
+              </div>
+            {% endif %}
+
+            {% if organisation.coreValueFiveIcon is not null %}
+              <div class="col-sm-{{ coreValueDiv }} core-value">
+                <h1><i class="fa {{ organisation.coreValueFiveIcon }}"></i></h1>
+                <h4><span>{{ organisation.coreValueFive }}</span></h4>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="white color--purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Mission</h2>
+          <div>
+            {{ organisation.mission }}
+          </div>
+          <h2>Vision</h2>
+          <div>
+            {{ organisation.vision }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 
 {% block stylesheets %}
-	{{ parent() }}
+  {{ parent() }}
 {% endblock %}
 

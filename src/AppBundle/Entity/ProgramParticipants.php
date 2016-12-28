@@ -45,6 +45,10 @@ class ProgramParticipants
 	 */
 	private $isPaid = false;
 
+	/**
+	 * @ORM\OneToOne(targetEntity="AppBundle\Entity\Document")
+	 */
+	private $partitionTicketOut;
 
 
 
@@ -112,5 +116,15 @@ class ProgramParticipants
 		$this->isPaid = $isPaid;
 	}
 
+
+	// Partition relation
+	public function getPartitionTicketOut()
+	{
+		return $this->partitionTicketOut;
+	}
+	public function setPartitionTicketOut($partitionTicketOut)
+	{
+		$this->partitionTicketOut = $partitionTicketOut;
+	}
 
 }

@@ -48,9 +48,49 @@ class Organisation
 	private $vision;
 
 	/**
-	 * @ORM\Column(type="json_array", nullable=true)
+	 * @ORM\Column(type="string", nullable=true)
 	 */
-	private $coreValues = [];
+	private $coreValueOne;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueOneIcon;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueTwo;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueTwoIcon;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueThree;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueThreeIcon;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueFour;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueFourIcon;
+
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueFive;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	private $coreValueFiveIcon;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Media")
@@ -175,16 +215,104 @@ class Organisation
 		$this->vision = $vision;
 	}
 
+
 	// Values
-	public function getCoreValues()
+
+	// ONE
+	public function getCoreValueOne()
 	{
-		$coreValues[] = $this->coreValues;
-		return $coreValues;
+		return $this->coreValueOne;
 	}
-	public function setCoreValues($coreValues)
+	public function setCoreValueOne($coreValueOne)
 	{
-		$this->coreValues = $coreValues;
+		$this->coreValueOne = $coreValueOne;
 	}
+
+	public function getCoreValueOneIcon()
+	{
+		return $this->coreValueOneIcon;
+	}
+	public function setCoreValueOneIcon($coreValueOneIcon)
+	{
+		$this->coreValueOneIcon = $coreValueOneIcon;
+	}
+
+	// TWO
+	public function getCoreValueTwo()
+	{
+		return $this->coreValueTwo;
+	}
+	public function setCoreValueTwo($coreValueTwo)
+	{
+		$this->coreValueTwo = $coreValueTwo;
+	}
+
+	public function getCoreValueTwoIcon()
+	{
+		return $this->coreValueTwoIcon;
+	}
+	public function setCoreValueTwoIcon($coreValueTwoIcon)
+	{
+		$this->coreValueTwoIcon = $coreValueTwoIcon;
+	}
+
+	// THREE
+	public function getCoreValueThree()
+	{
+		return $this->coreValueThree;
+	}
+	public function setCoreValueThree($coreValueThree)
+	{
+		$this->coreValueThree = $coreValueThree;
+	}
+
+	public function getCoreValueThreeIcon()
+	{
+		return $this->coreValueThreeIcon;
+	}
+	public function setCoreValueThreeIcon($coreValueThreeIcon)
+	{
+		$this->coreValueThreeIcon = $coreValueThreeIcon;
+	}
+
+	// FOUR
+	public function getCoreValueFour()
+	{
+		return $this->coreValueFour;
+	}
+	public function setCoreValueFour($coreValueFour)
+	{
+		$this->coreValueFour = $coreValueFour;
+	}
+
+	public function getCoreValueFourIcon()
+	{
+		return $this->coreValueFourIcon;
+	}
+	public function setCoreValueFourIcon($coreValueFourIcon)
+	{
+		$this->coreValueFourIcon = $coreValueFourIcon;
+	}
+
+	// FIVE
+	public function getCoreValueFive()
+	{
+		return $this->coreValueFive;
+	}
+	public function setCoreValueFive($coreValueFive)
+	{
+		$this->coreValueFive = $coreValueFive;
+	}
+
+	public function getCoreValueFiveIcon()
+	{
+		return $this->coreValueFiveIcon;
+	}
+	public function setCoreValueFiveIcon($coreValueFiveIcon)
+	{
+		$this->coreValueFiveIcon = $coreValueFiveIcon;
+	}
+
 
 	// About, Longer description to print on "why"
 	public function getAbout()

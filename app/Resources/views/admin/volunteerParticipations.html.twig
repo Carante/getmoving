@@ -18,6 +18,7 @@
     <th>Arrival</th>
     <th>Duration</th>
     <th>Update</th>
+    <th>Documents</th>
     </thead>
     <tbody>
     {% for participation in participants %}
@@ -31,6 +32,10 @@
             <button type="button" class="btn btn-sm btn-primary participationModalTrigger" data-toggle="modal"
                     data-target="#particion{{ participation.id }}">Update <i class="fa fa-pencil"></i></button>
           </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-primary documentsModalTrigger" data-toggle="modal"
+                    data-target="#documents{{ participation.id }}">Upload <i class="fa fa-upload"></i></button>
+          </td>
         </tr>
       {% endif %}
     {% endfor %}
@@ -39,7 +44,7 @@
 
   <!-- Modal Feature -->
 
-  {{ form_start(form) }}
+  <!-- Participation form -->
   {% for participation in participants %}
     {% if participation.user.id == volunteer.id %}
       <div class="modal fade" id="particion{{ participation.id }}" tabindex="-1" role="dialog"
@@ -54,7 +59,6 @@
             </div>
             <div class="modal-body">
               <div class="inline-block">
-                {#{{ include(':forms:_participantUpdate.html.twig') }}#}
                 <div class="form-group">
                   <label for="arrivalDate">Arrival date</label>
                   <input type="text" class="form-control" name="arrivalDate" data-target="{{ participation.id }}"
@@ -85,7 +89,48 @@
 
     {% endif %}
   {% endfor %}
-  {{ form_end(form) }}
+
+  <!-- Document form -->
+  {% set formCount = -1 %}
+  {% for participation in participants %}
+    {% if participation.user.id == volunteer.id %}
+      {#{% set formName = "form_doc_" ~ participation.id %}#}
+      {#{% set subForm = attribute(form, formName) %}#}
+      {% set formCount = formCount+1 %}
+      <div class="modal fade" id="documents{{ participation.id }}" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close mediaOneModal-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">{{ participation.program.title }}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="inline-block">
+                {{ form_start(form_doc[formCount]) }}
+                  {{ form_row(form_doc[formCount].passport) }}
+                  {{ form_row(form_doc[formCount].criminalRecord) }}
+                  {{ form_row(form_doc[formCount].ticket) }}
+                <input type="submit" class="btn btn-success" value="Save">
+                {{ form_end(form_doc[formCount]) }}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default documents-close" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary documents-save" data-dismiss="modal"
+                      data-target="{{ participation.id }}" data-user="{{ volunteer.id }}"
+                      data-program="{{ participation.program.id }}">Save changes
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endif %}
+  {% endfor %}
 
 {% endblock %}
 

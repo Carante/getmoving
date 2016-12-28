@@ -11,10 +11,6 @@ class MediaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-//			$url = $_SERVER['REQUEST_URI'];
-//			$aRoute = explode("/", $url);
-//			$route = $aRoute[count($aRoute)-1];
-
 			$attr = [
 				'class' => 'file',
 				'data-show-caption' => 'false',

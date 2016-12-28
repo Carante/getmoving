@@ -20,18 +20,21 @@
       selector: "#organisation_about",
       height: 600
     });
-    //
-    //        tinymce.init({
-    //            mode : "exact",
-    //            selector :"#organisation_mission",
-    //            height:400
-    //        });
-    //
-    //        tinymce.init({
-    //            mode : "exact",
-    //            selector :"#organisation_vision",
-    //            height:400
-    //        });
+    tinymce.init({
+      mode: "exact",
+      selector: "#organisation_mission",
+      height: 300
+    });
+    tinymce.init({
+      mode: "exact",
+      selector: "#organisation_vision",
+      height: 300
+    });
+    tinymce.init({
+      mode: "exact",
+      selector: "#organisation_address",
+      height: 150
+    });
   </script>
 {% endblock %}
 

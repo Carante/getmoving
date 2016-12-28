@@ -3,12 +3,14 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Doctrine\UploadFileMoverListener;
+use AppBundle\Entity\Document;
 use AppBundle\Entity\Media;
 use AppBundle\Entity\Organisation;
 use AppBundle\Entity\Program;
 use AppBundle\Entity\ProgramParticipants;
 use AppBundle\Entity\User;
 use AppBundle\Form\AdminType;
+use AppBundle\Form\DocumentType;
 use AppBundle\Form\MediaType;
 use AppBundle\Form\OrganisationType;
 use AppBundle\Form\ParticipantType;
@@ -242,7 +244,7 @@ class AdminController extends BaseController
 	public function mediaDeleteAction($mediaId){
 		$media = $this->getDoctrine()->getRepository('AppBundle:Media')->find($mediaId);
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getEntityManager();
 		$em->remove($media);
 		$em->flush();
 
@@ -296,7 +298,7 @@ class AdminController extends BaseController
 			$newUser = $form->getData();
 			$newUser->setRoles(['ROLE_ADMIN']);
 
-			$em = $this->getDoctrine()->getManager();
+			$em = $this->getEntityManager();
 			$em->persist($newUser);
 			$em->flush();
 
@@ -307,6 +309,26 @@ class AdminController extends BaseController
 
 		$viewVar['form'] = $form->createView();
 		return 	$this->render('/admin/usersNew.html.twig', $viewVar);
+	}
+
+	/**
+	 * @Route("/user/delete/{userId}/{Y}/{M}/{D}", name="admin_user_delete")
+	 */
+	public function userDeleteAction($userId, $Y, $M, $D, Request $request){
+		$user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+
+		if (!empty($user) && $Y == date("Y") && $M == date("m") && $D == date("d"))
+		{
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($user);
+			$em->flush();
+
+			$this->addFlash("success", "The user ".$user->getFirstName()." ".$user->getLastName()." has been deleted!");
+			return $this->redirectToRoute('admin_users');
+		} else {
+			$this->addFlash("error", "An error occurred. The user could not be deleted. Contact IT-support or try again later.");
+			return $this->redirectToRoute('admin_users');
+		}
 	}
 
 		/**
@@ -372,7 +394,7 @@ class AdminController extends BaseController
 		if ($form->isValid() && $form->isSubmitted()) {
 			$newVolunteer = $form->getData();
 
-			$em = $this->getDoctrine()->getManager();
+			$em = $this->getEntityManager();
 			$em->persist($newVolunteer);
 			$em->flush();
 
@@ -399,14 +421,100 @@ class AdminController extends BaseController
 		$vMiddleName = $volunteer->getMiddlename();
 		$vLastName = $volunteer->getLastname();
 
+		empty($vMiddleName) ? $vName = $vFirstName . " " . $vLastName : $vName = $vFirstName . " " . $vMiddleName . " " . $vLastName;
+
+
 		$participation = new ProgramParticipants();
+		$documentation = new Document();
 
 		$form = $this->createForm(ParticipantType::class, $participation);
 
-		empty($vMiddleName) ? $vName = $vFirstName . " " . $vLastName : $vName = $vFirstName . " " . $vMiddleName . " " . $vLastName;
+		$participations = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')
+			->findBy(['user' => $volunteer]);
+
+//		$participationCount = count($participations);
+//
+//		echo $participationCount;
 
 		$viewVar = $this->viewVariables($vName." participations");
 		$viewVar['volunteer'] = $volunteer;;
+		$form_docs = [];
+		$form_docs_target = [];
+		foreach ($participations as $e) {
+			$form_doc = $this->createForm(DocumentType::class, $documentation);
+			$form_docs[] = $form_doc;
+
+			$form_doc->handleRequest($request);
+			if ($form_doc->isSubmitted() && $form_doc->isValid()) {
+				$passport = $form_doc['passport']->getData();
+				$criminalRecord = $form_doc['criminalRecord']->getData();
+				$ticket = $form_doc['ticket']->getData();
+
+				$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($e->getId());
+
+				$newUser = $volunteer;
+
+				$files = [];
+				if ( !empty($passport) ){ $files['passport'] = $passport; }
+				if ( !empty($criminalRecord) ){ $files['criminalRecord'] = $criminalRecord; }
+				if ( !empty($ticket) ){ $files['ticket'] = $ticket; }
+
+				// Verifies if $request is a file
+				foreach ($files as $key => $file) {
+					$document = new Document();
+
+					echo "<pre>";
+					print_r($file);
+					echo "</pre>";
+
+					if ($file instanceof UploadedFile) {
+						$originalName = $file->getClientOriginalName();
+						$originalName = str_replace(' ', '_', $originalName);
+
+						$upload_dir = "uploads/volunteer-documentations";
+						$sub_dir = str_replace(" ", "-", $vName);
+
+						$uploadFileMover = new UploadFileMoverListener();
+						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
+
+						$document->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+						$document->setFileName($originalName);
+
+						switch ($key) {
+							case "passport":
+								$type = "passport";
+								$document->setType($type);
+								$newUser->setPassport($document);
+								break;
+
+							case "criminalRecord":
+								$type = "criminalRecord";
+								$document->setType($type);
+								$newUser->setCriminalRecord($document);
+								break;
+
+							case "ticket":
+								$type = "ticket";
+								$document->setType($type);
+								$newParticipation->setPartitionTicketOut($document);
+								break;
+						}
+
+
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($document);
+						$em->persist($newUser);
+						$em->persist($newParticipation);
+						$em->flush();
+
+					} else {
+						print_r($file);
+					}
+				}
+			}
+
+		}
+
 
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid())
@@ -423,6 +531,10 @@ class AdminController extends BaseController
 		}
 
 		$viewVar['form'] = $form->createView();
+		foreach ($form_docs as $form_doc) {
+			$viewVar['form_doc'][] = $form_doc->createView();
+		}
+
 		return	$this->render('admin/volunteerParticipations.html.twig', $viewVar);
 	}
 

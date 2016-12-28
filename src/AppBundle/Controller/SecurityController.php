@@ -127,14 +127,6 @@ class SecurityController extends BaseController
 			return $this->render('/reset_password.html.twig', $viewVar);
 	}
 
-	public function volunteerUpdateAction($volunteerId, Request $request)
-	{
-
-		$viewVar['form'] = $form->createView();
-
-		return $this->render('admin/volunteerUpdate.html.twig', $viewVar);
-	}
-
 
 
 	public function sendPassword($email, $password, $id)

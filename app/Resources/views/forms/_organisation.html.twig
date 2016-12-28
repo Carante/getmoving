@@ -30,8 +30,80 @@
     {{ form_row(form.about, { 'value' : organisation.about } ) }}
     {{ form_row(form.mission, { 'value' : organisation.mission } ) }}
     {{ form_row(form.vision, { 'value' : organisation.vision } ) }}
-    {{ form_label(form.coreValues) }}
-    {{ form_row(form.coreValues.vars.prototype) }}
+  </div>
+  <div class="col-md-6">
+    <div class="form-group" style="position: relative">
+      <label class="control-label">Core values</label>
+
+      <!-- Core Value One Row -->
+      <div class="row coreValueRow" data-num="1" data-visible="true">
+        <div class="col-sm-6">
+          {{ form_row(form.coreValueOne, { 'value' : organisation.coreValueOne }) }}
+        </div>
+        <div class="col-sm-5">
+          {{ form_row(form.coreValueOneIcon, { 'value' : organisation.coreValueOneIcon }) }}
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <span class="iconPreview" data-target="1"><i class="{% if organisation.coreValueOneIcon is not null %}fa {{ organisation.coreValueOneIcon }}{% endif %}"></i></span>
+        </div>
+      </div>
+
+      <!-- Core Value Two Row -->
+      <div class="row coreValueRow" data-num="2" data-visible="{% if organisation.coreValueTwo is not null %}true{% else %}false{% endif %}">
+        <div class="col-sm-6">
+          {{ form_row(form.coreValueTwo, { 'value' : organisation.coreValueTwo }) }}
+        </div>
+        <div class="col-xs-10 col-sm-5">
+          {{ form_row(form.coreValueTwoIcon, { 'value' : organisation.coreValueTwoIcon }) }}
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <span class="iconPreview" data-target="2"><i class="{% if organisation.coreValueTwoIcon is not null %}fa {{ organisation.coreValueTwoIcon }}{% endif %}"></i></span>
+        </div>
+      </div>
+
+      <!-- Core Value Three Row -->
+      <div class="row coreValueRow" data-num="3" data-visible="{% if organisation.coreValueThree is not null %}true{% else %}false{% endif %}">
+        <div class="col-sm-6">
+          {{ form_row(form.coreValueThree, { 'value' : organisation.coreValueThree }) }}
+        </div>
+        <div class="col-sm-5">
+          {{ form_row(form.coreValueThreeIcon, { 'value' : organisation.coreValueThreeIcon }) }}
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <span class="iconPreview" data-target="3"><i class="{% if organisation.coreValueThreeIcon is not null %}fa {{ organisation.coreValueThreeIcon }}{% endif %}"></i></span>
+        </div>
+      </div>
+
+      <!-- Core Value Four Row -->
+      <div class="row coreValueRow" data-num="4" data-visible="{% if organisation.coreValueFour is not null %}true{% else %}false{% endif %}">
+        <div class="col-sm-6">
+          {{ form_row(form.coreValueFour, { 'value' : organisation.coreValueFour }) }}
+        </div>
+        <div class="col-sm-5">
+          {{ form_row(form.coreValueFourIcon, { 'value' : organisation.coreValueFourIcon }) }}
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <span class="iconPreview" data-target="4"><i class="{% if organisation.coreValueFourIcon is not null %}fa {{ organisation.coreValueFourIcon }}{% endif %}"></i></span>
+        </div>
+      </div>
+
+      <!-- Core Value Five Row -->
+      <div class="row coreValueRow" data-num="5" data-visible="{% if organisation.coreValueFive is not null %}true{% else %}false{% endif %}">
+        <div class="col-sm-6">
+          {{ form_row(form.coreValueFive, { 'value' : organisation.coreValueFive }) }}
+        </div>
+        <div class="col-sm-5">
+          {{ form_row(form.coreValueFiveIcon, { 'value' : organisation.coreValueFiveIcon }) }}
+        </div>
+        <div class="col-xs-2 col-sm-1">
+          <span class="iconPreview" data-target="5"><i class="{% if organisation.coreValueFiveIcon is not null %}fa {{ organisation.coreValueFiveIcon }}{% endif %}"></i></span>
+        </div>
+      </div>
+
+      <span class="core-value-fields-adjust remove text-danger"><i class="fa fa-minus-circle"></i></span>
+      <span class="core-value-fields-adjust add text-success"><i class="fa fa-plus-circle"></i></span>
+
+    </div>
   </div>
 </div>
 <div class="row">

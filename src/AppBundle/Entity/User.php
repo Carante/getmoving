@@ -246,19 +246,14 @@ class User implements UserInterface
 
 	// External files needed
 	/**
-	 * @ORM\Column(type="string", nullable=true)
+	 * @ORM\OneToOne(targetEntity="AppBundle\Entity\Document")
 	 */
-	private $passportFile;
+	private $passport;
 
 	/**
-	 * @ORM\Column(type="string", nullable=true)
+	 * @ORM\OneToOne(targetEntity="AppBundle\Entity\Document")
 	 */
-	private $planeOutFile;
-
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
-	private $policeReportFile;
+	private $criminalRecord;
 
 
 	// Relations
@@ -532,36 +527,25 @@ class User implements UserInterface
 	// External files and proves
 
 	// Passoport copy getter'n'setter
-	public function getPassportFile()
+	public function getPassport()
 	{
-		return $this->passportFile;
+		return $this->passport;
 	}
 
-	public function setPassportFile($passportFile)
+	public function setPassport($passport)
 	{
-		$this->passportFile = $passportFile;
-	}
-
-	// Ticket out of country getter'n'setter
-	public function getPlaneOutFile()
-	{
-		return $this->planeOutFile;
-	}
-
-	public function setPlaneOutFile($planeOutFile)
-	{
-		$this->planeOutFile = $planeOutFile;
+		$this->passport = $passport;
 	}
 
 	// PoliceReport copy getter'n'setter
-	public function getPoliceReportFile()
+	public function getCriminalRecord()
 	{
-		return $this->policeReportFile;
+		return $this->criminalRecord;
 	}
 
-	public function setPoliceReportFile($policeReportFile)
+	public function setCriminalRecord($criminalRecord)
 	{
-		$this->policeReportFile = $policeReportFile;
+		$this->criminalRecord = $criminalRecord;
 	}
 
 	public function getUserPrograms()

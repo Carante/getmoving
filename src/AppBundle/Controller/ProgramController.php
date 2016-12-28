@@ -30,11 +30,16 @@ class ProgramController extends BaseController
 	 */
 	public function programDetailAction($programId)
 	{
-		$program = $this->getDoctrine()->getRepository('AppBundle:Program')->find($programId);
+		$program = $this->getDoctrine()->getRepository('AppBundle:Program')
+			->find($programId);
+
 		$viewVar = $this->viewVariablesPublic($program->getTitle());
 		$viewVar['program'] = $program;
 
-		$participants = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->findBy(array('program' => $program));
+		$participants = $this->getDoctrine()
+			->getRepository('AppBundle:ProgramParticipants')
+			->findBy(array('program' => $program));
+
 		$viewVar['participants'] = count($participants);
 
 		return $this->render('/programs/single.html.twig', $viewVar);
@@ -108,8 +113,7 @@ class ProgramController extends BaseController
 		$form = $this->createForm(ParticipantType::class, $participant);
 
 		$form->handleRequest($request);
-		if ($form->isValid() && $form->isSubmitted())
-		{
+		if ($form->isValid() && $form->isSubmitted()) {
 			$newParticipant = $form->getData();
 			$newParticipant->setUser($user);
 			$newParticipant->setProgram($program);

@@ -17,6 +17,8 @@ class OrganisationType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
+		$iconsChoices = $this->arrayOfIcons();
+
 		$builder
 			->add('name', TextType::class)
 			->add('description', TextType::class)
@@ -30,17 +32,71 @@ class OrganisationType extends AbstractType
 			->add('vision', TextType::class, array(
 				'required' => false
 			))
-			->add('coreValues', CollectionType::class, array(
-					'allow_add' => true,
-					'prototype' => true,
-					'required' => false,
-					'allow_delete' => true,
-					'entry_type' => TextType::class,
-					'entry_options' => array(
-						'label' => false
-					)
+			->add('coreValueOne', TextType::class, array(
+				'required' => false,
+				'label' => "Text"
+			))
+			->add('coreValueOneIcon', ChoiceType::class, array(
+				'required' => false,
+				'label' => "Icon",
+				'choices' => $iconsChoices,
+				'attr' => array(
+					'class' => 'iconSelector',
+					'data-target' => '1'
 				)
-			)
+			))
+			->add('coreValueTwo', TextType::class, array(
+				'required' => false,
+				'label' => "Text"
+			))
+			->add('coreValueTwoIcon', ChoiceType::class, array(
+				'required' => false,
+				'label' => "Icon",
+				'choices' => $iconsChoices,
+				'attr' => array(
+					'class' => 'iconSelector',
+					'data-target' => '2'
+				)
+			))
+			->add('coreValueThree', TextType::class, array(
+				'required' => false,
+				'label' => "Text"
+			))
+			->add('coreValueThreeIcon', ChoiceType::class, array(
+				'required' => false,
+				'label' => "Icon",
+				'choices' => $iconsChoices,
+				'attr' => array(
+					'class' => 'iconSelector',
+					'data-target' => '3'
+				)
+			))
+			->add('coreValueFour', TextType::class, array(
+				'required' => false,
+				'label' => "Text"
+			))
+			->add('coreValueFourIcon', ChoiceType::class, array(
+				'required' => false,
+				'label' => "Icon",
+				'choices' => $iconsChoices,
+				'attr' => array(
+					'class' => 'iconSelector',
+					'data-target' => '4'
+				)
+			))
+			->add('coreValueFive', TextType::class, array(
+				'required' => false,
+				'label' => "Text"
+			))
+			->add('coreValueFiveIcon', ChoiceType::class, array(
+				'required' => false,
+				'label' => "Icon",
+				'choices' => $iconsChoices,
+				'attr' => array(
+					'class' => 'iconSelector',
+					'data-target' => '5'
+				)
+			))
 			->add('emailOfficial', EmailType::class)
 			->add('emailSupport', EmailType::class, array(
 				'required' => false
@@ -82,5 +138,23 @@ class OrganisationType extends AbstractType
 	public function getName()
 	{
 		return 'organisation_type';
+	}
+
+	private function arrayOfIcons()
+	{
+		$pattern = '/\.(fa-(?:\w+(?:-)?)+):before\s+{\s*content:\s*"\\\\(.+)";\s+}/';
+		$subject =  file_get_contents('css/font-awesome.css');
+		preg_match_all($pattern, $subject, $matches, PREG_SET_ORDER);
+
+		foreach($matches as $match) {
+			$iconName = explode("-", $match[1]);
+			array_splice($iconName, 0, 1);
+			$iconName = implode(" ", $iconName);
+			$icons[$iconName] = $match[1];
+		}
+
+		ksort($icons);
+
+		return $icons;
 	}
 }

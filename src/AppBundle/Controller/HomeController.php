@@ -27,6 +27,18 @@ class HomeController extends BaseController
 	{
 		$viewVar = $this->viewVariablesPublic("Why?");
 
+		$organisation = $viewVar['organisation'];
+		$coreValuesCount = 0;
+		!empty($organisation->getCoreValueOneIcon()) ? $coreValuesCount++ : false ;
+		!empty($organisation->getCoreValueTwoIcon()) ? $coreValuesCount++ : false ;
+		!empty($organisation->getCoreValueThreeIcon()) ? $coreValuesCount++ : false ;
+		!empty($organisation->getCoreValueFourIcon()) ? $coreValuesCount++ : false ;
+		!empty($organisation->getCoreValueFiveIcon()) ? $coreValuesCount++ : false ;
+
+		($coreValuesCount != 5) ? $coreValueDiv = 12 / $coreValuesCount : ($coreValuesCount == 5 ? $coreValueDiv = 15 : false) ;
+		$viewVar['coreValueDiv'] = $coreValueDiv;
+
+
 		return $this->render("why.html.twig", $viewVar);
 
 	}
