@@ -1,70 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161209172950.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161209173807.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161210170952.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161226191833.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161226201601.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161226202017.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161227130008.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161227140021.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20161228145249.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/15202589_10154756035381823_5040411673279236725_n.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/Carante-fb_profil.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/barefoot-island.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/boating.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/botaira island resort.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/clouds like powder sugar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/dronephotography.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/lonely island.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/mantaray front terrase.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/skydive.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/slimmy island fiji.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/smokey sunset.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/sunset.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/the fiji islands yasawa group.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/media/images/yasawas-near-mantaray-and-barefoot.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/15202589_10154756035381823_5040411673279236725_n.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/Screen_Shot_2016-09-02_at_13.43.48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/barefoot-island.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/boating.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/botaira_island_resort.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/clouds_like_powder_sugar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/dronephotography.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/lonely_island.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/mantaray_front_terrase.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/skydive.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/slimmy_island_fiji.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/smokey_sunset.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/sunset.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/the_fiji_islands_yasawa_group.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/media-library/2016/12/yasawas-near-mantaray-and-barefoot.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Seamus-Hermiston/Billet_|_Det_Kongelige_Teater_091115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Seamus-Hermiston/DFDS_Seaways2_081115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Seamus-Hermiston/DFDS_Seaways_-_081115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Seamus-Hermiston/Ryanair_refounding.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Seamus-Hermiston/drivinbio_ticket_-_121115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/AMAZON_-_021115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/Amazon_order_of_Washington_Redskins_Pet_Dog.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/Blue_Lagoon_-_141116.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/DFDS_Seaways2_081115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/DFDS_Seaways_-_081115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/NFLSHOP_-_021115.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/Ryanair_refounding.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/StuffInsta_OctoPod_-_141116.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/Warszaw_Flight.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/Wizz_Air_Receipt.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/volunteer-documentations/Shany-Hodkiewicz/drivinbio_ticket_-_121115.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/volunteerParticipations.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/volunteerParticipations.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" afterPath="$PROJECT_DIR$/src/AppBundle/Doctrine/UploadFileMoverListener.php" />
-    </list>
+    <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="" />
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -657,12 +594,12 @@
       <workItem from="1481772282735" duration="4070000" />
       <workItem from="1482223283187" duration="16789000" />
       <workItem from="1482793840311" duration="6495000" />
-      <workItem from="1482881621181" duration="22019000" />
+      <workItem from="1482881621181" duration="22180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="385501000" />
+    <option name="totallyTimeSpent" value="385662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
