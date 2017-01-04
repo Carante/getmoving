@@ -94,8 +94,6 @@
   {% set formCount = -1 %}
   {% for participation in participants %}
     {% if participation.user.id == volunteer.id %}
-      {#{% set formName = "form_doc_" ~ participation.id %}#}
-      {#{% set subForm = attribute(form, formName) %}#}
       {% set formCount = formCount+1 %}
       <div class="modal fade" id="documents{{ participation.id }}" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel">

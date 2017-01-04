@@ -77,11 +77,32 @@ class AdminController extends BaseController
 			echo "</pre>";
 			// Verifies if $request is a file
 			if ($file instanceof UploadedFile) {
-				echo "INSTANCE OF UPLOADFILE";
+//				echo "INSTANCE OF UPLOADFILE";
 				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
 					$originalName = str_replace(' ', '_', $originalName);
+					$originalNameStart = $originalName;
+					$unique = false;
+					$count = 1;
+
+					do {
+						foreach ($viewVar['medias'] as $item){
+							if ($item->getFileName() == $originalName) {
+								$unique = false;
+								$originalName = explode(".", $originalNameStart);
+								$originalName[0] = $originalName[0].$count;
+								$originalName = implode(".", $originalName);
+								$count++;
+//								echo $count;
+								break;
+							} else {
+								$unique = true;
+							}
+							echo $unique . " - ". $originalName . " || ";
+						}
+					} while ($unique != true);
+
 
 					$mime_type = $file->getMimeType();
 					$type_array = explode('/', $mime_type);
@@ -187,6 +208,26 @@ class AdminController extends BaseController
 
 						$originalName = $file->getClientOriginalName();
 						$originalName = str_replace(' ', '_', $originalName);
+						$originalNameStart = $originalName;
+						$unique = false;
+						$count = 1;
+
+						do {
+							foreach ($viewVar['medias'] as $item){
+								if ($item->getFileName() == $originalName) {
+									$unique = false;
+									$originalName = explode(".", $originalNameStart);
+									$originalName[0] = $originalName[0].$count;
+									$originalName = implode(".", $originalName);
+									$count++;
+//								echo $count;
+									break;
+								} else {
+									$unique = true;
+								}
+								echo $unique . " - ". $originalName . " || ";
+							}
+						} while ($unique != true);
 
 						$mime_type = $file->getMimeType();
 						$type_array = explode('/', $mime_type);
@@ -229,7 +270,7 @@ class AdminController extends BaseController
 					print_r($file);
 				}
 			}
-//			die();
+			die();
 			$this->addFlash('success', 'The media has been uploaded.');
 			return $this->redirectToRoute('admin_media_library');
 		}
@@ -415,7 +456,8 @@ class AdminController extends BaseController
 	/**
 	 * @Route("/volunteer/{volunteerId}/participations", name="admin_volunteer_participations")
 	 */
-	public function volunteerParticipationsAction($volunteerId, Request $request){
+	public function volunteerParticipationsAction($volunteerId, Request $request)
+	{
 		$volunteer = $this->getDoctrine()->getRepository('AppBundle:User')->find($volunteerId);
 		$vFirstName = $volunteer->getFirstname();
 		$vMiddleName = $volunteer->getMiddlename();
@@ -423,114 +465,119 @@ class AdminController extends BaseController
 
 		empty($vMiddleName) ? $vName = $vFirstName . " " . $vLastName : $vName = $vFirstName . " " . $vMiddleName . " " . $vLastName;
 
-
-		$participation = new ProgramParticipants();
 		$documentation = new Document();
-
-		$form = $this->createForm(ParticipantType::class, $participation);
 
 		$participations = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')
 			->findBy(['user' => $volunteer]);
 
-//		$participationCount = count($participations);
-//
-//		echo $participationCount;
-
-		$viewVar = $this->viewVariables($vName." participations");
+		$viewVar = $this->viewVariables($vName . " participations");
 		$viewVar['volunteer'] = $volunteer;;
+
 		$form_docs = [];
-		$form_docs_target = [];
 		foreach ($participations as $e) {
 			$form_doc = $this->createForm(DocumentType::class, $documentation);
 			$form_docs[] = $form_doc;
+		}
 
-			$form_doc->handleRequest($request);
+		$target = 0;
+		foreach ($form_docs as $key => $form_doc) {
 			if ($form_doc->isSubmitted() && $form_doc->isValid()) {
-				$passport = $form_doc['passport']->getData();
-				$criminalRecord = $form_doc['criminalRecord']->getData();
-				$ticket = $form_doc['ticket']->getData();
+				$target = $key;
+				break;
+			}
+		}
 
-				$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($e->getId());
+		$form_docs[$target]->handleRequest($request);
+		if ($form_docs[$target]->isSubmitted() && $form_docs[$target]->isValid()) {
+			$form_doc = $form_docs[$target];
+			$passport = $form_doc['passport']->getData();
+			$criminalRecord = $form_doc['criminalRecord']->getData();
+			$ticket = $form_doc['ticket']->getData();
 
-				$newUser = $volunteer;
+			$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($e->getId());
 
-				$files = [];
-				if ( !empty($passport) ){ $files['passport'] = $passport; }
-				if ( !empty($criminalRecord) ){ $files['criminalRecord'] = $criminalRecord; }
-				if ( !empty($ticket) ){ $files['ticket'] = $ticket; }
+			$newUser = $volunteer;
 
-				// Verifies if $request is a file
-				foreach ($files as $key => $file) {
-					$document = new Document();
+			$files = [];
+			if ( !empty($passport) ){ $files['passport'] = $passport; }
+			if ( !empty($criminalRecord) ){ $files['criminalRecord'] = $criminalRecord; }
+			if ( !empty($ticket) ){ $files['ticket'] = $ticket; }
 
-					echo "<pre>";
-					print_r($file);
-					echo "</pre>";
+			// Verifies if $request is a file
+			foreach ($files as $key => $file) {
+				$document = new Document();
 
-					if ($file instanceof UploadedFile) {
-						$originalName = $file->getClientOriginalName();
-						$originalName = str_replace(' ', '_', $originalName);
+//				echo "<pre>";
+//				print_r($file);
+//				echo "</pre>";
 
-						$upload_dir = "uploads/volunteer-documentations";
-						$sub_dir = str_replace(" ", "-", $vName);
 
-						$uploadFileMover = new UploadFileMoverListener();
-						$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
-
-						$document->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
-						$document->setFileName($originalName);
-
-						switch ($key) {
-							case "passport":
-								$type = "passport";
-								$document->setType($type);
-								$newUser->setPassport($document);
+				if ($file instanceof UploadedFile) {
+					$originalName = $file->getClientOriginalName();
+					$originalName = str_replace(' ', '_', $originalName);
+					$originalNameStart = $originalName;
+					$unique = false;
+					$count = 1;
+					$docs = $this->getDoctrine()->getRepository('AppBundle:Document')->findAll();
+					do {
+						foreach ($docs as $item){
+							if ($item->getFileName() == $originalName) {
+								$unique = false;
+								$originalName = explode(".", $originalNameStart);
+								$originalName[0] = $originalName[0].$count;
+								$originalName = implode(".", $originalName);
+								$count++;
+//								echo "false - ".$unique."<br>";
 								break;
-
-							case "criminalRecord":
-								$type = "criminalRecord";
-								$document->setType($type);
-								$newUser->setCriminalRecord($document);
-								break;
-
-							case "ticket":
-								$type = "ticket";
-								$document->setType($type);
-								$newParticipation->setPartitionTicketOut($document);
-								break;
+							} else {
+								$unique = true;
+//								echo "true - ".$unique."<br>";
+							}
+//							echo $unique . " - ". $originalName . " || <br>";
 						}
+					} while ($unique != true);
+					$upload_dir = "uploads/volunteer-documentations";
+					$sub_dir = str_replace(" ", "-", $vName);
 
+					$uploadFileMover = new UploadFileMoverListener();
+					$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
 
-						$em = $this->getDoctrine()->getManager();
-						$em->persist($document);
-						$em->persist($newUser);
-						$em->persist($newParticipation);
-						$em->flush();
+					$document->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
+					$document->setFileName($originalName);
 
-					} else {
-						print_r($file);
+					switch ($key) {
+						case "passport":
+							$type = "passport";
+							$document->setType($type);
+							$newUser->setPassport($document);
+							break;
+
+						case "criminalRecord":
+							$type = "criminalRecord";
+							$document->setType($type);
+							$newUser->setCriminalRecord($document);
+							break;
+
+						case "ticket":
+							$type = "ticket";
+							$document->setType($type);
+							$newParticipation->setPartitionTicketOut($document);
+							break;
 					}
+
+					$em = $this->getDoctrine()->getManager();
+					$em->persist($document);
+					$em->persist($newUser);
+					$em->persist($newParticipation);
+					$em->flush();
+					$this->addFlash("success", "The documentation for ".$type." has been added");
+				} else {
+					print_r($file);
+					$this->addFlash("error", "An error occured in of the documents.");
 				}
 			}
-
 		}
 
-
-		$form->handleRequest($request);
-		if ($form->isSubmitted() && $form->isValid())
-		{
-			$newParticipationId = $_POST['participationId'];
-			$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($newParticipationId);
-
-			$newParticipation->setArrivalDate($form->getData()->getArrivalDate());
-			$newParticipation->setDuration($form->getData()->getDuration());
-
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($newParticipation);
-			$em->flush();
-		}
-
-		$viewVar['form'] = $form->createView();
 		foreach ($form_docs as $form_doc) {
 			$viewVar['form_doc'][] = $form_doc->createView();
 		}
@@ -544,7 +591,8 @@ class AdminController extends BaseController
 	public function updateParticipationAction($participationId, $userId, $programId)
 	{
 		$participation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($participationId);
-		if ($participation->getUser()->getId() == $userId && $participation->getProgram()->getId() == $programId)
+
+			if ($participation->getUser()->getId() == $userId && $participation->getProgram()->getId() == $programId)
 		{
 			$duration = $_GET['duration'];
 			$arrival = $_GET['arrival'];
@@ -604,12 +652,9 @@ class AdminController extends BaseController
 			// $form->getData() holds the submitted values
 			// but, the original `$task` variable has also been updated
 			$file = $formUpload->getData()->getPath();
-//			echo "<pre>";
-//			print_r($file);
-//			echo "</pre>";
-			// Verifies if $request is a file
+
 			if ($file instanceof UploadedFile) {
-				echo "INSTANCE OF UPLOADFILE";
+//				echo "INSTANCE OF UPLOADFILE";
 				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
@@ -625,7 +670,6 @@ class AdminController extends BaseController
 								$originalName[0] = $originalName[0].$count;
 								$originalName = implode(".", $originalName);
 								$count++;
-//								echo $count;
 								break;
 							} else {
 								$unique = true;
@@ -634,7 +678,6 @@ class AdminController extends BaseController
 						}
 					} while ($unique != true);
 
-//					die();
 					$mime_type = $file->getMimeType();
 					$type_array = explode('/', $mime_type);
 					$type_check = $type_array[sizeof($type_array) - 1];
@@ -735,7 +778,8 @@ class AdminController extends BaseController
 				if ($file->getSize() < 2000000) {
 
 					$originalName = $file->getClientOriginalName();
-					$originalNameStart = str_replace(' ', '_', $originalName);
+					$originalName = str_replace(' ', '_', $originalName);
+					$originalNameStart = $originalName;
 					$unique = false;
 					$count = 1;
 

@@ -45,7 +45,7 @@ class UploadFileMoverListener {
 
 		$targetDir = $uploadBasePath . DIRECTORY_SEPARATOR . $relativePath;
 		//$targetDir = "uploads/test";
-		print_r($targetDir);
+//		print_r($targetDir);
 		if (!is_dir($targetDir)) {
 			$oldmask = umask(0);
 			$ret = mkdir($targetDir, 0777);
@@ -62,4 +62,3 @@ class UploadFileMoverListener {
 
 }
 
-?>
