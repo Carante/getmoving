@@ -18,6 +18,7 @@ class AppKernel extends Kernel
 			new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 			new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 			new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
+			new SunCat\MobileDetectBundle\MobileDetectBundle(),
 		];
 
 		if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
