@@ -2,6 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>GetMoving - Fiji</title>
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
@@ -36,7 +38,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ logo }}"
-                                                             alt="GetMoving Fiji logo" width="125px"></a>
+                                                             alt="GetMoving Fiji logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,8 +63,8 @@
 
 <div class="GM-full-wrap">
   <div class="GM-fullbackground GM-video">
-    {% if is_mobile() %}
-      <img src="{{ asset('media/images/video-cover.jpg') }}" alt="Fiji fullframe video cover">
+    {% if is_mobile() or is_tablet() %}
+      <img src="{{ asset('media/images/video-cover.jpg') }}" alt="Fiji fullframe video cover" id="landingCover">
     {% else %}
       <video width="100%" height="100%" poster="{{ asset('media/images/video-cover.jpg') }}" class="fullscreen-bg__video"
              autoplay loop muted>

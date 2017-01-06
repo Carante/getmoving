@@ -471,15 +471,10 @@ h1,h2,h3,h4,h5,h6{
 	padding: 10px 15px;
 }
 	.navbar-brand img {
-		filter: invert(100);
-		-o-filter: invert(100);
-		-ms-filter: invert(100);
-		-moz-filter: invert(100);
-		-webkit-filter: invert(100);
-		height: 70px;
+		height: 100%;
 	}
 	.landing-nav .navbar-brand img {
-		height:auto;
+		height:60px;
 	}
 
 @media screen and (min-width: 768px) {
@@ -490,6 +485,12 @@ h1,h2,h3,h4,h5,h6{
 
 	.GM-nav>li {
 		float: left;
+	}
+  .navbar-brand img{
+	  height:70px;
+  }
+	.landing-nav .navbar-brand img {
+		height:100px;
 	}
 }
 
@@ -518,11 +519,6 @@ footer a:hover, footer i:hover {
 	max-width: 90px;
 	margin-top: 15px;
 	margin-bottom: 10px;
-	filter: invert(100);
-	-o-filter: invert(100);
-	-ms-filter: invert(100);
-	-moz-filter: invert(100);
-	-webkit-filter: invert(100);
 
 }
 div.developer {
@@ -577,7 +573,7 @@ div.social--icons i {
 	overflow: hidden;
 }
 
-.GM-video video {
+.GM-video video, img#landingCover {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -586,14 +582,14 @@ div.social--icons i {
 }
 
 @media (min-aspect-ratio: 16/9) {
-	.GM-video video {
+	.GM-video video, img#landingCover {
 		width: 100%;
 		height: auto;
 	}
 }
 
 @media (max-aspect-ratio: 16/9) {
-	.GM-video video {
+	.GM-video video, img#landingCover {
 		width: auto;
 		height: 100%;
 	}
@@ -606,15 +602,6 @@ div.social--icons i {
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
-}
-
-
-.teaser--img {
-	height:250px;
-	overflow: hidden;
-	background: url("/media/images/dronephotography.jpg") no-repeat center center;
-	-webkit-background-size:cover;
-	background-size:cover;
 }
 
 .quote p{
@@ -774,7 +761,7 @@ div.social--icons i {
 	background-size:cover;
 	background-repeat:no-repeat;
 	display:inline-block;
-	height:320px;
+	height:70vh;
 	-webkit-transition: all 250ms ease-in;
 	-moz-transition: all 250ms ease-in;
 	transition: all 250ms ease-in;
@@ -799,10 +786,16 @@ div.social--icons i {
 	transform: translateX(-50%);
 }
 
+@media screen and (min-width: 768px) {
+ .program-preview{
+	 height:320px;
+ }
+}
+
 /********** Single program ***********/
 .feature {
 	height:420px;
-	margin-top: 0;
+	margin-top: -20px;
 	width: calc(100% + 60px);
 	text-align: center;
 	line-height:420px;
