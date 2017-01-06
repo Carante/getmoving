@@ -95,6 +95,7 @@
   {% for participation in participants %}
     {% if participation.user.id == volunteer.id %}
       {% set formCount = formCount+1 %}
+
       <div class="modal fade" id="documents{{ participation.id }}" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -108,19 +109,16 @@
             <div class="modal-body">
               <div class="inline-block">
                 {{ form_start(form_doc[formCount]) }}
-                  {{ form_row(form_doc[formCount].passport) }}
-                  {{ form_row(form_doc[formCount].criminalRecord) }}
-                  {{ form_row(form_doc[formCount].ticket) }}
-                <input type="submit" class="btn btn-success" value="Save">
-                {{ form_end(form_doc[formCount]) }}
+                {{ form_row(form_doc[formCount].passport) }}
+                {{ form_row(form_doc[formCount].criminalRecord) }}
+                {{ form_row(form_doc[formCount].ticket) }}
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default documents-close" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary documents-save" data-dismiss="modal"
-                      data-target="{{ participation.id }}" data-user="{{ volunteer.id }}"
-                      data-program="{{ participation.program.id }}">Save changes
-              </button>
+              <input type="submit" class="btn btn-primary documents-save" value="Save">
+
+              {{ form_end(form_doc[formCount]) }}
 
             </div>
           </div>
@@ -138,5 +136,42 @@
 
 {% block javascripts %}
   {{ parent() }}
+
+ {% for participation in participants %}
+  <script>
+    var parent = "#documents{{ participation.id }}",
+        ppField = $(parent + " #document_passport"),
+        crField = $(parent + " #document_criminalRecord"),
+        rtField = $(parent + " #document_ticket");
+
+    {% if volunteer.passport is not null %}
+      ppField.fileinput({
+        initialPreview: ['/{{ volunteer.passport.path }}{{ volunteer.passport.fileName }}'],
+        initialPreviewAsData: true,
+        initialPreviewConfig: [{caption: "{{ volunteer.passport.fileName }}", size: {{ volunteer.passport.size }}, width: "160px", type: 'pdf'}],
+        overwriteInitial: true
+      });
+    {% endif %}
+
+    {% if volunteer.criminalRecord is not null %}
+    crField.fileinput({
+      initialPreview: ['/{{ volunteer.criminalRecord.path }}{{ volunteer.criminalRecord.fileName }}'],
+      initialPreviewAsData: true,
+      initialPreviewConfig: [{caption: "{{ volunteer.criminalRecord.fileName }}", size: {{ volunteer.criminalRecord.size }}, width: "160px", type: 'pdf'}],
+      overwriteInitial: true
+    });
+    {% endif %}
+
+    {% if participation.partitionTicketOut is not null %}
+    rtField.fileinput({
+      initialPreview: ['/{{ participation.partitionTicketOut.path }}{{ participation.partitionTicketOut.fileName }}'],
+      initialPreviewAsData: true,
+      initialPreviewConfig: [{caption: "{{ participation.partitionTicketOut.fileName }}", size: {{ participation.partitionTicketOut.size }}, width: "160px", type: 'pdf'}],
+      overwriteInitial: true
+    });
+    {% endif %}
+
+  </script>
+  {% endfor %}
 {% endblock %}
 

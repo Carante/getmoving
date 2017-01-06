@@ -17,7 +17,7 @@ class DocumentType extends AbstractType
 				'class' => 'file',
 				'data-show-caption' => 'false',
 				'accept' => "application/pdf",
-				"multiple" => "false"
+				"multiple" => "false",
 			];
 
 			$builder

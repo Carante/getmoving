@@ -30,7 +30,7 @@ AppBundle\Entity\User:
     nationality: '30%? Danish : 15%? Austrian : 10%? Swedish : 15%? Norwegian : 13%? Germany : Panamanian'
     email: c.kaiser.p+<current()>@gmail.com
     phone: <numberBetween(22222222, 99999999)>
-    addressCountry: '30%? Denmark : 15%? Austria : 10% Sweden : 15% Norway : 13% Germany : Panama'
+    addressCountry: '30%? Denmark : 15%? Austria : 10%? Sweden : 15%? Norway : 13%? Germany : Panama'
     addressRegion: <state()>
     addressCity: <city()>
     addressZip: <numberBetween(1000, 9999)>

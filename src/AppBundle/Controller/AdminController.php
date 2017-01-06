@@ -477,6 +477,7 @@ class AdminController extends BaseController
 		foreach ($participations as $e) {
 			$form_doc = $this->createForm(DocumentType::class, $documentation);
 			$form_docs[] = $form_doc;
+
 		}
 
 		$target = 0;
@@ -494,7 +495,7 @@ class AdminController extends BaseController
 			$criminalRecord = $form_doc['criminalRecord']->getData();
 			$ticket = $form_doc['ticket']->getData();
 
-			$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($e->getId());
+			$newParticipation = $this->getDoctrine()->getRepository('AppBundle:ProgramParticipants')->find($participations[$target]->getId());
 
 			$newUser = $volunteer;
 
@@ -511,7 +512,6 @@ class AdminController extends BaseController
 //				print_r($file);
 //				echo "</pre>";
 
-
 				if ($file instanceof UploadedFile) {
 					$originalName = $file->getClientOriginalName();
 					$originalName = str_replace(' ', '_', $originalName);
@@ -519,31 +519,37 @@ class AdminController extends BaseController
 					$unique = false;
 					$count = 1;
 					$docs = $this->getDoctrine()->getRepository('AppBundle:Document')->findAll();
-					do {
-						foreach ($docs as $item){
-							if ($item->getFileName() == $originalName) {
-								$unique = false;
-								$originalName = explode(".", $originalNameStart);
-								$originalName[0] = $originalName[0].$count;
-								$originalName = implode(".", $originalName);
-								$count++;
-//								echo "false - ".$unique."<br>";
-								break;
-							} else {
-								$unique = true;
-//								echo "true - ".$unique."<br>";
+					if (!empty($docs)) {
+						do {
+							foreach ($docs as $item){
+								if ($item->getFileName() == $originalName) {
+									$unique = false;
+									$originalName = explode(".", $originalNameStart);
+									$originalName[0] = $originalName[0].$count;
+									$originalName = implode(".", $originalName);
+									$count++;
+	//								echo "false - ".$unique."<br>";
+									break;
+								} else {
+									$unique = true;
+	//								echo "true - ".$unique."<br>";
+								}
+	//							echo $unique . " - ". $originalName . " || <br>";
 							}
-//							echo $unique . " - ". $originalName . " || <br>";
-						}
-					} while ($unique != true);
+						} while ($unique != true);
+					}
 					$upload_dir = "uploads/volunteer-documentations";
 					$sub_dir = str_replace(" ", "-", $vName);
+
+					$size = $file->getSize();
 
 					$uploadFileMover = new UploadFileMoverListener();
 					$uploadFileMover->moveUploadedFile($file, $upload_dir, $sub_dir, $originalName);
 
+
 					$document->setPath($upload_dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR);
 					$document->setFileName($originalName);
+					$document->setSize($size);
 
 					switch ($key) {
 						case "passport":

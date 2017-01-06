@@ -41,6 +41,11 @@ class Document
 	private $type;
 
 	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $size;
+
+	/**
 	 * @var \DateTime
 	 *
 	 * @ORM\Column(type="datetime")
@@ -103,6 +108,16 @@ class Document
 	public function setFileName($file_name)
 	{
 		$this->file_name = $file_name;
+	}
+
+	// Size
+	public function getSize()
+	{
+		return $this->size;
+	}
+	public function setSize($size)
+	{
+		$this->size = $size;
 	}
 
 
