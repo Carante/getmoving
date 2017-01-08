@@ -148,7 +148,7 @@ class User implements UserInterface
 	private $dateOfBirth;
 
 	/**
-	 * @ORM\Column(type="boolean")
+	 * @ORM\Column(type="string")
 	 */
 	private $sex;
 
@@ -158,7 +158,7 @@ class User implements UserInterface
 	private $nationality;
 
 	/**
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="integer", nullable=true)
 	 */
 	private $phone;
 

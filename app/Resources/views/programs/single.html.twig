@@ -8,8 +8,7 @@
     </div>
   </div>
   <section class="color--purple">
-    <div class="container margin--top-l margin--bot"
-    ">
+    <div class="container margin--top-l margin--bot">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <h3 class="program-teaser color--purple text--shadow-light light margin--whole-none"
@@ -42,13 +41,13 @@
         <div class="col-md-3 col-md-push-9 padding--whole-none text-left">
           <table class="table table-responsive border--purple margin--top">
             <caption class="purple color--white padding--whole-s margin--bot-none program_info_caption">Information <i
-                  class="fa fa-info-circle pull-right" style="line-height:1.5em;"></i></h4></caption>
+                  class="fa fa-info-circle pull-right" style="line-height:1.5em;"></i></caption>
             <tbody>
             <tr>
               <td class="color--gray text-shadow"><i class="fa fa-calendar"></i> Start date:</td>
               <td class="bold">
                 {% if program.flexStart != true %}
-                  {{ program.startDate }}
+                  {{ program.startDate|date("d-m-Y") }}
                 {% else %}
                   Flexible
                 {% endif %}

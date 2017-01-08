@@ -31,8 +31,8 @@ class UserRegistrationForm extends AbstractType
 			->add('lastName', TextType::class)
 			->add('sex', ChoiceType::class, array(
 				'choices' => array(
-					'Male' => 1,
-					'Female' => 2
+					'Male' => 'Male',
+					'Female' => 'Female'
 				),
 				'expanded' => true
 			))
@@ -94,7 +94,7 @@ class UserRegistrationForm extends AbstractType
 		{
 			$countryChoices = array();
 			foreach ($countries as $country) {
-				$countryChoices[$country['name']['common']] = $country['demonym'];
+				$countryChoices[$country['name']['common']] = $country['name']['common'];
 			}
 		}
 		if ($data == "country")
