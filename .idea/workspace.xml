@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
     </list>
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,22 +32,22 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="718" column="18" lean-forward="true" selection-start-line="718" selection-start-column="18" selection-end-line="718" selection-end-column="18" />
+                <state relative-caret-position="552">
+                  <caret line="369" column="69" lean-forward="false" selection-start-line="369" selection-start-column="69" selection-end-line="369" selection-end-column="69" />
                   <folding>
                     <element signature="e#1145#1293#0#PHP" expanded="false" />
                     <element signature="e#1367#4919#0#PHP" expanded="false" />
-                    <element signature="e#10504#10653#0#PHP" expanded="false" />
-                    <element signature="e#10726#11232#0#PHP" expanded="false" />
-                    <element signature="e#11313#12427#0#PHP" expanded="false" />
-                    <element signature="e#17773#17921#0#PHP" expanded="false" />
-                    <element signature="e#21725#25728#0#PHP" expanded="false" />
-                    <element signature="e#25787#25923#0#PHP" expanded="false" />
-                    <marker date="1483668016000" expanded="true" signature="9932:10261" ph="..." />
-                    <marker date="1483668016000" expanded="true" signature="22440:22477" ph="..." />
+                    <element signature="e#10547#10696#0#PHP" expanded="false" />
+                    <element signature="e#10769#11275#0#PHP" expanded="false" />
+                    <element signature="e#11356#12470#0#PHP" expanded="false" />
+                    <element signature="e#17816#17964#0#PHP" expanded="false" />
+                    <element signature="e#21768#25771#0#PHP" expanded="false" />
+                    <element signature="e#25830#25966#0#PHP" expanded="false" />
+                    <marker date="1484512979000" expanded="true" signature="9932:10261" ph="..." />
+                    <marker date="1484512979000" expanded="true" signature="22483:22520" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -96,11 +95,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_signup.html.twig" pinned="false" current-in-tab="true">
+          <file leaf-file-name="_signup.html.twig" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
-                  <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+                <state relative-caret-position="268">
+                  <caret line="75" column="66" lean-forward="true" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
@@ -184,7 +183,7 @@
             <entry file="file://$PROJECT_DIR$/app/Resources/views/register.html.twig">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="405">
-                  <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -224,9 +223,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nore</find>
       <find>norepl</find>
       <find>ip_info</find>
+      <find>nore</find>
+      <find>delete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -272,7 +272,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/DocumentType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Document.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/volunteerParticipations.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/contact.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" />
@@ -286,6 +285,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       </list>
     </option>
   </component>
@@ -859,12 +859,12 @@
       <workItem from="1484219675217" duration="180000" />
       <workItem from="1484219875479" duration="510000" />
       <workItem from="1484508341151" duration="193000" />
-      <workItem from="1484508562598" duration="1896000" />
+      <workItem from="1484508562598" duration="3091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401351000" />
+    <option name="totallyTimeSpent" value="402546000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1223,14 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/home.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3120">
@@ -1244,25 +1236,6 @@
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="8" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="718" column="18" lean-forward="true" selection-start-line="718" selection-start-column="18" selection-end-line="718" selection-end-column="18" />
-          <folding>
-            <element signature="e#1145#1293#0#PHP" expanded="false" />
-            <element signature="e#1367#4919#0#PHP" expanded="false" />
-            <element signature="e#10504#10653#0#PHP" expanded="false" />
-            <element signature="e#10726#11232#0#PHP" expanded="false" />
-            <element signature="e#11313#12427#0#PHP" expanded="false" />
-            <element signature="e#17773#17921#0#PHP" expanded="false" />
-            <element signature="e#21725#25728#0#PHP" expanded="false" />
-            <element signature="e#25787#25923#0#PHP" expanded="false" />
-            <marker date="1483668016000" expanded="true" signature="9932:10261" ph="..." />
-            <marker date="1483668016000" expanded="true" signature="22440:22477" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,9 +1267,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/forms/_signup.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        <state relative-caret-position="268">
+          <caret line="75" column="66" lean-forward="true" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="369" column="69" lean-forward="false" selection-start-line="369" selection-start-column="69" selection-end-line="369" selection-end-column="69" />
+          <folding>
+            <element signature="e#1145#1293#0#PHP" expanded="false" />
+            <element signature="e#1367#4919#0#PHP" expanded="false" />
+            <element signature="e#10547#10696#0#PHP" expanded="false" />
+            <element signature="e#10769#11275#0#PHP" expanded="false" />
+            <element signature="e#11356#12470#0#PHP" expanded="false" />
+            <element signature="e#17816#17964#0#PHP" expanded="false" />
+            <element signature="e#21768#25771#0#PHP" expanded="false" />
+            <element signature="e#25830#25966#0#PHP" expanded="false" />
+            <marker date="1484512979000" expanded="true" signature="9932:10261" ph="..." />
+            <marker date="1484512979000" expanded="true" signature="22483:22520" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
