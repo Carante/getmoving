@@ -190,7 +190,7 @@ abstract class BaseController extends Controller
 		$message = \Swift_Message::newInstance($name." | Welcome")
 			->setFrom(array($supportEmail => "NoReply | ".$name))
 			->setTo(array($userEmail => $fullName))
-			->setReplyTo(array($noReplyEmail => "NoReply"))
+			->setReplyTo(array($supportEmail => "NoReply"))
 			->setBody($body, 'text/html');
 
 		return $mailer->send($message);

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" afterPath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
     </list>
     <ignored path="getmoving-fiji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,7 +78,7 @@
           <file leaf-file-name="BaseController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
+                <state relative-caret-position="582">
                   <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
                   <folding />
                 </state>
@@ -859,12 +857,12 @@
       <workItem from="1484219675217" duration="180000" />
       <workItem from="1484219875479" duration="510000" />
       <workItem from="1484508341151" duration="193000" />
-      <workItem from="1484508562598" duration="225000" />
+      <workItem from="1484508562598" duration="668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399680000" />
+    <option name="totallyTimeSpent" value="400123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1294,7 +1292,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="582">
           <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
           <folding />
         </state>
