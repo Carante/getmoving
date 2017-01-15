@@ -367,7 +367,7 @@ class AdminController extends BaseController
 			$this->addFlash("success", "The user ".$user->getFirstName()." ".$user->getLastName()." has been deleted!");
 			return $this->redirectToRoute('admin_users');
 		} else {
-			$this->addFlash("error", "An error occurred. The user ".$userId." could not be deleted through '".$Y." ".$M." ".$D."'. Contact IT-support or try again later.");
+			$this->addFlash("error", "An error occurred. The user ".$user->getId()." could not be deleted through '".$Y." ".$M." ".$D."'. Contact IT-support or try again later.");
 			return $this->redirectToRoute('admin_users');
 		}
 	}
