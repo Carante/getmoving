@@ -35,19 +35,20 @@
           <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="582">
-                  <caret line="374" column="7" lean-forward="true" selection-start-line="374" selection-start-column="7" selection-end-line="374" selection-end-column="7" />
+                <state relative-caret-position="327">
+                  <caret line="360" column="21" lean-forward="false" selection-start-line="360" selection-start-column="21" selection-end-line="360" selection-end-column="21" />
                   <folding>
                     <element signature="e#1145#1293#0#PHP" expanded="false" />
                     <element signature="e#1367#4919#0#PHP" expanded="false" />
-                    <element signature="e#10554#10703#0#PHP" expanded="false" />
-                    <element signature="e#10776#11282#0#PHP" expanded="false" />
-                    <element signature="e#11363#12477#0#PHP" expanded="false" />
-                    <element signature="e#17823#17971#0#PHP" expanded="false" />
-                    <element signature="e#21775#25778#0#PHP" expanded="false" />
-                    <element signature="e#25837#25973#0#PHP" expanded="false" />
-                    <marker date="1484513178000" expanded="true" signature="9932:10261" ph="..." />
-                    <marker date="1484513178000" expanded="true" signature="22490:22527" ph="..." />
+                    <element signature="e#10185#10198#1#PHP" expanded="true" />
+                    <element signature="e#10497#10646#0#PHP" expanded="false" />
+                    <element signature="e#10719#11225#0#PHP" expanded="false" />
+                    <element signature="e#11306#12420#0#PHP" expanded="false" />
+                    <element signature="e#17766#17914#0#PHP" expanded="false" />
+                    <element signature="e#21718#25721#0#PHP" expanded="false" />
+                    <element signature="e#25780#25916#0#PHP" expanded="false" />
+                    <marker date="1484513279000" expanded="true" signature="9932:10204" ph="..." />
+                    <marker date="1484513279000" expanded="true" signature="22433:22470" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -859,12 +860,12 @@
       <workItem from="1484219675217" duration="180000" />
       <workItem from="1484219875479" duration="510000" />
       <workItem from="1484508341151" duration="193000" />
-      <workItem from="1484508562598" duration="3286000" />
+      <workItem from="1484508562598" duration="3383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402741000" />
+    <option name="totallyTimeSpent" value="402838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1283,19 +1284,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="374" column="7" lean-forward="true" selection-start-line="374" selection-start-column="7" selection-end-line="374" selection-end-column="7" />
+        <state relative-caret-position="327">
+          <caret line="360" column="21" lean-forward="false" selection-start-line="360" selection-start-column="21" selection-end-line="360" selection-end-column="21" />
           <folding>
             <element signature="e#1145#1293#0#PHP" expanded="false" />
             <element signature="e#1367#4919#0#PHP" expanded="false" />
-            <element signature="e#10554#10703#0#PHP" expanded="false" />
-            <element signature="e#10776#11282#0#PHP" expanded="false" />
-            <element signature="e#11363#12477#0#PHP" expanded="false" />
-            <element signature="e#17823#17971#0#PHP" expanded="false" />
-            <element signature="e#21775#25778#0#PHP" expanded="false" />
-            <element signature="e#25837#25973#0#PHP" expanded="false" />
-            <marker date="1484513178000" expanded="true" signature="9932:10261" ph="..." />
-            <marker date="1484513178000" expanded="true" signature="22490:22527" ph="..." />
+            <element signature="e#10185#10198#1#PHP" expanded="true" />
+            <element signature="e#10497#10646#0#PHP" expanded="false" />
+            <element signature="e#10719#11225#0#PHP" expanded="false" />
+            <element signature="e#11306#12420#0#PHP" expanded="false" />
+            <element signature="e#17766#17914#0#PHP" expanded="false" />
+            <element signature="e#21718#25721#0#PHP" expanded="false" />
+            <element signature="e#25780#25916#0#PHP" expanded="false" />
+            <marker date="1484513279000" expanded="true" signature="9932:10204" ph="..." />
+            <marker date="1484513279000" expanded="true" signature="22433:22470" ph="..." />
           </folding>
         </state>
       </provider>

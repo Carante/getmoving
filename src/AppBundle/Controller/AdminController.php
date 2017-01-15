@@ -358,7 +358,7 @@ class AdminController extends BaseController
 	public function userDeleteAction($userId, $Y, $M, $D, Request $request){
 		$user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
-		if (!empty($user) && $Y == date("Y") && $M == date("m") && $D == date("d"))
+		if (!empty($user))
 		{
 			$em = $this->getDoctrine()->getManager();
 			$em->remove($user);
