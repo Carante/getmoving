@@ -305,6 +305,9 @@ abstract class BaseController extends Controller
 
 		return $mailer->send($message);
 	}
+
+
+
 	protected function sendEmailSystemUserParticipation(User $user, ProgramParticipants $participation){
 		$currentOrg = new Organisation();
 

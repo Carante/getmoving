@@ -36,7 +36,7 @@ class Document
 	private $path;
 
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="integer")
 	 */
 	private $type;
 
