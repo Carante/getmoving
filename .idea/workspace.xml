@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634c20b0-ddc0-4b0e-acab-c8a43423959e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" afterPath="$PROJECT_DIR$/.idea/getmoving-fiji.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Document.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Document.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="getmoving-fiji.iws" />
@@ -174,8 +170,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="436">
-                  <caret line="748" column="17" lean-forward="true" selection-start-line="748" selection-start-column="17" selection-end-line="748" selection-end-column="17" />
+                <state relative-caret-position="511">
+                  <caret line="753" column="17" lean-forward="true" selection-start-line="753" selection-start-column="17" selection-end-line="753" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -765,12 +761,12 @@
       <workItem from="1484508562598" duration="5018000" />
       <workItem from="1490524188808" duration="10000" />
       <workItem from="1490524224140" duration="23000" />
-      <workItem from="1490524279888" duration="622000" />
+      <workItem from="1490524279888" duration="770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="405128000" />
+    <option name="totallyTimeSpent" value="405276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1299,8 +1295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="748" column="17" lean-forward="true" selection-start-line="748" selection-start-column="17" selection-end-line="748" selection-end-column="17" />
+        <state relative-caret-position="511">
+          <caret line="753" column="17" lean-forward="true" selection-start-line="753" selection-start-column="17" selection-end-line="753" selection-end-column="17" />
           <folding />
         </state>
       </provider>
